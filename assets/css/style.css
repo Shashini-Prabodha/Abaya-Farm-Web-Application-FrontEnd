@@ -41,7 +41,8 @@ h6 {
 # Main
 --------------------------------------------------------------*/
 
-#main, #profile, #birdsComponent, #birdsEditComponent, #mortalityComponent,   #feedPurchaseComponent, #feedConsumptionComponent,#feedStockSummaryComoponent {
+#main, #profile, #birdsComponent, #birdsEditComponent, #mortalityComponent,   #feedPurchaseComponent, #feedConsumptionComponent,
+#feedStockSummaryComoponent, #cageComponent,#orderDetailsComponent,#placeOrderComponent {
     margin-top: 60px;
     padding: 20px 30px;
     transition: all 0.3s;
@@ -56,7 +57,8 @@ h6 {
 
 @media (max-width: 1199px) {
 
-    #main, #profile, #birdsComponent, #birdsEditComponent, #mortalityComponent,   #feedPurchaseComponent, #feedConsumptionComponent, #feedStockSummaryComoponent {
+    #main, #profile, #birdsComponent, #birdsEditComponent, #mortalityComponent,   #feedPurchaseComponent, #feedConsumptionComponent,
+    #feedStockSummaryComoponent, #cageComponent,#orderDetailsComponent,#placeOrderComponent {
         padding: 20px;
     }
 }
@@ -664,6 +666,9 @@ h6 {
     #feedPurchaseComponent,
     #feedConsumptionComponent,
     #feedStockSummaryComoponent,
+    #cageComponent,
+    #orderDetailsComponent,
+    #placeOrderComponent,
     #footer {
         margin-left: 300px;
     }
@@ -684,6 +689,9 @@ h6 {
     .toggle-sidebar #feedPurchaseComponent,
     .toggle-sidebar #feedStockSummaryComoponent,
     .toggle-sidebar #feedConsumptionComponent,
+    .toggle-sidebar #cageComponent,
+    .toggle-sidebar #orderDetailsComponent,
+    .toggle-sidebar #placeOrderComponent,
     .toggle-sidebar #profile,
     .toggle-sidebar #footer {
         margin-left: 0;

@@ -326,31 +326,25 @@
         </li><!-- End Feed Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-house"></i><span>Cage</span><i
-                    class="bi bi-chevron-down ms-auto"></i>
+            <a class="nav-link btnCursor collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" id="btnCage">
+                <i class="bi bi-house"></i><span>Cage</span>
             </a>
 
         </li><!-- End Cage Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
+            <a class="nav-link collapsed" data-bs-target="#order-nav" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-cart4"></i><span>Order</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
-            <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+            <ul id="order-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="charts-chartjs.html">
-                        <i class="bi bi-circle"></i><span>Chart.js</span>
+                    <a class="btnCursor" id="btnOrderDetails">
+                        <i class="ri-file-list-3-line"></i><span>Order Details</span>
                     </a>
                 </li>
                 <li>
-                    <a href="charts-apexcharts.html">
-                        <i class="bi bi-circle"></i><span>ApexCharts</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="charts-echarts.html">
-                        <i class="bi bi-circle"></i><span>ECharts</span>
+                    <a class="btnCursor" id="btnPlaceOrder">
+                        <i class="bi bi-basket2"></i><span>Place Order</span>
                     </a>
                 </li>
             </ul>
@@ -624,7 +618,6 @@
                             <div class="card-body">
                                 <h5 class="card-title">Reports <span>/Today</span></h5>
 
-                                <!-- Line Chart -->
                                 <div id="reportsChart"></div>
 
                                 <script>
@@ -679,7 +672,6 @@
                                         }).render();
                                     });
                                 </script>
-                                <!-- End Line Chart -->
 
                             </div>
 
@@ -1023,81 +1015,74 @@
 
                 <div class="card">
                     <div class="card-body">
-                        <!--                        <h5 class="card-title">Purchase chicks</h5>-->
-                        <div>
-                            <div class="card-body">
-                                <h5 class="card-title">Purchase chicks</h5>
 
-                                <!--  Form Elements -->
+                        <h5 class="card-title">Purchase chicks</h5>
 
-                                <div class="row mb-3">
-                                    <label for="floatingSelect" class="col-sm-2 col-form-label">Supplier Name </label>
-                                    <div class="col-sm-4">
-                                        <select class="form-select " id="floatingSelect"
-                                                aria-label="Floating label select example">
-                                            <option value="0" selected>-Select Supplier Name-</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
-                                        </select>
-                                    </div>
-                                    <label for="inputSupplierID" class="col-sm-2 col-form-label">Supplier ID</label>
+                        <!--  Form Elements -->
 
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" id="inputSupplierID">
-                                    </div>
+                        <div class="row mb-4">
+                            <label for="floatingSelect" class="col-sm-2 col-form-label">Supplier Name </label>
+                            <div class="col-sm-4">
+                                <select class="form-select " id="floatingSelect"
+                                        aria-label="Floating label select example">
+                                    <option value="0" selected>-Select Supplier Name-</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                            <label for="inputSupplierID" class="col-sm-2 col-form-label">Supplier ID</label>
 
-                                </div>
-                                <div class="row mb-3">
-                                    <label for="inputQty" class="col-sm-2 col-form-label">Number of Chicks</label>
-                                    <div class="col-sm-4">
-                                        <input type="number" class="form-control" id="inputQty">
-                                    </div>
-                                    <label for="inputUnitPrice" class="col-sm-2 col-form-label">Unit Price</label>
-                                    <div class="col-sm-4">
-                                        <input type="number" class="form-control" id="inputUnitPrice">
-                                    </div>
-                                </div>
-
-                                <div class="row mb-3">
-                                    <label for="floatingSelect" class="col-sm-2 col-form-label">Available Cage </label>
-                                    <div class="col-sm-4">
-                                        <select class="form-select " id="floatingCage"
-                                                aria-label="Available Cage">
-                                            <option value="0" selected>-Select Available Cage-</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                        </select>
-                                    </div>
-                                    <label for="inputMaxQty" class="col-sm-2 col-form-label">Maximum No of
-                                        chicks</label>
-
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" id="inputMaxQty">
-                                    </div>
-
-                                </div>
-                                <!--                                <div class="row mb-3">-->
-                                <button type="button" class="btn btn-outline-success mt-3 col-2"
-                                        style="margin-left: 10%" id="purchaseBatch">Purchase
-                                </button>
-                                <button type="button" class="btn btn-outline-danger mt-3 col-2" id="delBatch">Delete
-                                </button>
-                                <button type="button" class="btn btn-outline-warning mt-3 col-2" id="updateBatch">
-                                    Update
-                                </button>
-                                <button type="button" class="btn btn-outline-primary mt-3 col-2" id="getAllBatch">Get
-                                    All
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary mt-3 col-2" id="clearBatch">
-                                    Clear
-                                </button>
-                                <!--                                </div>-->
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="inputSupplierID">
                             </div>
 
+                        </div>
+                        <div class="row mb-4">
+                            <label for="inputQty" class="col-sm-2 col-form-label">Number of Chicks</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" id="inputQty">
+                            </div>
+                            <label for="inputUnitPrice" class="col-sm-2 col-form-label">Unit Price</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" id="inputUnitPrice">
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <label for="floatingSelect" class="col-sm-2 col-form-label">Available Cage </label>
+                            <div class="col-sm-4">
+                                <select class="form-select " id="floatingCage"
+                                        aria-label="Available Cage">
+                                    <option value="0" selected>-Select Available Cage-</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
+                            <label for="inputMaxQty" class="col-sm-2 col-form-label">Maximum No of
+                                chicks</label>
+
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="inputMaxQty">
+                            </div>
 
                         </div>
+                        <!--                                <div class="row mb-4">-->
+                        <button type="button" class="btn btn-outline-success mt-3 col-2"
+                                style="margin-left: 10%" id="purchaseBatch">Purchase
+                        </button>
+                        <button type="button" class="btn btn-outline-danger mt-3 col-2" id="delBatch">Delete
+                        </button>
+                        <button type="button" class="btn btn-outline-warning mt-3 col-2" id="updateBatch">
+                            Update
+                        </button>
+                        <button type="button" class="btn btn-outline-primary mt-3 col-2" id="getAllBatch">Get
+                            All
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary mt-3 col-2" id="clearBatch">
+                            Clear
+                        </button>
                     </div>
                 </div>
 
@@ -1160,82 +1145,74 @@
 
                 <div class="card">
                     <div class="card-body">
-                        <!--                        <h5 class="card-title">Purchase chicks</h5>-->
-                        <div>
-                            <div class="card-body">
-                                <h5 class="card-title">Manage Batch</h5>
+                        <h5 class="card-title">Manage Batch</h5>
 
-                                <!--  Form Elements -->
+                        <!--  Form Elements -->
 
-                                <div class="row mb-3">
-                                    <label for="batchID" class="col-sm-2 col-form-label">Batch ID </label>
-                                    <div class="col-sm-4">
-                                        <select class="form-select " id="batchID"
-                                                aria-label="Floating label select example">
-                                            <option value="0" selected>-Select Batch ID -</option>
-                                            <option value="1">B1</option>
-                                            <option value="2">B2</option>
-                                            <option value="3">B3</option>
-                                        </select>
-                                    </div>
-
-                                    <label for="inputQtyEdit" class="col-sm-2 col-form-label">Number of Birds</label>
-                                    <div class="col-sm-4">
-                                        <input type="number" class="form-control" id="inputQtyEdit">
-                                    </div>
-
-                                </div>
-                                <div class="row mb-3">
-
-                                    <label for="inputAvailableBEdit" class="col-sm-2 col-form-label">Available No of
-                                        birds</label>
-                                    <div class="col-sm-4">
-                                        <input type="number" class="form-control" id="inputAvailableBEdit">
-                                    </div>
-
-                                    <label for="inputCageEdit" class="col-sm-2 col-form-label">Cage ID</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" id="inputCageEdit">
-                                    </div>
-
-                                </div>
-
-                                <div class="row mb-3">
-
-                                    <label for="cmbtypeB" class="col-sm-2 col-form-label">Type </label>
-                                    <div class="col-sm-4">
-                                        <select class="form-select " id="cmbtypeB"
-                                                aria-label="Floating label select example">
-                                            <option value="0" selected>-Select Birds Type -</option>
-                                            <option value="1">Chick</option>
-                                            <option value="2">Grower</option>
-                                            <option value="3">Layer</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-
-                                <!--                                <div class="row mb-3">-->
-                                <button type="button" class="btn btn-outline-success mt-3 col-2"
-                                        style="margin-left: 18%" id="updateEditBirds">Update
-                                </button>
-
-                                <button type="button" class="btn btn-outline-primary mt-3 col-2" id="getAllEditBirds">
-                                    Get
-                                    All
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary mt-3 col-2" id="clearEditBirds">
-                                    Clear
-                                </button>
-
-                                <button type="button" class="btn btn-danger mt-3 col-2" id="sellBatch">
-                                    Sell
-                                </button>
-                                <!--                                </div>-->
+                        <div class="row mb-4">
+                            <label for="batchID" class="col-sm-2 col-form-label">Batch ID </label>
+                            <div class="col-sm-4">
+                                <select class="form-select " id="batchID"
+                                        aria-label="Floating label select example">
+                                    <option value="0" selected>-Select Batch ID -</option>
+                                    <option value="1">B1</option>
+                                    <option value="2">B2</option>
+                                    <option value="3">B3</option>
+                                </select>
                             </div>
 
+                            <label for="inputQtyEdit" class="col-sm-2 col-form-label">Number of Birds</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" id="inputQtyEdit">
+                            </div>
 
                         </div>
+                        <div class="row mb-4">
+
+                            <label for="inputAvailableBEdit" class="col-sm-2 col-form-label">Available No of
+                                birds</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" id="inputAvailableBEdit">
+                            </div>
+
+                            <label for="inputCageEdit" class="col-sm-2 col-form-label">Cage ID</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="inputCageEdit">
+                            </div>
+
+                        </div>
+
+                        <div class="row mb-4">
+
+                            <label for="cmbtypeB" class="col-sm-2 col-form-label">Type </label>
+                            <div class="col-sm-4">
+                                <select class="form-select " id="cmbtypeB"
+                                        aria-label="Floating label select example">
+                                    <option value="0" selected>-Select Birds Type -</option>
+                                    <option value="1">Chick</option>
+                                    <option value="2">Grower</option>
+                                    <option value="3">Layer</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <!--                                <div class="row mb-4">-->
+                        <button type="button" class="btn btn-outline-success mt-3 col-2"
+                                style="margin-left: 18%" id="updateEditBirds">Update
+                        </button>
+
+                        <button type="button" class="btn btn-outline-primary mt-3 col-2" id="getAllEditBirds">
+                            Get
+                            All
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary mt-3 col-2" id="clearEditBirds">
+                            Clear
+                        </button>
+
+                        <button type="button" class="btn btn-danger mt-3 col-2" id="sellBatch">
+                            Sell
+                        </button>
                     </div>
                 </div>
 
@@ -1297,62 +1274,56 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <div>
-                            <div class="card-body">
-                                <h5 class="card-title">Mortality</h5>
+                        <h5 class="card-title">Mortality</h5>
 
-                                <!--  Form Elements -->
+                        <!--  Form Elements -->
 
-                                <div class="row mb-3">
-                                    <label for="floatingSelect" class="col-sm-2 col-form-label">Cage ID</label>
-                                    <div class="col-sm-4">
-                                        <select class="form-select " id="cmbMCage"
-                                                aria-label="Available Cage">
-                                            <option value="0" selected>-Select Available Cage-</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                        </select>
-                                    </div>
-                                    <label for="inputMBatch" class="col-sm-2 col-form-label">Batch ID</label>
+                        <div class="row mb-4">
+                            <label for="floatingSelect" class="col-sm-2 col-form-label">Cage ID</label>
+                            <div class="col-sm-4">
+                                <select class="form-select " id="cmbMCage"
+                                        aria-label="Available Cage">
+                                    <option value="0" selected>-Select Available Cage-</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
+                            <label for="inputMBatch" class="col-sm-2 col-form-label">Batch ID</label>
 
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" id="inputMBatch">
-                                    </div>
-
-                                </div>
-
-                                <div class="row mb-3">
-                                    <label for="inputAvailableBatch" class="col-sm-2 col-form-label">Available
-                                        Count</label>
-
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" id="inputAvailableBatch">
-                                    </div>
-                                    <label for="inputMortality" class="col-sm-2 col-form-label">No Of Mortality</label>
-
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" id="inputMortality">
-                                    </div>
-
-                                </div>
-                                <!--                                <div class="row mb-3">-->
-
-                                <button type="button" class="btn btn-outline-warning mt-3 col-2"
-                                        style="margin-left: 25%" id="updateMortality">
-                                    Update
-                                </button>
-                                <button type="button" class="btn btn-outline-primary mt-3 col-2" id="getAllMortality">
-                                    Get All
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary mt-3 col-2" id="clearMortality">
-                                    Clear
-                                </button>
-                                <!--                                </div>-->
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="inputMBatch">
                             </div>
 
+                        </div>
+
+                        <div class="row mb-4">
+                            <label for="inputAvailableBatch" class="col-sm-2 col-form-label">Available
+                                Count</label>
+
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="inputAvailableBatch">
+                            </div>
+                            <label for="inputMortality" class="col-sm-2 col-form-label">No Of Mortality</label>
+
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="inputMortality">
+                            </div>
 
                         </div>
+                        <!--                                <div class="row mb-4">-->
+
+                        <button type="button" class="btn btn-outline-warning mt-3 col-2"
+                                style="margin-left: 25%" id="updateMortality">
+                            Update
+                        </button>
+                        <button type="button" class="btn btn-outline-primary mt-3 col-2" id="getAllMortality">
+                            Get All
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary mt-3 col-2" id="clearMortality">
+                            Clear
+                        </button>
+
                     </div>
                 </div>
 
@@ -1413,112 +1384,109 @@
 
                 <div class="card">
                     <div class="card-body">
-                        <!--                        <h5 class="card-title">Purchase chicks</h5>-->
-                        <div>
-                            <div class="card-body">
-                                <h5 class="card-title">Purchase feed</h5>
 
-                                <!--  Form Elements -->
+                        <h5 class="card-title">Purchase feed</h5>
 
-                                <div class="row mb-3">
-                                    <label for="feedSupplierName" class="col-sm-2 col-form-label">Supplier Name </label>
-                                    <div class="col-sm-4">
-                                        <select class="form-select " id="feedSupplierName"
-                                                aria-label="Floating label select example">
-                                            <option value="0" selected>-Select Supplier Name-</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
-                                        </select>
-                                    </div>
-                                    <label for="feedSupplierID" class="col-sm-2 col-form-label">Supplier ID</label>
+                        <!--  Form Elements -->
 
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" id="feedSupplierID">
-                                    </div>
+                        <div class="row mb-4">
+                            <label for="feedSupplierName" class="col-sm-2 col-form-label">Supplier Name </label>
+                            <div class="col-sm-4">
+                                <select class="form-select " id="feedSupplierName"
+                                        aria-label="Floating label select example">
+                                    <option value="0" selected>-Select Supplier Name-</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                            <label for="feedSupplierID" class="col-sm-2 col-form-label">Supplier ID</label>
 
-                                </div>
-                                <div class="row mb-3">
-
-                                    <label for="cmdCageFeed" class="col-sm-2 col-form-label">Cage ID</label>
-                                    <div class="col-sm-2">
-                                        <select class="form-select " id="cmdCageFeed"
-                                                aria-label="Available Cage">
-                                            <option value="0" selected>-Select Cage ID-</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                        </select>
-                                    </div>
-
-                                    <label for="birdTypeF" class="col-sm-2 col-form-label">Birds Type</label>
-                                    <div class="col-sm-2">
-                                        <input type="number" class="form-control" id="birdTypeF">
-                                    </div>
-
-                                    <label for="approxF" class="col-sm-2 col-form-label">Approx Feed(Kg)</label>
-                                    <div class="col-sm-2">
-                                        <input type="number" class="form-control" id="approxF">
-                                    </div>
-
-                                </div>
-
-                                <div class="row mb-3">
-
-                                    <label for="cmbPckSize" class="col-sm-2 col-form-label">Packet Size(Kg)</label>
-                                    <div class="col-sm-4">
-                                        <select class="form-select " id="cmbPckSize"
-                                                aria-label="Available Cage">
-                                            <option value="0" selected>-Select Packet Size-</option>
-                                            <option value="1">25</option>
-                                            <option value="2">50</option>
-                                        </select>
-                                    </div>
-
-                                    <label for="inputUnitPriceFeed" class="col-sm-2 col-form-label">Unit Price</label>
-                                    <div class="col-sm-4">
-                                        <input type="number" class="form-control" id="inputUnitPriceFeed">
-                                    </div>
-
-                                </div>
-
-                                <div class="row mb-3">
-
-                                    <label for="feedQty" class="col-sm-2 col-form-label">Qty on Hand</label>
-
-                                    <div class="col-sm-4">
-                                        <input type="number" class="form-control" id="feedQty">
-                                    </div>
-
-                                    <label for="totalPriceFeed" class="col-sm-2 col-form-label">Total(Rs.)</label>
-
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" id="totalPriceFeed">
-                                    </div>
-
-                                </div>
-                                <!--                                <div class="row mb-3">-->
-                                <button type="button" class="btn btn-outline-success mt-3 col-2"
-                                        style="margin-left: 10%" id="purchaseFeed">Purchase
-                                </button>
-                                <button type="button" class="btn btn-outline-danger mt-3 col-2" id="delFeed">Delete
-                                </button>
-                                <button type="button" class="btn btn-outline-warning mt-3 col-2" id="updateFeed">
-                                    Update
-                                </button>
-                                <button type="button" class="btn btn-outline-primary mt-3 col-2" id="getAllFeed">Get
-                                    All
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary mt-3 col-2" id="clearFeed">
-                                    Clear
-                                </button>
-                                <!--                                </div>-->
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="feedSupplierID">
                             </div>
 
+                        </div>
+                        <div class="row mb-4">
+
+                            <label for="cmdCageFeed" class="col-sm-2 col-form-label">Cage ID</label>
+                            <div class="col-sm-2">
+                                <select class="form-select " id="cmdCageFeed"
+                                        aria-label="Available Cage">
+                                    <option value="0" selected>-Select Cage ID-</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
+
+                            <label for="birdTypeF" class="col-sm-2 col-form-label">Birds Type</label>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" id="birdTypeF">
+                            </div>
+
+                            <label for="approxF" class="col-sm-2 col-form-label">Approx Feed(Kg)</label>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" id="approxF">
+                            </div>
 
                         </div>
+
+                        <div class="row mb-4">
+
+                            <label for="cmbPckSize" class="col-sm-2 col-form-label">Packet Size(Kg)</label>
+                            <div class="col-sm-4">
+                                <select class="form-select " id="cmbPckSize"
+                                        aria-label="Available Cage">
+                                    <option value="0" selected>-Select Packet Size-</option>
+                                    <option value="1">25</option>
+                                    <option value="2">50</option>
+                                </select>
+                            </div>
+
+                            <label for="inputUnitPriceFeed" class="col-sm-2 col-form-label">Unit Price</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" id="inputUnitPriceFeed">
+                            </div>
+
+                        </div>
+
+                        <div class="row mb-4">
+
+                            <label for="feedQty" class="col-sm-2 col-form-label">Qty on Hand</label>
+
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" id="feedQty">
+                            </div>
+
+                            <label for="totalPriceFeed" class="col-sm-2 col-form-label">Total(Rs.)</label>
+
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="totalPriceFeed">
+                            </div>
+
+                        </div>
+                        <!--                                <div class="row mb-4">-->
+                        <button type="button" class="btn btn-outline-success mt-3 col-2"
+                                style="margin-left: 10%" id="purchaseFeed">Purchase
+                        </button>
+                        <button type="button" class="btn btn-outline-danger mt-3 col-2" id="delFeed">Delete
+                        </button>
+                        <button type="button" class="btn btn-outline-warning mt-3 col-2" id="updateFeed">
+                            Update
+                        </button>
+                        <button type="button" class="btn btn-outline-primary mt-3 col-2" id="getAllFeed">Get
+                            All
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary mt-3 col-2" id="clearFeed">
+                            Clear
+                        </button>
+                        <!--                                </div>-->
                     </div>
+
+
                 </div>
+
 
             </div>
         </div>
@@ -1579,81 +1547,76 @@
 
                 <div class="card">
                     <div class="card-body">
-                        <!--                        <h5 class="card-title">Purchase chicks</h5>-->
-                        <div>
-                            <div class="card-body">
-                                <h5 class="card-title">Feed Consumption</h5>
 
-                                <!--  Form Elements -->
+                        <h5 class="card-title">Feed Consumption</h5>
 
-                                <div class="row mb-3">
-                                    <label for="consCageID" class="col-sm-2 col-form-label">Cage ID </label>
-                                    <div class="col-sm-4">
-                                        <select class="form-select " id="consCageID"
-                                                aria-label="Floating label select example">
-                                            <option value="0" selected>-Select Cage ID -</option>
-                                            <option value="1">B1</option>
-                                            <option value="2">B2</option>
-                                            <option value="3">B3</option>
-                                        </select>
-                                    </div>
+                        <!--  Form Elements -->
 
-                                    <label for="noOfBirdFC" class="col-sm-2 col-form-label">Available No of Birds</label>
-                                    <div class="col-sm-4">
-                                        <input type="number" class="form-control" id="noOfBirdFC">
-                                    </div>
-
-                                </div>
-                                <div class="row mb-3">
-
-                                    <label for="avlbFStock" class="col-sm-2 col-form-label">Available Feed Stock(kg)</label>
-                                    <div class="col-sm-4">
-                                        <input type="number" class="form-control" id="avlbFStock">
-                                    </div>
-
-                                    <label for="approxFC" class="col-sm-2 col-form-label">Approximately Feed(Kg)</label>
-                                    <div class="col-sm-4">
-                                        <input type="number" class="form-control" id="approxFC">
-                                    </div>
-                                </div>
-
-                                <div class="row mb-3">
-
-                                    <label for="cmbTypeF" class="col-sm-2 col-form-label">Type </label>
-                                    <div class="col-sm-4">
-                                        <select class="form-select " id="cmbTypeF"
-                                                aria-label="Floating label select example">
-                                            <option value="0" selected>-Select Birds Type -</option>
-                                            <option value="1">Chick</option>
-                                            <option value="2">Grower</option>
-                                            <option value="3">Layer</option>
-                                        </select>
-                                    </div>
-
-                                    <label for="usedFeed" class="col-sm-2 col-form-label">Used Feed(Kg)</label>
-                                    <div class="col-sm-4">
-                                        <input type="number" class="form-control" id="usedFeed">
-                                    </div>
-                                </div>
-
-
-                                <!--                                <div class="row mb-3">-->
-                                <button type="button" class="btn btn-outline-success mt-3 col-2"
-                                        style="margin-left: 22%" id="updateFeedC">Consumption
-                                </button>
-
-                                <button type="button" class="btn btn-outline-warning mt-3 col-2" id="getAllFeedDetails">
-                                    Get
-                                    All
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary mt-3 col-2" id="clear">
-                                    Clear
-                                </button>
-
+                        <div class="row mb-4">
+                            <label for="consCageID" class="col-sm-2 col-form-label">Cage ID </label>
+                            <div class="col-sm-4">
+                                <select class="form-select " id="consCageID"
+                                        aria-label="Floating label select example">
+                                    <option value="0" selected>-Select Cage ID -</option>
+                                    <option value="1">B1</option>
+                                    <option value="2">B2</option>
+                                    <option value="3">B3</option>
+                                </select>
                             </div>
 
+                            <label for="noOfBirdFC" class="col-sm-2 col-form-label">Available No of
+                                Birds</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" id="noOfBirdFC">
+                            </div>
 
                         </div>
+                        <div class="row mb-4">
+
+                            <label for="avlbFStock" class="col-sm-2 col-form-label">Available Feed
+                                Stock(kg)</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" id="avlbFStock">
+                            </div>
+
+                            <label for="approxFC" class="col-sm-2 col-form-label">Approximately Feed(Kg)</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" id="approxFC">
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+
+                            <label for="cmbTypeF" class="col-sm-2 col-form-label">Type </label>
+                            <div class="col-sm-4">
+                                <select class="form-select " id="cmbTypeF"
+                                        aria-label="Floating label select example">
+                                    <option value="0" selected>-Select Birds Type -</option>
+                                    <option value="1">Chick</option>
+                                    <option value="2">Grower</option>
+                                    <option value="3">Layer</option>
+                                </select>
+                            </div>
+
+                            <label for="usedFeed" class="col-sm-2 col-form-label">Used Feed(Kg)</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" id="usedFeed">
+                            </div>
+                        </div>
+
+
+                        <!--                                <div class="row mb-4">-->
+                        <button type="button" class="btn btn-outline-success mt-3 col-2"
+                                style="margin-left: 22%" id="updateFeedC">Consumption
+                        </button>
+
+                        <button type="button" class="btn btn-outline-warning mt-3 col-2" id="getAllFeedDetails">
+                            Get
+                            All
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary mt-3 col-2" id="clear">
+                            Clear
+                        </button>
                     </div>
                 </div>
 
@@ -1695,112 +1658,59 @@
 </main>
 
 <!-- ======= Feed/Stock Summary ======= -->
-<main id="feedStockSummaryComoponent" class="main">
+<main id="feedStockSummaryComoponent" style="display: none" class="main">
 
     <div class="pagetitle">
-        <h1>ECharts</h1>
+        <h1>Stock Summary</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item">Charts</li>
-                <li class="breadcrumb-item active">ECharts</li>
+                <li class="breadcrumb-item">Feed</li>
+                <li class="breadcrumb-item active">Stock Summary</li>
             </ol>
         </nav>
     </div><!-- End Page Title -->
 
-    <p>ECharts Examples. You can check the <a href="https://echarts.apache.org/examples/en/index.html" target="_blank">official website</a> for more examples.</p>
 
     <section class="section">
         <div class="row">
 
-            <div class="col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Line Chart</h5>
-
-                        <!-- Line Chart -->
-                        <div id="lineChart" style="min-height: 400px;" class="echart"></div>
-
-                        <script>
-                            document.addEventListener("DOMContentLoaded", () => {
-                                echarts.init(document.querySelector("#lineChart")).setOption({
-                                    xAxis: {
-                                        type: 'category',
-                                        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-                                    },
-                                    yAxis: {
-                                        type: 'value'
-                                    },
-                                    series: [{
-                                        data: [150, 230, 224, 218, 135, 147, 260],
-                                        type: 'line',
-                                        smooth: true
-                                    }]
-                                });
-                            });
-                        </script>
-                        <!-- End Line Chart -->
-
-                    </div>
-                </div>
-            </div>
 
             <div class="col-lg-6">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Area Chart</h5>
+                        <h5 class="card-title">Available Feed Stock</h5>
 
-                        <!-- Area Chart -->
-                        <div id="areaChart" style="min-height: 400px;" class="echart"></div>
-
+                        <canvas id="barChart" style="max-height: 400px;"></canvas>
                         <script>
                             document.addEventListener("DOMContentLoaded", () => {
-                                echarts.init(document.querySelector("#areaChart")).setOption({
-                                    xAxis: {
-                                        type: 'category',
-                                        boundaryGap: false,
-                                        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+                                new Chart(document.querySelector('#barChart'), {
+                                    type: 'bar',
+                                    data: {
+                                        labels: ['Chick', 'Grower', 'Layer'],
+                                        datasets: [{
+                                            label: 'Feed Stock(kg)',
+                                            data: [65, 59, 80],
+                                            backgroundColor: [
+                                                'rgba(255, 159, 64, 0.3)',
+                                                'rgba(75, 192, 192, 0.3)',
+                                                'rgba(153, 102, 255, 0.3)',
+                                            ],
+                                            borderColor: [
+                                                'rgb(255, 159, 64)',
+                                                'rgb(75, 192, 192)',
+                                                'rgb(153, 102, 255)',
+                                            ],
+                                            borderWidth: 1
+                                        }]
                                     },
-                                    yAxis: {
-                                        type: 'value'
-                                    },
-                                    series: [{
-                                        data: [820, 932, 901, 934, 1290, 1330, 1320],
-                                        type: 'line',
-                                        smooth: true,
-                                        areaStyle: {}
-                                    }]
-                                });
-                            });
-                        </script>
-                        <!-- End Area Chart -->
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Bar Chart</h5>
-
-                        <!-- Bar Chart -->
-                        <div id="barChart" style="min-height: 400px;" class="echart"></div>
-
-                        <script>
-                            document.addEventListener("DOMContentLoaded", () => {
-                                echarts.init(document.querySelector("#barChart")).setOption({
-                                    xAxis: {
-                                        type: 'category',
-                                        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-                                    },
-                                    yAxis: {
-                                        type: 'value'
-                                    },
-                                    series: [{
-                                        data: [120, 200, 150, 80, 70, 110, 130],
-                                        type: 'bar'
-                                    }]
+                                    options: {
+                                        scales: {
+                                            y: {
+                                                beginAtZero: true
+                                            }
+                                        }
+                                    }
                                 });
                             });
                         </script>
@@ -1813,475 +1723,286 @@
             <div class="col-lg-6">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Vertical Bar Chart</h5>
-
-                        <!-- Vertical Bar Chart -->
-                        <div id="verticalBarChart" style="min-height: 400px;" class="echart"></div>
-
-                        <script>
-                            document.addEventListener("DOMContentLoaded", () => {
-                                echarts.init(document.querySelector("#verticalBarChart")).setOption({
-                                    title: {
-                                        text: 'World Population'
-                                    },
-                                    tooltip: {
-                                        trigger: 'axis',
-                                        axisPointer: {
-                                            type: 'shadow'
-                                        }
-                                    },
-                                    legend: {},
-                                    grid: {
-                                        left: '3%',
-                                        right: '4%',
-                                        bottom: '3%',
-                                        containLabel: true
-                                    },
-                                    xAxis: {
-                                        type: 'value',
-                                        boundaryGap: [0, 0.01]
-                                    },
-                                    yAxis: {
-                                        type: 'category',
-                                        data: ['Brazil', 'Indonesia', 'USA', 'India', 'China', 'World']
-                                    },
-                                    series: [{
-                                        name: '2011',
-                                        type: 'bar',
-                                        data: [18203, 23489, 29034, 104970, 131744, 630230]
-                                    },
-                                        {
-                                            name: '2012',
-                                            type: 'bar',
-                                            data: [19325, 23438, 31000, 121594, 134141, 681807]
-                                        }
-                                    ]
-                                });
-                            });
-                        </script>
-                        <!-- End Vertical Bar Chart -->
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Pie Chart</h5>
-
-                        <!-- Pie Chart -->
-                        <div id="pieChart" style="min-height: 400px;" class="echart"></div>
-
-                        <script>
-                            document.addEventListener("DOMContentLoaded", () => {
-                                echarts.init(document.querySelector("#pieChart")).setOption({
-                                    title: {
-                                        text: 'Referer of a Website',
-                                        subtext: 'Fake Data',
-                                        left: 'center'
-                                    },
-                                    tooltip: {
-                                        trigger: 'item'
-                                    },
-                                    legend: {
-                                        orient: 'vertical',
-                                        left: 'left'
-                                    },
-                                    series: [{
-                                        name: 'Access From',
-                                        type: 'pie',
-                                        radius: '50%',
-                                        data: [{
-                                            value: 1048,
-                                            name: 'Search Engine'
-                                        },
-                                            {
-                                                value: 735,
-                                                name: 'Direct'
-                                            },
-                                            {
-                                                value: 580,
-                                                name: 'Email'
-                                            },
-                                            {
-                                                value: 484,
-                                                name: 'Union Ads'
-                                            },
-                                            {
-                                                value: 300,
-                                                name: 'Video Ads'
-                                            }
-                                        ],
-                                        emphasis: {
-                                            itemStyle: {
-                                                shadowBlur: 10,
-                                                shadowOffsetX: 0,
-                                                shadowColor: 'rgba(0, 0, 0, 0.5)'
-                                            }
-                                        }
-                                    }]
-                                });
-                            });
-                        </script>
-                        <!-- End Pie Chart -->
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Donut Chart</h5>
-
-                        <!-- Donut Chart -->
-                        <div id="donutChart" style="min-height: 400px;" class="echart"></div>
-
-                        <script>
-                            document.addEventListener("DOMContentLoaded", () => {
-                                echarts.init(document.querySelector("#donutChart")).setOption({
-                                    tooltip: {
-                                        trigger: 'item'
-                                    },
-                                    legend: {
-                                        top: '5%',
-                                        left: 'center'
-                                    },
-                                    series: [{
-                                        name: 'Access From',
-                                        type: 'pie',
-                                        radius: ['40%', '70%'],
-                                        avoidLabelOverlap: false,
-                                        label: {
-                                            show: false,
-                                            position: 'center'
-                                        },
-                                        emphasis: {
-                                            label: {
-                                                show: true,
-                                                fontSize: '18',
-                                                fontWeight: 'bold'
-                                            }
-                                        },
-                                        labelLine: {
-                                            show: false
-                                        },
-                                        data: [{
-                                            value: 1048,
-                                            name: 'Search Engine'
-                                        },
-                                            {
-                                                value: 735,
-                                                name: 'Direct'
-                                            },
-                                            {
-                                                value: 580,
-                                                name: 'Email'
-                                            },
-                                            {
-                                                value: 484,
-                                                name: 'Union Ads'
-                                            },
-                                            {
-                                                value: 300,
-                                                name: 'Video Ads'
-                                            }
-                                        ]
-                                    }]
-                                });
-                            });
-                        </script>
-                        <!-- End Donut Chart -->
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Radar Chart</h5>
-
-                        <!-- Radar Chart -->
-                        <div id="radarChart" style="min-height: 400px;" class="echart"></div>
-
-                        <script>
-                            document.addEventListener("DOMContentLoaded", () => {
-                                echarts.init(document.querySelector("#radarChart")).setOption({
-                                    legend: {
-                                        data: ['Allocated Budget', 'Actual Spending']
-                                    },
-                                    radar: {
-                                        // shape: 'circle',
-                                        indicator: [{
-                                            name: 'Sales',
-                                            max: 6500
-                                        },
-                                            {
-                                                name: 'Administration',
-                                                max: 16000
-                                            },
-                                            {
-                                                name: 'Information Technology',
-                                                max: 30000
-                                            },
-                                            {
-                                                name: 'Customer Support',
-                                                max: 38000
-                                            },
-                                            {
-                                                name: 'Development',
-                                                max: 52000
-                                            },
-                                            {
-                                                name: 'Marketing',
-                                                max: 25000
-                                            }
-                                        ]
-                                    },
-                                    series: [{
-                                        name: 'Budget vs spending',
-                                        type: 'radar',
-                                        data: [{
-                                            value: [4200, 3000, 20000, 35000, 50000, 18000],
-                                            name: 'Allocated Budget'
-                                        },
-                                            {
-                                                value: [5000, 14000, 28000, 26000, 42000, 21000],
-                                                name: 'Actual Spending'
-                                            }
-                                        ]
-                                    }]
-                                });
-                            });
-                        </script>
-                        <!-- End Radar Chart -->
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Polar Area Chart</h5>
-
+                        <h5 class="card-title">Amount of feed required for a day</h5>
                         <!-- Polar Area Chart -->
-                        <div id="polarAreaChart" style="min-height: 400px;" class="echart"></div>
-
+                        <canvas id="polarAreaChart" style="max-height: 400px;"></canvas>
                         <script>
                             document.addEventListener("DOMContentLoaded", () => {
-                                echarts.init(document.querySelector("#polarAreaChart")).setOption({
-                                    angleAxis: {
-                                        type: 'category',
-                                        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-                                    },
-                                    radiusAxis: {},
-                                    polar: {},
-                                    series: [{
-                                        type: 'bar',
-                                        data: [1, 2, 3, 4, 3, 5, 1],
-                                        coordinateSystem: 'polar',
-                                        name: 'A',
-                                        stack: 'a',
-                                        emphasis: {
-                                            focus: 'series'
-                                        }
-                                    },
-                                        {
-                                            type: 'bar',
-                                            data: [2, 4, 6, 1, 3, 2, 1],
-                                            coordinateSystem: 'polar',
-                                            name: 'B',
-                                            stack: 'a',
-                                            emphasis: {
-                                                focus: 'series'
-                                            }
-                                        },
-                                        {
-                                            type: 'bar',
-                                            data: [1, 2, 3, 4, 1, 2, 5],
-                                            coordinateSystem: 'polar',
-                                            name: 'C',
-                                            stack: 'a',
-                                            emphasis: {
-                                                focus: 'series'
-                                            }
-                                        }
-                                    ],
-                                    legend: {
-                                        show: true,
-                                        data: ['A', 'B', 'C']
+                                new Chart(document.querySelector('#polarAreaChart'), {
+                                    type: 'polarArea',
+                                    data: {
+                                        labels: [
+                                            'Chick',
+                                            'Grower',
+                                            'Layer'
+                                        ],
+                                        datasets: [{
+                                            label: 'kg',
+                                            data: [840, 416, 227],
+                                            backgroundColor: [
+                                                'rgb(255,63,130)',
+                                                'rgb(75, 192, 192)',
+                                                'rgb(255, 205, 86)',
+
+
+                                            ]
+                                        }]
                                     }
                                 });
                             });
                         </script>
                         <!-- End Polar Area Chart -->
 
+                        <!--  <canvas id="barChart1" style="max-height: 400px;"></canvas>
+                          <script>
+                              document.addEventListener("DOMContentLoaded", () => {
+                                  new Chart(document.querySelector('#barChart1'), {
+                                      type: 'bar',
+                                      data: {
+                                          labels: ['Chick', 'Grower', 'Layer'],
+                                          datasets: [{
+                                              label: 'Feed Stock(kg)',
+                                              data: [65, 59, 80],
+                                              backgroundColor: [
+                                                  'rgba(255, 159, 64, 0.2)',
+                                                  'rgba(75, 192, 192, 0.2)',
+                                                  'rgba(153, 102, 255, 0.2)',
+                                              ],
+                                              borderColor: [
+                                                  'rgb(255, 159, 64)',
+                                                  'rgb(75, 192, 192)',
+                                                  'rgb(153, 102, 255)',
+                                              ],
+                                              borderWidth: 1
+                                          }]
+                                      },
+                                      options: {
+                                          scales: {
+                                              y: {
+                                                  beginAtZero: true
+                                              }
+                                          }
+                                      }
+                                  });
+                              });
+                          </script>-->
+
                     </div>
                 </div>
             </div>
 
-            <div class="col-lg-6">
+
+        </div>
+        <div class="row">
+
+
+            <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Candle Stick Chart</h5>
+                        <h5 class="card-title">The number of days that the current amount of feed is sufficient</h5>
 
-                        <!-- Candle Stick Chart -->
-                        <div id="candleStickChart" style="min-height: 400px;" class="echart"></div>
+                        <!--                        <div id="stockFChart" style="min-height: 450px;" class="echart"></div>-->
+
+                        <div id="stockDays"></div>
 
                         <script>
                             document.addEventListener("DOMContentLoaded", () => {
-                                echarts.init(document.querySelector("#candleStickChart")).setOption({
-                                    xAxis: {
-                                        data: ['2017-10-24', '2017-10-25', '2017-10-26', '2017-10-27']
-                                    },
-                                    yAxis: {},
+                                new ApexCharts(document.querySelector("#stockDays"), {
                                     series: [{
-                                        type: 'candlestick',
-                                        data: [
-                                            [20, 34, 10, 38],
-                                            [40, 35, 30, 50],
-                                            [31, 38, 33, 44],
-                                            [38, 15, 5, 42]
-                                        ]
-                                    }]
-                                });
+                                        data: [44, 55, 41],
+
+                                    }],
+                                    chart: {
+                                        type: 'bar',
+                                        height: 300,
+                                    },
+                                    plotOptions: {
+                                        bar: {
+                                            horizontal: true,
+                                            dataLabels: {
+                                                position: 'top',
+                                            },
+                                        }
+                                    },
+                                    dataLabels: {
+                                        enabled: true,
+                                        offsetX: -6,
+                                        style: {
+                                            fontSize: '12px',
+                                            colors: ['#fff']
+                                        }
+                                    },
+                                    stroke: {
+                                        show: true,
+                                        width: 1,
+                                        colors: ['#fff']
+                                    },
+                                    tooltip: {
+
+                                        shared: true,
+                                        intersect: false
+                                    },
+                                    xaxis: {
+                                        categories: ['Chick', 'Grower', 'Layer'],
+                                    }
+
+                                }).render();
                             });
                         </script>
-                        <!-- End Candle Stick Chart -->
+
+
+                        <!--                        <script>-->
+                        <!--                            document.addEventListener("DOMContentLoaded", () => {-->
+                        <!--                                echarts.init(document.querySelector("#stockFChart")).setOption({-->
+
+                        <!--                                        dataset: {-->
+                        <!--                                            source: [-->
+                        <!--                                                ['score', 'amount', 'product'],-->
+                        <!--                                                [89.3, 58212, 'Chick'],-->
+                        <!--                                                [57.1, 78254, 'Grower'],-->
+                        <!--                                                [19.6, 91852, 'Layer'],-->
+
+                        <!--                                            ]-->
+                        <!--                                        },-->
+                        <!--                                        grid: { containLabel: true },-->
+                        <!--                                        xAxis: { name: 'Feed Stock(kg)' },-->
+                        <!--                                        yAxis: { type: 'category' },-->
+                        <!--                                        visualMap: {-->
+                        <!--                                            orient: 'horizontal',-->
+                        <!--                                            left: 'center',-->
+                        <!--                                            min: 10,-->
+                        <!--                                            max: 100,-->
+                        <!--                                            text: ['High', 'Low'],-->
+                        <!--                                            // Map the score column to color-->
+                        <!--                                            dimension: 0,-->
+                        <!--                                            inRange: {-->
+                        <!--                                                color: [ '#FD665F','#FFCE34','#65B581']-->
+                        <!--                                            }-->
+                        <!--                                        },-->
+                        <!--                                        series: [-->
+                        <!--                                            {-->
+                        <!--                                                type: 'bar',-->
+                        <!--                                                encode: {-->
+                        <!--                                                    // Map the "amount" column to X axis.-->
+                        <!--                                                    x: 'amount',-->
+                        <!--                                                    // Map the "product" column to Y axis-->
+                        <!--                                                    y: 'product'-->
+                        <!--                                                }-->
+                        <!--                                            }-->
+                        <!--                                        ]-->
+
+                        <!--                                });-->
+                        <!--                            });-->
+                        <!--                        </script>-->
 
                     </div>
                 </div>
             </div>
 
-            <div class="col-lg-6">
+
+        </div>
+    </section>
+
+</main>
+
+<!-- ======= Cage ======= -->
+<main id="cageComponent" style="display: none" class="main">
+
+    <div class="pagetitle">
+        <h1>Cage Management</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item">Cage</li>
+                <li class="breadcrumb-item active">Cage Management</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Bubble Chart</h5>
 
-                        <!-- Bubble Chart -->
-                        <div id="bubbleChart" style="min-height: 400px;" class="echart"></div>
+                        <h5 class="card-title">Manage Cage</h5>
 
-                        <script>
-                            document.addEventListener("DOMContentLoaded", () => {
-                                const data = [
-                                    [
-                                        [28604, 77, 17096869, 'Australia', 1990],
-                                        [31163, 77.4, 27662440, 'Canada', 1990],
-                                        [1516, 68, 1154605773, 'China', 1990],
-                                        [13670, 74.7, 10582082, 'Cuba', 1990],
-                                        [28599, 75, 4986705, 'Finland', 1990],
-                                        [29476, 77.1, 56943299, 'France', 1990],
-                                        [31476, 75.4, 78958237, 'Germany', 1990],
-                                        [28666, 78.1, 254830, 'Iceland', 1990],
-                                        [1777, 57.7, 870601776, 'India', 1990],
-                                        [29550, 79.1, 122249285, 'Japan', 1990],
-                                        [2076, 67.9, 20194354, 'North Korea', 1990],
-                                        [12087, 72, 42972254, 'South Korea', 1990],
-                                        [24021, 75.4, 3397534, 'New Zealand', 1990],
-                                        [43296, 76.8, 4240375, 'Norway', 1990],
-                                        [10088, 70.8, 38195258, 'Poland', 1990],
-                                        [19349, 69.6, 147568552, 'Russia', 1990],
-                                        [10670, 67.3, 53994605, 'Turkey', 1990],
-                                        [26424, 75.7, 57110117, 'United Kingdom', 1990],
-                                        [37062, 75.4, 252847810, 'United States', 1990]
-                                    ],
-                                    [
-                                        [44056, 81.8, 23968973, 'Australia', 2015],
-                                        [43294, 81.7, 35939927, 'Canada', 2015],
-                                        [13334, 76.9, 1376048943, 'China', 2015],
-                                        [21291, 78.5, 11389562, 'Cuba', 2015],
-                                        [38923, 80.8, 5503457, 'Finland', 2015],
-                                        [37599, 81.9, 64395345, 'France', 2015],
-                                        [44053, 81.1, 80688545, 'Germany', 2015],
-                                        [42182, 82.8, 329425, 'Iceland', 2015],
-                                        [5903, 66.8, 1311050527, 'India', 2015],
-                                        [36162, 83.5, 126573481, 'Japan', 2015],
-                                        [1390, 71.4, 25155317, 'North Korea', 2015],
-                                        [34644, 80.7, 50293439, 'South Korea', 2015],
-                                        [34186, 80.6, 4528526, 'New Zealand', 2015],
-                                        [64304, 81.6, 5210967, 'Norway', 2015],
-                                        [24787, 77.3, 38611794, 'Poland', 2015],
-                                        [23038, 73.13, 143456918, 'Russia', 2015],
-                                        [19360, 76.5, 78665830, 'Turkey', 2015],
-                                        [38225, 81.4, 64715810, 'United Kingdom', 2015],
-                                        [53354, 79.1, 321773631, 'United States', 2015]
-                                    ]
-                                ];
-                                echarts.init(document.querySelector("#bubbleChart")).setOption({
-                                    legend: {
-                                        right: '10%',
-                                        top: '3%',
-                                        data: ['1990', '2015']
-                                    },
-                                    grid: {
-                                        left: '8%',
-                                        top: '10%'
-                                    },
-                                    xAxis: {
-                                        splitLine: {
-                                            lineStyle: {
-                                                type: 'dashed'
-                                            }
-                                        }
-                                    },
-                                    yAxis: {
-                                        splitLine: {
-                                            lineStyle: {
-                                                type: 'dashed'
-                                            }
-                                        },
-                                        scale: true
-                                    },
-                                    series: [{
-                                        name: '1990',
-                                        data: data[0],
-                                        type: 'scatter',
-                                        symbolSize: function(data) {
-                                            return Math.sqrt(data[2]) / 5e2;
-                                        },
-                                        emphasis: {
-                                            focus: 'series',
-                                            label: {
-                                                show: true,
-                                                formatter: function(param) {
-                                                    return param.data[3];
-                                                },
-                                                position: 'top'
-                                            }
-                                        },
-                                        itemStyle: {
-                                            color: 'rgb(251, 118, 123)'
-                                        }
-                                    },
-                                        {
-                                            name: '2015',
-                                            data: data[1],
-                                            type: 'scatter',
-                                            symbolSize: function(data) {
-                                                return Math.sqrt(data[2]) / 5e2;
-                                            },
-                                            emphasis: {
-                                                focus: 'series',
-                                                label: {
-                                                    show: true,
-                                                    formatter: function(param) {
-                                                        return param.data[3];
-                                                    },
-                                                    position: 'top'
-                                                }
-                                            },
-                                            itemStyle: {
-                                                color: 'rgb(129, 227, 238)'
-                                            }
-                                        }
-                                    ]
-                                });
-                            });
-                        </script>
-                        <!-- End Bubble Chart -->
+                        <!--  Form Elements -->
+
+                        <div class="row mb-4">
+
+                            <label for="inputCageID" class="col-sm-2 col-form-label">Cage ID</label>
+
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="inputCageID">
+                            </div>
+
+                            <label for="inputBatchID" class="col-sm-2 col-form-label">Batch ID</label>
+
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="inputBatchID">
+                            </div>
+
+
+                        </div>
+                        <div class="row mb-4">
+                            <label for="inputMaxBQty" class="col-sm-2 col-form-label">Maximum No of
+                                Birds</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" id="inputMaxBQty">
+                            </div>
+                            <label for="inputAvlNoOfBird" class="col-sm-2 col-form-label">Available No of
+                                Birds</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" id="inputAvlNoOfBird">
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn btn-outline-success mt-3 col-2"
+                                style="margin-left: 10%" id="saveCage">Save
+                        </button>
+                        <button type="button" class="btn btn-outline-danger mt-3 col-2" id="delCage">Delete
+                        </button>
+                        <button type="button" class="btn btn-outline-warning mt-3 col-2" id="updateCage">
+                            Update
+                        </button>
+                        <button type="button" class="btn btn-outline-primary mt-3 col-2" id="getAllCage">Get
+                            All
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary mt-3 col-2" id="clearCage">
+                            Clear
+                        </button>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Cage Details</h5>
+
+                        <!-- Batch Table -->
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th scope="col">#Cage ID</th>
+                                <th scope="col">Maximum No of Birds</th>
+                                <th scope="col">Available Birds</th>
+                                <th scope="col">Batch ID</th>
+                            </tr>
+                            </thead>
+                            <tbody id="cageTBody">
+
+                            </tbody>
+                        </table>
 
                     </div>
                 </div>
@@ -2291,6 +2012,246 @@
     </section>
 
 </main>
+
+<!-- ======= Order/Order Details ======= -->
+<main id="orderDetailsComponent" style="display: none" class="main">
+
+
+
+    <div class="pagetitle">
+        <h1>Order Detials</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item">Order</li>
+                <li class="breadcrumb-item active">Order Details</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+
+                <div class="card">
+                    <div class="card-body">
+
+                        <h5 class="card-title">Search Details</h5>
+
+                        <div class="row mb-4">
+
+                            <label for="searchByCustomerID" class="col-sm-2 col-form-label">Customer ID</label>
+
+                            <select class="form-select " id="searchByCustomerID"
+                                    aria-label="Floating label select example">
+                                <option value="0" selected>-Search By Customer ID -</option>
+
+                            </select>
+
+                            <label for="searchByOrdID" class="col-sm-2 col-form-label">Order ID</label>
+
+                            <select class="form-select " id="searchByOrdID"
+                                    aria-label="Floating label select example">
+                                <option value="0" selected>-Search By Order ID -</option>
+
+                            </select>
+
+                            <label for="searchByDate" class="col-sm-2 col-form-label">Order ID</label>
+
+                            <select class="form-select " id="searchByDate"
+                                    aria-label="Floating label select example">
+                                <option value="0" selected>-Search By Order ID -</option>
+
+                            </select>
+
+
+                        </div>
+
+
+                        <button type="button" class="btn btn-outline-secondary mt-3 col-2" id="clr">
+                            Clear
+                        </button>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Order Details</h5>
+
+
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th scope="col">#Order ID</th>
+                                <th scope="col">Item ID</th>
+                                <th scope="col">Quantiy</th>
+                                <th scope="col">Unit Price(Rs.)</th>
+                                <th scope="col">Total(Rs.)</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Customer ID</th>
+
+                            </tr>
+                            </thead>
+                            <tbody id="orderDetailsTBody">
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<!-- ======= Order/Place Order ======= -->
+<main id="placeOrderComponent" style="display: none" class="main">
+
+    <div class="pagetitle">
+        <h1>Place Order</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item">Order</li>
+                <li class="breadcrumb-item active">Place Order</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="card">
+                    <div class="card-body">
+
+                        <h5 class="card-title">Place Order</h5>
+
+                        <div class="row mb-4">
+
+                            <label for="selectCustomer" class="col-sm-2 col-form-label">Customer Name</label>
+                            <div class="col-sm-4">
+                                <select class="form-select " id="selectCustomer"
+                                        aria-label="Floating label select example">
+                                    <option value="0" selected>-Select Customer-</option>
+                                </select>
+                            </div>
+
+                            <label for="custID" class="col-sm-2 col-form-label">Customer ID</label>
+
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="custID">
+                            </div>
+
+                        </div>
+                        <div class="row mb-4">
+                            <label for="itemName" class="col-sm-2 col-form-label">Item Name</label>
+                            <div class="col-sm-4">
+                                <select class="form-select " id="itemName"
+                                        aria-label="Floating label select example">
+                                    <option value="0" selected>-Select Item-</option>
+                                </select>
+                            </div>
+
+                            <label for="itemID" class="col-sm-2 col-form-label">Item ID</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" id="itemID">
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <label for="qtyItem" class="col-sm-2 col-form-label">Quantity</label>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" id="qtyItem">
+                            </div>
+
+                            <label for="uPrice" class="col-sm-2 col-form-label">Unit Price(Rs.)</label>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" id="uPrice">
+                            </div>
+
+                            <label for="amount" class="col-sm-2 col-form-label">Amount(Rs.)</label>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" id="amount">
+                            </div>
+
+                        </div>
+
+                        <div class="row mt-5 mb-4 justify-content-end">
+
+
+                            <label for="total" class="col-sm-1 col-form-label"
+                                   style="color: #d90101; font-weight: bold">Total(Rs)</label>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" id="total">
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn btn-outline-warning mt-3 col-2"
+                                style="margin-left: 17%" id="addToCart">Add To Cart
+                        </button>
+
+                        <button type="button" class="btn btn-outline-danger mt-3 col-2" id="removeOrdItem">Remove
+                        </button>
+
+                        <button type="button" class="btn btn-outline-secondary mt-3 col-2" id="clearOrderFields">
+                            Clear
+                        </button>
+                        <button type="button" class="btn btn-success mt-3 col-2 justify-content-end"
+                                id="placeOrder">Place Order
+                        </button>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Cart Details</h5>
+
+                        <!-- Batch Table -->
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th scope="col">#Item ID</th>
+                                <th scope="col">Quantiy</th>
+                                <th scope="col">Unit Price(Rs.)</th>
+                                <th scope="col">Amount(Rs.)</th>
+                            </tr>
+                            </thead>
+                            <tbody id="cartTBody">
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
 
 <!-- ======= Profile ======= -->
 <main id="profile" style="display: none">
@@ -2411,7 +2372,7 @@
 
                                 <!-- Profile Edit Form -->
                                 <form>
-                                    <div class="row mb-3">
+                                    <div class="row mb-4">
                                         <label class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
                                         <div class="col-md-8 col-lg-9">
                                             <img src="assets/img/profile-img.jpg" alt="Profile">
@@ -2424,7 +2385,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row mb-3">
+                                    <div class="row mb-4">
                                         <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Full Name</label>
                                         <div class="col-md-8 col-lg-9">
                                             <input name="fullName" type="text" class="form-control" id="fullName"
@@ -2432,7 +2393,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row mb-3">
+                                    <div class="row mb-4">
                                         <label for="about" class="col-md-4 col-lg-3 col-form-label">About</label>
                                         <div class="col-md-8 col-lg-9">
                                             <textarea name="about" class="form-control" id="about"
@@ -2440,7 +2401,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row mb-3">
+                                    <div class="row mb-4">
                                         <label for="company" class="col-md-4 col-lg-3 col-form-label">Company</label>
                                         <div class="col-md-8 col-lg-9">
                                             <input name="company" type="text" class="form-control" id="company"
@@ -2448,7 +2409,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row mb-3">
+                                    <div class="row mb-4">
                                         <label for="Job" class="col-md-4 col-lg-3 col-form-label">Job</label>
                                         <div class="col-md-8 col-lg-9">
                                             <input name="job" type="text" class="form-control" id="Job"
@@ -2456,7 +2417,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row mb-3">
+                                    <div class="row mb-4">
                                         <label for="Country" class="col-md-4 col-lg-3 col-form-label">Country</label>
                                         <div class="col-md-8 col-lg-9">
                                             <input name="country" type="text" class="form-control" id="Country"
@@ -2464,7 +2425,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row mb-3">
+                                    <div class="row mb-4">
                                         <label for="Address" class="col-md-4 col-lg-3 col-form-label">Address</label>
                                         <div class="col-md-8 col-lg-9">
                                             <input name="address" type="text" class="form-control" id="Address"
@@ -2472,7 +2433,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row mb-3">
+                                    <div class="row mb-4">
                                         <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
                                         <div class="col-md-8 col-lg-9">
                                             <input name="phone" type="text" class="form-control" id="Phone"
@@ -2480,7 +2441,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row mb-3">
+                                    <div class="row mb-4">
                                         <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
                                         <div class="col-md-8 col-lg-9">
                                             <input name="email" type="email" class="form-control" id="Email"
@@ -2488,7 +2449,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row mb-3">
+                                    <div class="row mb-4">
                                         <label for="Twitter" class="col-md-4 col-lg-3 col-form-label">Twitter
                                             Profile</label>
                                         <div class="col-md-8 col-lg-9">
@@ -2497,7 +2458,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row mb-3">
+                                    <div class="row mb-4">
                                         <label for="Facebook" class="col-md-4 col-lg-3 col-form-label">Facebook
                                             Profile</label>
                                         <div class="col-md-8 col-lg-9">
@@ -2506,7 +2467,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row mb-3">
+                                    <div class="row mb-4">
                                         <label for="Instagram" class="col-md-4 col-lg-3 col-form-label">Instagram
                                             Profile</label>
                                         <div class="col-md-8 col-lg-9">
@@ -2515,7 +2476,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row mb-3">
+                                    <div class="row mb-4">
                                         <label for="Linkedin" class="col-md-4 col-lg-3 col-form-label">Linkedin
                                             Profile</label>
                                         <div class="col-md-8 col-lg-9">
@@ -2536,7 +2497,7 @@
                                 <!-- Settings Form -->
                                 <form>
 
-                                    <div class="row mb-3">
+                                    <div class="row mb-4">
                                         <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Email
                                             Notifications</label>
                                         <div class="col-md-8 col-lg-9">
@@ -2581,7 +2542,7 @@
                                 <!-- Change Password Form -->
                                 <form>
 
-                                    <div class="row mb-3">
+                                    <div class="row mb-4">
                                         <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current
                                             Password</label>
                                         <div class="col-md-8 col-lg-9">
@@ -2590,7 +2551,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row mb-3">
+                                    <div class="row mb-4">
                                         <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New
                                             Password</label>
                                         <div class="col-md-8 col-lg-9">
@@ -2599,7 +2560,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row mb-3">
+                                    <div class="row mb-4">
                                         <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New
                                             Password</label>
                                         <div class="col-md-8 col-lg-9">
@@ -2630,10 +2591,10 @@
 <!-- ======= Footer ======= -->
 <footer id="footer" class="footer">
     <div class="copyright">
-        &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>SP</span></strong>. All Rights Reserved
     </div>
     <div class="credits">
-        Designed by <a href="https://bootstrapmade.com/">SP</a>
+        Designed by <a href="">SP</a>
     </div>
 </footer><!-- End Footer -->
 
