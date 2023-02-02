@@ -42,7 +42,7 @@ h6 {
 --------------------------------------------------------------*/
 
 #main, #profile, #birdsComponent, #birdsEditComponent, #mortalityComponent,   #feedPurchaseComponent, #feedConsumptionComponent,
-#feedStockSummaryComoponent, #cageComponent,#orderDetailsComponent,#placeOrderComponent {
+#feedStockSummaryComoponent, #cageComponent,#orderDetailsComponent,#placeOrderComponent, #storeComponent {
     margin-top: 60px;
     padding: 20px 30px;
     transition: all 0.3s;
@@ -58,7 +58,7 @@ h6 {
 @media (max-width: 1199px) {
 
     #main, #profile, #birdsComponent, #birdsEditComponent, #mortalityComponent,   #feedPurchaseComponent, #feedConsumptionComponent,
-    #feedStockSummaryComoponent, #cageComponent,#orderDetailsComponent,#placeOrderComponent {
+    #feedStockSummaryComoponent, #cageComponent,#orderDetailsComponent,#placeOrderComponent,#storeComponent {
         padding: 20px;
     }
 }
@@ -668,6 +668,7 @@ h6 {
     #feedStockSummaryComoponent,
     #cageComponent,
     #orderDetailsComponent,
+    #storeComponent,
     #placeOrderComponent,
     #footer {
         margin-left: 300px;
@@ -692,6 +693,7 @@ h6 {
     .toggle-sidebar #cageComponent,
     .toggle-sidebar #orderDetailsComponent,
     .toggle-sidebar #placeOrderComponent,
+    .toggle-sidebar #storeComponent,
     .toggle-sidebar #profile,
     .toggle-sidebar #footer {
         margin-left: 0;
