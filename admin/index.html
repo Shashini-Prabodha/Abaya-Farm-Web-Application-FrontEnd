@@ -9,6 +9,18 @@
     <meta content="" name="description">
     <meta content="" name="keywords">
 
+    <!--medicine table -->
+    <!--    <link id="pagestyle" href="../temp/assets/css/soft-ui-dashboard.css?v=1.0.7" rel="stylesheet" />-->
+
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.21.2/dist/bootstrap-table.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://unpkg.com/bootstrap-table@1.21.2/dist/bootstrap-table.min.js"></script>
+    <!-- Latest compiled and minified Locales -->
+    <script src="https://unpkg.com/bootstrap-table@1.21.2/dist/locale/bootstrap-table-zh-CN.min.js"></script>
+
     <!-- Favicons -->
     <link href="assets/img/logo.png" rel="icon">
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -19,8 +31,11 @@
           rel="stylesheet">
 
     <!--    Data Table-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
+
+    <link href="https://unpkg.com/bootstrap-table@1.21.2/dist/bootstrap-table.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/bootstrap-table@1.21.2/dist/bootstrap-table.min.js"></script>
+
 
     <!-- Vendor CSS Files -->
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -34,6 +49,7 @@
 
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/table.css" rel="stylesheet">
     <!-- Template color CSS File -->
     <link href="assets/css/color.css" rel="stylesheet">
     <link href="assets/scss/ripple.scss" rel="stylesheet">
@@ -41,7 +57,7 @@
 
     <!--    Data Table js-->
     <script defer src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script defer src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <script defer src="https://cdn.datatables.net/1.13.1/js/jquery.dataTablbtnes.min.js"></script>
     <script defer src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
     <script defer src="assets/js/dataTable.js"></script>
     <style scoped lang="scss">
@@ -80,158 +96,18 @@
                 </a>
             </li><!-- End Search Icon-->
 
-            <li class="nav-item dropdown">
-
-                <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-                    <i class="bi bi-bell"></i>
-                    <span class="badge bg-primary badge-number">4</span>
-                </a><!-- End Notification Icon -->
-
-                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
-                    <li class="dropdown-header">
-                        You have 4 new notifications
-                        <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
-                    </li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-
-                    <li class="notification-item">
-                        <i class="bi bi-exclamation-circle text-warning"></i>
-                        <div>
-                            <h4>Lorem Ipsum</h4>
-                            <p>Quae dolorem earum veritatis oditseno</p>
-                            <p>30 min. ago</p>
-                        </div>
-                    </li>
-
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-
-                    <li class="notification-item">
-                        <i class="bi bi-x-circle text-danger"></i>
-                        <div>
-                            <h4>Atque rerum nesciunt</h4>
-                            <p>Quae dolorem earum veritatis oditseno</p>
-                            <p>1 hr. ago</p>
-                        </div>
-                    </li>
-
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-
-                    <li class="notification-item">
-                        <i class="bi bi-check-circle text-success"></i>
-                        <div>
-                            <h4>Sit rerum fuga</h4>
-                            <p>Quae dolorem earum veritatis oditseno</p>
-                            <p>2 hrs. ago</p>
-                        </div>
-                    </li>
-
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-
-                    <li class="notification-item">
-                        <i class="bi bi-info-circle text-primary"></i>
-                        <div>
-                            <h4>Dicta reprehenderit</h4>
-                            <p>Quae dolorem earum veritatis oditseno</p>
-                            <p>4 hrs. ago</p>
-                        </div>
-                    </li>
-
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li class="dropdown-footer">
-                        <a href="#">Show all notifications</a>
-                    </li>
-
-                </ul><!-- End Notification Dropdown Items -->
-
-            </li><!-- End Notification Nav -->
-
-            <li class="nav-item dropdown">
-
-                <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-                    <i class="bi bi-chat-left-text"></i>
-                    <span class="badge bg-success badge-number">3</span>
-                </a><!-- End Messages Icon -->
-
-                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
-                    <li class="dropdown-header">
-                        You have 3 new messages
-                        <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
-                    </li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-
-                    <li class="message-item">
-                        <a href="#">
-                            <img src="assets/img/messages-1.jpg" alt="" class="rounded-circle">
-                            <div>
-                                <h4>Maria Hudson</h4>
-                                <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                                <p>4 hrs. ago</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-
-                    <li class="message-item">
-                        <a href="#">
-                            <img src="assets/img/messages-2.jpg" alt="" class="rounded-circle">
-                            <div>
-                                <h4>Anna Nelson</h4>
-                                <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                                <p>6 hrs. ago</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-
-                    <li class="message-item">
-                        <a href="#">
-                            <img src="assets/img/messages-3.jpg" alt="" class="rounded-circle">
-                            <div>
-                                <h4>David Muldon</h4>
-                                <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                                <p>8 hrs. ago</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-
-                    <li class="dropdown-footer">
-                        <a href="#">Show all messages</a>
-                    </li>
-
-                </ul><!-- End Messages Dropdown Items -->
-
-            </li><!-- End Messages Nav -->
 
             <li class="nav-item dropdown pe-3">
 
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
                     <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-                    <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
-                </a><!-- End Profile Iamge Icon -->
+                    <span class="d-none d-md-block dropdown-toggle ps-2">Abeygunasekara</span>
+                </a>
 
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                     <li class="dropdown-header">
-                        <h6>Kevin Anderson</h6>
-                        <span>Web Designer</span>
+                        <h6>Abeygunasekara</h6>
+                        <span>Admin</span>
                     </li>
                     <li>
                         <hr class="dropdown-divider">
@@ -373,37 +249,41 @@
 
         </li><!-- End Store Nav -->
 
-        <!--        <li class="nav-item">-->
-        <!--            <a class="nav-link collapsed btnCursor" data-bs-target="#product-nav" data-bs-toggle="collapse" id="btnProduct">-->
-        <!--                <i class="bi bi-egg"></i><span>Product</span>-->
-        <!--            </a>-->
-
-        <!--        </li>&lt;!&ndash; End Product Nav &ndash;&gt;-->
-
         <li class="nav-item">
-            <a class="nav-link btnCursor collapsed" data-bs-target="#cusomer-nav" data-bs-toggle="collapse" id="btnCustomer">
+            <a class="nav-link btnCursor collapsed" data-bs-target="#customer-nav" data-bs-toggle="collapse"
+               id="btnCustomer">
                 <i class="bi bi-person"></i><span>Customer</span>
             </a>
 
         </li><!-- End Customer Nav -->
 
+        <li class="nav-item">
 
-        <!--        <li class="nav-heading">Pages</li>-->
+            <a class="nav-link collapsed" data-bs-target="#medicine-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-prescription2"></i><span>Medicine</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="medicine-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a class="btnCursor" id="btnMedicine">
+                        <i class="bi bi-cart-plus"></i><span>Purchase</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="btnCursor" id="btnMediConsumption">
+                        <i class="bx bx-fork"></i><span>Consumption</span>
+                    </a>
+                </li>
 
+            </ul>
+        </li><!-- End Medicine Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="pages-contact.html">
-                <i class="bi bi-prescription2"></i>
-                <span>Medicine</span>
+            <a class="nav-link btnCursor collapsed" data-bs-target="#employee-nav" data-bs-toggle="collapse"
+               id="btnEmployee">
+                <i class="bi bi-person"></i><span>Employee</span>
             </a>
-        </li><!-- End Contact Page Nav -->
 
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="pages-faq.html">
-                <i class="bi bi-person"></i>
-                <span>Employee</span>
-            </a>
-        </li><!-- End F.A.Q Page Nav -->
+        </li><!-- End Employee Nav -->
 
         <li class="nav-item">
             <a class="nav-link collapsed btnCursor" id="">
@@ -1117,16 +997,7 @@
                             <tbody id="batchTBody">
                             </tbody>
                             <tfoot>
-                            <tr>
-                                <th scope="col">#Batch ID</th>
-                                <th scope="col">Quantity</th>
-                                <th scope="col">Chick Price</th>
-                                <th scope="col">Type</th>
-                                <th scope="col">Supplier ID</th>
-                                <th scope="col">Order ID</th>
-                                <th scope="col">Purchase Date</th>
-                                <th scope="col">Cage ID</th>
-                            </tr>
+
                             </tfoot>
                         </table>
 
@@ -1256,13 +1127,6 @@
                             <tbody id="batchEditTBody">
                             </tbody>
                             <tfoot>
-                            <th scope="col">#Batch ID</th>
-                            <th scope="col">No of Chicks</th>
-                            <th scope="col">Available Birds</th>
-                            <th scope="col">Cage ID</th>
-                            <th scope="col">Type</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Purchase Date</th>
 
                             </tfoot>
                         </table>
@@ -1377,12 +1241,7 @@
                             <tbody id="mortalityTBody">
                             </tbody>
                             <tfoot>
-                            <th scope="col">#Batch ID</th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">Available Quantity</th>
-                            <th scope="col">No of Mortality</th>
-                            <th scope="col">Cage ID</th>
-                            <th scope="col">Date</th>
+
                             </tfoot>
                         </table>
 
@@ -1544,14 +1403,7 @@
                             <tbody id="feedTBody">
                             </tbody>
                             <tfoot>
-                            <th scope="col">#Batch ID</th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">Unit Price</th>
-                            <th scope="col">Type</th>
-                            <th scope="col">Supplier ID</th>
-                            <th scope="col">Order ID</th>
-                            <th scope="col">Purchase Date</th>
-                            <th scope="col">Cage ID</th>
+
                             </tfoot>
                         </table>
 
@@ -1681,11 +1533,7 @@
                             <tbody id="feedConsumptionTBody">
                             </tbody>
                             <tfoot>
-                            <th scope="col">#Feed ID</th>
-                            <th scope="col">Used Qty</th>
-                            <th scope="col">Date</th>
-                            <th scope="col">Cage ID</th>
-                            <th scope="col">Type</th>
+
                             </tfoot>
                         </table>
 
@@ -2043,10 +1891,7 @@
                             <tbody id="cageTBody">
                             </tbody>
                             <tfoot>
-                            <th scope="col">#Cage ID</th>
-                            <th scope="col">Maximum No of Birds</th>
-                            <th scope="col">Available Birds</th>
-                            <th scope="col">Batch ID</th>
+
                             </tfoot>
 
                         </table>
@@ -2161,13 +2006,7 @@
                             <tbody id="orderDetailsTBody"></tbody>
                             <tfoot>
                             <tr>
-                                <th scope="col">#Order ID</th>
-                                <th scope="col">Item ID</th>
-                                <th scope="col">Quantity</th>
-                                <th scope="col">Unit Price(Rs.)</th>
-                                <th scope="col">Total(Rs.)</th>
-                                <th scope="col">Date</th>
-                                <th scope="col">Customer ID</th>
+
                             </tr>
                             </tfoot>
                         </table>
@@ -2356,12 +2195,7 @@
                             <tbody id="storeTBody">
                             </tbody>
                             <tfoot>
-                            <th scope="col">#Product ID</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">Wholesale Price(Rs)</th>
-                            <th scope="col">Created_at</th>
-                            <th scope="col">Updated_at</th>
+
                             </tfoot>
 
                         </table>
@@ -2416,8 +2250,8 @@
                         </div>
 
 
-
-                        <button type="button" class="btn btn-outline-warning mt-3 col-2" style="margin-left: 18%" id="updateProduct">
+                        <button type="button" class="btn btn-outline-warning mt-3 col-2" style="margin-left: 18%"
+                                id="updateProduct">
                             Update
                         </button>
                         <button type="button" class="btn btn-outline-danger mt-3 col-2" id="delProduct">Delete
@@ -2443,7 +2277,7 @@
 
 <!-- ======= Customer ======= -->
 <main id="customerComponent" style="display: none" class="main">
-
+    <!--    <link rel="stylesheet" type="text/css" href="assets/css/table.css">-->
     <div class="pagetitle">
         <h1>Customer Management</h1>
         <nav>
@@ -2520,33 +2354,896 @@
 
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Cage Details</h5>
+                        <h5 class="card-title">Customer Details</h5>
 
-                        <!-- Cage Table -->
-                        <table id="tblCustomerDetails" class="table table-striped table-hover" style="width:100%">
+                        <!-- Customer Table -->
+                        <!--                        <table id="tblCustomerDetails" class="table table-striped table-hover" style="width:100%">-->
+                        <!--                            <thead>-->
+                        <!--                            <tr>-->
+                        <!--                                <th scope="col">#Customer Email</th>-->
+                        <!--                                <th scope="col">Name</th>-->
+                        <!--                                <th scope="col">Mobile</th>-->
+                        <!--                                <th scope="col">Address</th>-->
+                        <!--                                <th scope="col">Created_at</th>-->
+                        <!--                                <th scope="col">Updated_at</th>-->
+                        <!--                            </tr>-->
+                        <!--                            </thead>-->
+                        <!--                            <tbody id="customerTBody">-->
+                        <!--                            </tbody>-->
+                        <!--                            <tfoot>-->
+
+                        <!--                            </tfoot>-->
+
+                        <!--                        </table>-->
+                        <!--                        <div class="container">-->
+                        <!--                            <div class="card">-->
+                        <!--                                <div class="card-header">-->
+
+
+                        <!--                                </div>-->
+                        <div class="table-responsive">
+                            <table class="table table-hover ">
+                                <thead class="table-light">
+                                <tr>
+
+                                    <th scope="col">#Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Mobile</th>
+                                    <th scope="col">Address</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Edit</th>
+
+
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td data-label="Name">
+                                        <img alt="..."
+                                             src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
+                                             class="avatar avatar-sm rounded-circle me-2">
+                                        <a class="text-heading font-semibold" href="#">
+                                            Robert Fox
+                                        </a>
+                                    </td>
+
+                                    <td data-label="Email">
+                                        <a class="text-current" href="mailto:robert.fox@example.com">robert.fox@example.com</a>
+                                    </td>
+                                    <td data-label="Mobile">
+                                        <a class="text-current">0718975555</a>
+                                    </td>
+                                    <td data-label="Address">
+                                        <a class="text-current">Ambagahawaththa, Kamburugamuwa</a>
+                                    </td>
+                                    <td data-label="Status">
+                                        <span class="badge bg-soft-success text-success">active</span>
+                                    </td>
+                                    <td data-label="" class="text-end">
+                                        <!--                                        <div class="button">-->
+                                        <!--                                            <a class="text-muted" href="#editCustomerModal1" role="button"-->
+                                        <!--                                               data-bs-toggle="modal"-->
+                                        <!--                                               aria-haspopup="true" aria-expanded="false">-->
+                                        <!--                                                <i class="bi bi-pencil-square"></i>-->
+                                        <!--                                            </a>-->
+                                        <!--                                           -->
+                                        <!--                                        </div>-->
+
+                                        <button type="button" class="btn" data-bs-toggle="modal"
+                                                data-bs-target="#editCustomerModal"><i class="bi bi-pencil-square"></i>
+                                        </button>
+
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td data-label="Name">
+                                        <img alt="..."
+                                             src="https://images.unsplash.com/photo-1610271340738-726e199f0258?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
+                                             class="avatar avatar-sm rounded-circle me-2">
+                                        <a class="text-heading font-semibold" href="#">
+                                            Darlene Robertson
+                                        </a>
+                                    </td>
+                                    <td data-label="Email">
+                                        <a class="text-current" href="mailto:robert.fox@example.com">robert.fox@example.com</a>
+                                    </td>
+                                    <td data-label="Mobile">
+                                        <a class="text-current">0718975555</a>
+                                    </td>
+                                    <td data-label="Address">
+                                        <a class="text-current">Ambagahawaththa, Kamburugamuwa</a>
+                                    </td>
+                                    <td data-label="Status">
+                                        <span class="badge bg-soft-warning text-warning">block</span>
+                                    </td>
+                                    <td data-label="" class="text-end">
+
+                                        <button type="button" class="btn " data-bs-toggle="modal"
+                                                data-bs-target="#editCustomerModal"><i class="bi bi-pencil-square"></i>
+                                        </button>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Name">
+                                        <img alt="..."
+                                             src="https://images.unsplash.com/photo-1610878722345-79c5eaf6a48c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
+                                             class="avatar avatar-sm rounded-circle me-2">
+                                        <a class="text-heading font-semibold" href="#">
+                                            Theresa Webb
+                                        </a>
+                                    </td>
+                                    <td data-label="Email">
+                                        <a class="text-current" href="mailto:robert.fox@example.com">robert.fox@example.com</a>
+                                    </td>
+                                    <td data-label="Mobile">
+                                        <a class="text-current">0718975555</a>
+                                    </td>
+                                    <td data-label="Address">
+                                        <a class="text-current">Ambagahawaththa, Kamburugamuwa</a>
+                                    </td>
+                                    <td data-label="Status">
+                                        <span class="badge bg-soft-danger text-danger">deactivate</span>
+                                    </td>
+                                    <td data-label="" class="text-end">
+
+                                        <button type="button" class="btn " data-bs-toggle="modal"
+                                                data-bs-target="#editCustomerModal"><i class="bi bi-pencil-square"></i>
+                                        </button>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Name">
+                                        <img alt="..."
+                                             src="https://images.unsplash.com/photo-1612422656768-d5e4ec31fac0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
+                                             class="avatar avatar-sm rounded-circle me-2">
+                                        <a class="text-heading font-semibold" href="#">
+                                            Kristin Watson
+                                        </a>
+                                    </td>
+                                    <td data-label="Email">
+                                        <a class="text-current" href="mailto:robert.fox@example.com">robert.fox@example.com</a>
+                                    </td>
+                                    <td data-label="Mobile">
+                                        <a class="text-current">0718975555</a>
+                                    </td>
+                                    <td data-label="Address">
+                                        <a class="text-current">Ambagahawaththa, Kamburugamuwa</a>
+                                    </td>
+                                    <td data-label="Status">
+                                        <span class="badge bg-soft-success text-success">active</span>
+                                    </td>
+                                    <td data-label="" class="text-end">
+
+                                        <button type="button" class="btn " data-bs-toggle="modal"
+                                                data-bs-target="#editCustomerModal"><i class="bi bi-pencil-square"></i>
+                                        </button>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Job Title">
+                                        <img alt="..."
+                                             src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
+                                             class="avatar avatar-sm rounded-circle me-2">
+                                        <a class="text-heading font-semibold" href="#">
+                                            Robert Fox
+                                        </a>
+                                    </td>
+                                    <td data-label="Email">
+                                        <a class="text-current" href="mailto:robert.fox@example.com">robert.fox@example.com</a>
+                                    </td>
+                                    <td data-label="Mobile">
+                                        <a class="text-current">0718975555</a>
+                                    </td>
+                                    <td data-label="Address">
+                                        <a class="text-current">Ambagahawaththa, Kamburugamuwa</a>
+                                    </td>
+                                    <td data-label="Status">
+                                        <span class="badge bg-soft-success text-success">active</span>
+                                    </td>
+                                    <td data-label="" class="text-end">
+
+                                        <button type="button" class="btn " data-bs-toggle="modal"
+                                                data-bs-target="#editCustomerModal"><i class="bi bi-pencil-square"></i>
+                                        </button>
+
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<!--Edit Customer Model-->
+<div id="editCustomerModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit Customer</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="text" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Address</label>
+                        <textarea class="form-control" required></textarea>
+                    </div>
+                    <!--                    <div class="dropdown">-->
+                    <!--                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">-->
+                    <!--                            Status-->
+                    <!--                        </button>-->
+                    <!--                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">-->
+
+                    <!--                            <li><a class="dropdown-item text-success" href="#">Active</a></li>-->
+                    <!--                            <li><a class="dropdown-item text-danger" href="#">Deactivate</a></li>-->
+                    <!--                            <li><a class="dropdown-item text-warning" href="#">Block</a></li>-->
+
+                    <!--                        </ul>-->
+                    <!--                    </div>-->
+                    <label for="floatingCustStatus" class="col-sm-2 col-form-label">Status </label>
+                    <div class="form-group">
+                        <select class="form-select " id="floatingCustStatus"
+                                aria-label="Status">
+                            <option value="1" class="bg-soft-success dropdown-item">Active</option>
+                            <option value="2" class="bg-soft-danger p-2">Deactivate</option>
+                            <option value="3" class="bg-soft-warning p-2">Block</option>
+
+                        </select>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                    <input type="submit" class="btn btn-info" value="Save">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- ======= Medicine ======= -->
+<main id="medicineComponent" style="display: none" class="main">
+
+    <div class="pagetitle">
+        <h1>Purchase Medicine</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item">Medicine</li>
+                <li class="breadcrumb-item active">Purchase</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="card">
+                    <div class="card-body">
+
+                        <h5 class="card-title">Purchase Medicine</h5>
+
+
+                        <div class="row mb-4">
+                            <label for="mediSupplierName" class="col-sm-2 col-form-label">Supplier Name </label>
+                            <div class="col-sm-4">
+                                <select class="form-select " id="mediSupplierName"
+                                        aria-label="Floating label select example">
+                                    <option value="0" selected>-Select Supplier Name-</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                            <label for="mediSupplierID" class="col-sm-2 col-form-label">Supplier ID</label>
+
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="mediSupplierID">
+                            </div>
+
+                        </div>
+
+                        <div class="row mb-4">
+                            <label for="medicineName" class="col-sm-2 col-form-label">Medicine Name </label>
+                            <div class="col-sm-4">
+                                <select class="form-select " id="medicineName"
+                                        aria-label="Floating label select example">
+                                    <option value="0" selected>-Select Medicine Name-</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                            <label for="medicineID" class="col-sm-2 col-form-label">Medicine ID</label>
+
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="medicineID">
+                            </div>
+
+                        </div>
+
+                        <!--                        <div class="row mb-4">-->
+
+                        <!--                            <label for="cmdCageMedi" class="col-sm-2 col-form-label">Cage ID</label>-->
+                        <!--                            <div class="col-sm-4">-->
+                        <!--                                <select class="form-select " id="cmdCageMedi"-->
+                        <!--                                        aria-label="Available Cage">-->
+                        <!--                                    <option value="0" selected>-Select Cage ID-</option>-->
+                        <!--                                    <option value="1">1</option>-->
+                        <!--                                    <option value="2">2</option>-->
+                        <!--                                    <option value="3">3</option>-->
+                        <!--                                </select>-->
+                        <!--                            </div>-->
+
+                        <!--                            <label for="birdBIDM" class="col-sm-2 col-form-label">Batch ID</label>-->
+                        <!--                            <div class="col-sm-4">-->
+                        <!--                                <input type="text" class="form-control" id="birdBIDM">-->
+                        <!--                            </div>-->
+
+
+                        <!--                        </div>-->
+
+                        <div class="row mb-4">
+
+                            <label for="mediDescription" class="col-sm-2 col-form-label">Description</label>
+
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="mediDescription">
+                            </div>
+
+                            <label for="mediQty" class="col-sm-2 col-form-label">Qty on Hand</label>
+
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" id="mediQty">
+                            </div>
+
+
+                        </div>
+
+                        <div class="row mb-4">
+
+                            <label for="inputUnitPriceMedi" class="col-sm-1 col-form-label">Unit Price</label>
+                            <div class="col-sm-3">
+                                <input type="number" class="form-control" id="inputUnitPriceMedi">
+                            </div>
+
+                            <label for="totalPriceMedi" class="col-sm-1 col-form-label">Total(Rs)</label>
+
+                            <div class="col-sm-3">
+                                <input type="number" class="form-control" id="totalPriceMedi">
+                            </div>
+
+
+                            <div class="col-4">
+<!--                                <button type="button" class="btn btn-outline-success col-4" id="AddNewMedi"> New-->
+<!--                                </button>-->
+                            </div>
+                            <!--                            <div class="col-sm-4">-->
+
+
+                            <!--                            </div>-->
+
+
+                        </div>
+                        <!--                                <div class="row mb-4">-->
+                        <button type="button" class="btn btn-outline-success mt-3 col-2"
+                                style="margin-left: 17%" id="purchaseMedi">Purchase
+                        </button>
+                        <button type="button" class="btn btn-outline-danger mt-3 col-2" id="delMedicine">Delete
+                        </button>
+                        <button type="button" class="btn btn-outline-warning mt-3 col-2" id="updateMedicine">
+                            Update
+                        </button>
+                        <button type="button" class="btn btn-outline-primary mt-3 col-2" id="getAllMedicine">Get
+                            All
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary mt-3 col-2" id="clearMedicine">
+                            Clear
+                        </button>
+                        <!--                                </div>-->
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Medicine Details</h5>
+
+                        <!-- Feed Purchase Table -->
+                        <table id="tblMediPDetails" class="table table-striped table-hover" style="width:100%">
+
                             <thead>
                             <tr>
-                                <th scope="col">#Customer Email</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Mobile</th>
-                                <th scope="col">Address</th>
-                                <th scope="col">Created_at</th>
-                                <th scope="col">Updated_at</th>
+                                <th scope="col">#Medicine ID</th>
+                                <th scope="col">Medicine Name</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Unit Price</th>
+                                <th scope="col">Supplier ID</th>
+                                <th scope="col">Batch ID</th>
+                                <th scope="col">Purchase Date</th>
                             </tr>
                             </thead>
-                            <tbody id="customerTBody">
+                            <tbody id="mediTBody">
                             </tbody>
                             <tfoot>
-                            <th scope="col">#Customer Email</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Mobile</th>
-                            <th scope="col">Address</th>
-                            <th scope="col">Created_at</th>
-                            <th scope="col">Updated_at</th>
-                            </tfoot>
 
+                            </tfoot>
                         </table>
 
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+</main>
+
+<!-- ======= Medicine/Consmption ======= -->
+<main id="mediConsumptionComponent" style="display: none" class="main">
+
+    <div class="pagetitle">
+        <h1>Feed Consumption</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item">Feed</li>
+                <li class="breadcrumb-item active">Consumption</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="card">
+                    <div class="card-body">
+
+                        <h5 class="card-title">Medicine Consumption</h5>
+
+                        <!--  Form Elements -->
+
+                        <div class="row mb-4">
+                            <label for="mediConsCageID" class="col-sm-2 col-form-label">Cage ID </label>
+                            <div class="col-sm-4">
+                                <select class="form-select " id="mediConsCageID"
+                                        aria-label="Floating label select example">
+                                    <option value="0" selected>-Select Cage ID -</option>
+                                    <option value="1">B1</option>
+                                    <option value="2">B2</option>
+                                    <option value="3">B3</option>
+                                </select>
+                            </div>
+
+                            <label for="noOfBirdMC" class="col-sm-2 col-form-label">Available No of
+                                Birds</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" id="noOfBirdMC">
+                            </div>
+
+                        </div>
+
+                        <div class="row mb-4">
+
+                            <label for="cmbMediMC" class="col-sm-2 col-form-label">Medicine Name </label>
+                            <div class="col-sm-4">
+                                <select class="form-select " id="cmbMediMC"
+                                        aria-label="Floating label select example">
+                                    <option value="0" selected>-Select Medicine -</option>
+                                    <option value="1">Vitamin</option>
+                                    <option value="2">Vermex</option>
+                                    <option value="3">Vitamin</option>
+                                </select>
+                            </div>
+
+                            <label for="usedMedi" class="col-sm-2 col-form-label">Used Quantity</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" id="usedMedi">
+                            </div>
+                        </div>
+
+
+                        <!--                                <div class="row mb-4">-->
+                        <button type="button" class="btn btn-outline-success mt-3 col-2"
+                                style="margin-left: 22%" id="updateMediC">Consumption
+                        </button>
+
+                        <button type="button" class="btn btn-outline-warning mt-3 col-2" id="getAllMediDetails">
+                            Get All
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary mt-3 col-2" id="clearMediDetails">
+                            Clear
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Feed Details</h5>
+
+                        <!-- Feed Consumption Table -->
+                        <table id="tblMediConsDetails" class="table table-striped table-hover" style="width:100%">
+
+                            <thead>
+                            <tr>
+                                <th scope="col">#Medicine ID</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Used Qty</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Cage ID</th>
+                                <th scope="col">batch ID</th>
+                            </tr>
+                            </thead>
+                            <tbody id="mediConsumptionTBody">
+                            </tbody>
+                            <tfoot>
+
+                            </tfoot>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<!-- ======= Customer ======= -->
+<main id="employeeComponent" style="display: none" class="main">
+    <!--    <link rel="stylesheet" type="text/css" href="assets/css/table.css">-->
+    <div class="pagetitle">
+        <h1>Employee Management</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item">Employee</li>
+                <li class="breadcrumb-item active">Employee Management</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="card">
+                    <div class="card-body">
+
+                        <h5 class="card-title">Manage Employee</h5>
+
+                        <!--  Form Elements -->
+
+                        <div class="row mb-4">
+
+                            <label for="inputEmployeeNIC" class="col-sm-2 col-form-label">NIC</label>
+
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="inputEmployeeNIC">
+                            </div>
+
+                            <label for="inputEmployeeName" class="col-sm-2 col-form-label">Name</label>
+
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="inputEmployeeName">
+                            </div>
+
+
+                        </div>
+                        <div class="row mb-4">
+                            <label for="inputEmployeeMobile" class="col-sm-2 col-form-label">Mobile</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" id="inputEmployeeMobile">
+                            </div>
+
+                            <label for="inputEmployeeEmail" class="col-sm-2 col-form-label">Email</label>
+
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="inputEmployeeEmail">
+                            </div>
+
+
+                        </div>
+                        <div class="row mb-4">
+
+
+                            <label for="inputEmployeeAddr" class="col-sm-2 col-form-label">Address</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" id="inputEmployeeAddr">
+                            </div>
+
+                            <label for="selectEmployeeRole" class="col-sm-2 col-form-label">Role</label>
+
+                            <div class="col-sm-4">
+                                <select class="form-select " id="selectEmployeeRole"
+                                        aria-label="Floating label select example">
+                                    <option value="0" selected>-Select Role-</option>
+                                    <option value="1" selected>-Feeder-</option>
+                                    <option value="2" selected>-Manager-</option>
+                                </select>
+                            </div>
+
+
+                        </div>
+                        <button type="button" class="btn btn-outline-success mt-3 col-2"
+                                style="margin-left: 18%" id="saveEmployee">Save
+                        </button>
+                        <button type="button" class="btn btn-outline-danger mt-3 col-2" id="delEmployee">Delete
+                        </button>
+                        <button type="button" class="btn btn-outline-warning mt-3 col-2" id="updateEmployee">
+                            Update
+                        </button>
+                        <button type="button" class="btn btn-outline-primary mt-3 col-2" id="getAllEmployee">Get
+                            All
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary mt-3 col-2" id="clearEmployee">
+                            Clear
+                        </button>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Customer Details</h5>
+
+                        <div class="table-responsive">
+                            <table class="table table-hover ">
+                                <thead class="table-light">
+                                <tr>
+
+                                    <th scope="col">#Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">NIC</th>
+                                    <th scope="col">Mobile</th>
+                                    <th scope="col">Address</th>
+                                    <th scope="col">Role</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Edit</th>
+
+
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td data-label="Name">
+                                        <img alt="..."
+                                             src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
+                                             class="avatar avatar-sm rounded-circle me-2">
+                                        <a class="text-heading font-semibold" href="#">
+                                            Robert Fox
+                                        </a>
+                                    </td>
+
+                                    <td data-label="Email">
+                                        <a class="text-current" href="mailto:robert.fox@example.com">robert.fox@example.com</a>
+                                    </td>
+                                    <td data-label="NIC">
+                                        <a class="text-current" >853659894V</a>
+                                    </td>
+                                    <td data-label="Mobile">
+                                        <a class="text-current">0718975555</a>
+                                    </td>
+                                    <td data-label="Address">
+                                        <a class="text-current">Ambagahawaththa, Kamburugamuwa</a>
+                                    </td>
+                                   <td data-label="Role">
+                                         <a class="text-current">Manager</a>
+                                    </td>
+                                    <td data-label="Status">
+                                        <span class="badge bg-soft-success text-success">active</span>
+                                    </td>
+                                    <td data-label="" class="text-end">
+                                        <!--                                        <div class="button">-->
+                                        <!--                                            <a class="text-muted" href="#editCustomerModal1" role="button"-->
+                                        <!--                                               data-bs-toggle="modal"-->
+                                        <!--                                               aria-haspopup="true" aria-expanded="false">-->
+                                        <!--                                                <i class="bi bi-pencil-square"></i>-->
+                                        <!--                                            </a>-->
+                                        <!--                                           -->
+                                        <!--                                        </div>-->
+
+                                        <button type="button" class="btn" data-bs-toggle="modal"
+                                                data-bs-target="#editCustomerModal"><i class="bi bi-pencil-square"></i>
+                                        </button>
+
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td data-label="Name">
+                                        <img alt="..."
+                                             src="https://images.unsplash.com/photo-1610271340738-726e199f0258?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
+                                             class="avatar avatar-sm rounded-circle me-2">
+                                        <a class="text-heading font-semibold" href="#">
+                                            Darlene Robertson
+                                        </a>
+                                    </td>
+                                    <td data-label="Email">
+                                        <a class="text-current" href="mailto:robert.fox@example.com">robert.fox@example.com</a>
+                                    </td>
+                                    <td data-label="NIC">
+                                        <a class="text-current" >853659894V</a>
+                                    </td>
+                                    <td data-label="Mobile">
+                                        <a class="text-current">0718975555</a>
+                                    </td>
+                                    <td data-label="Address">
+                                        <a class="text-current">Ambagahawaththa, Kamburugamuwa</a>
+                                    </td>
+                                   <td data-label="Role">
+                                         <a class="text-current">Manager</a>
+                                    </td>
+                                    <td data-label="Status">
+                                        <span class="badge bg-soft-warning text-warning">block</span>
+                                    </td>
+                                    <td data-label="" class="text-end">
+
+                                        <button type="button" class="btn " data-bs-toggle="modal"
+                                                data-bs-target="#editCustomerModal"><i class="bi bi-pencil-square"></i>
+                                        </button>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Name">
+                                        <img alt="..."
+                                             src="https://images.unsplash.com/photo-1610878722345-79c5eaf6a48c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
+                                             class="avatar avatar-sm rounded-circle me-2">
+                                        <a class="text-heading font-semibold" href="#">
+                                            Theresa Webb
+                                        </a>
+                                    </td>
+                                    <td data-label="Email">
+                                        <a class="text-current" href="mailto:robert.fox@example.com">robert.fox@example.com</a>
+                                    </td>
+                                    <td data-label="NIC">
+                                        <a class="text-current" >853659894V</a>
+                                    </td>
+                                    <td data-label="Mobile">
+                                        <a class="text-current">0718975555</a>
+                                    </td>
+                                    <td data-label="Address">
+                                        <a class="text-current">Ambagahawaththa, Kamburugamuwa</a>
+                                    </td>
+                                   <td data-label="Role">
+                                         <a class="text-current">Manager</a>
+                                    </td>
+                                    <td data-label="Status">
+                                        <span class="badge bg-soft-danger text-danger">deactivate</span>
+                                    </td>
+                                    <td data-label="" class="text-end">
+
+                                        <button type="button" class="btn " data-bs-toggle="modal"
+                                                data-bs-target="#editCustomerModal"><i class="bi bi-pencil-square"></i>
+                                        </button>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Name">
+                                        <img alt="..."
+                                             src="https://images.unsplash.com/photo-1612422656768-d5e4ec31fac0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
+                                             class="avatar avatar-sm rounded-circle me-2">
+                                        <a class="text-heading font-semibold" href="#">
+                                            Kristin Watson
+                                        </a>
+                                    </td>
+                                    <td data-label="Email">
+                                        <a class="text-current" href="mailto:robert.fox@example.com">robert.fox@example.com</a>
+                                    </td>
+                                    <td data-label="NIC">
+                                        <a class="text-current" >853659894V</a>
+                                    </td>
+                                    <td data-label="Mobile">
+                                        <a class="text-current">0718975555</a>
+                                    </td>
+                                    <td data-label="Address">
+                                        <a class="text-current">Ambagahawaththa, Kamburugamuwa</a>
+                                    </td>
+                                   <td data-label="Role">
+                                         <a class="text-current">Manager</a>
+                                    </td>
+                                    <td data-label="Status">
+                                        <span class="badge bg-soft-success text-success">active</span>
+                                    </td>
+                                    <td data-label="" class="text-end">
+
+                                        <button type="button" class="btn " data-bs-toggle="modal"
+                                                data-bs-target="#editCustomerModal"><i class="bi bi-pencil-square"></i>
+                                        </button>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Job Title">
+                                        <img alt="..."
+                                             src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
+                                             class="avatar avatar-sm rounded-circle me-2">
+                                        <a class="text-heading font-semibold" href="#">
+                                            Robert Fox
+                                        </a>
+                                    </td>
+                                    <td data-label="Email">
+                                        <a class="text-current" href="mailto:robert.fox@example.com">robert.fox@example.com</a>
+                                    </td>
+
+
+                                    <td data-label="NIC">
+                                        <a class="text-current" >853659894V</a>
+                                    </td>
+                                    <td data-label="Mobile">
+                                        <a class="text-current">0718975555</a>
+                                    </td>
+                                    <td data-label="Address">
+                                        <a class="text-current">Ambagahawaththa, Kamburugamuwa</a>
+                                    </td>
+                                   <td data-label="Role">
+                                         <a class="text-current">Manager</a>
+                                    </td>
+                                    <td data-label="Status">
+                                        <span class="badge bg-soft-success text-success">active</span>
+                                    </td>
+                                    <td data-label="" class="text-end">
+
+                                        <button type="button" class="btn " data-bs-toggle="modal"
+                                                data-bs-target="#editCustomerModal"><i class="bi bi-pencil-square"></i>
+                                        </button>
+
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2578,7 +3275,7 @@
                     <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
                         <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-                        <h2>Kamal Nishantha</h2>
+                        <h2>Abeygunasekara</h2>
                         <h3>Owner</h3>
                         <div class="social-links mt-2">
                             <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
@@ -2636,7 +3333,7 @@
 
                                 <div class="row">
                                     <div class="col-lg-3 col-md-4 label ">Full Name</div>
-                                    <div class="col-lg-9 col-md-8">Kamal Nishantha</div>
+                                    <div class="col-lg-9 col-md-8">Abeygunasekara</div>
                                 </div>
 
 
@@ -2684,7 +3381,7 @@
                                         <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Full Name</label>
                                         <div class="col-md-8 col-lg-9">
                                             <input name="fullName" type="text" class="form-control" id="fullName"
-                                                   value="Kamal Nishantha">
+                                                   value="Abeygunasekara">
                                         </div>
                                     </div>
 
@@ -2854,6 +3551,8 @@
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
         class="bi bi-arrow-up-short"></i></a>
 <script src="assets/js/jquery-3.6.0.js"></script>
+
+
 <script src="assets/js/singleController.js"></script>
 
 <!-- Vendor JS Files -->
