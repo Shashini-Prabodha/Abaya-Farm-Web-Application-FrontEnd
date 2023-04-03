@@ -65,6 +65,15 @@
     </style>
 
 
+    <!--    Ajax-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+            integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!--    Sweet Alert-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
 </head>
 
 <body>
@@ -172,7 +181,7 @@
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#bird-nav" data-bs-toggle="collapse" href="#">
-                <i class="fas fa-crow" style="margin-right: 10px"></i><span>Birds</span><i
+                <i class="fas fa-crow" style="margin-right: 10px"></i><span>Flock</span><i
                     class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="bird-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
@@ -284,6 +293,15 @@
             </a>
 
         </li><!-- End Employee Nav -->
+
+
+        <li class="nav-item">
+            <a class="nav-link btnCursor collapsed" data-bs-target="#supplier-nav" data-bs-toggle="collapse"
+               id="btnSupplier">
+                <i class="bi bi-person"></i><span>Supplier</span>
+            </a>
+
+        </li><!-- End Supplier Nav -->
 
         <li class="nav-item">
             <a class="nav-link collapsed btnCursor" id="">
@@ -2130,7 +2148,8 @@
                             <label for="total" class="col-sm-1 col-form-label"
                                    style="color: #d90101; font-weight: bold">Total(Rs)</label>
                             <div class="col-sm-2">
-                                <input type="number" class="form-control bg-secondary-light text-danger" id="total" readonly>
+                                <input type="number" class="form-control bg-secondary-light text-danger" id="total"
+                                       readonly>
                             </div>
                         </div>
 
@@ -2958,7 +2977,7 @@
 
 </main>
 
-<!-- ======= Customer ======= -->
+<!-- ======= Employee ======= -->
 <main id="employeeComponent" style="display: none" class="main">
     <!--    <link rel="stylesheet" type="text/css" href="assets/css/table.css">-->
     <div class="pagetitle">
@@ -2981,7 +3000,7 @@
                         <h5 class="card-title">Manage Employee</h5>
 
                         <!--  Form Elements -->
-
+                        <input type="text" class="form-control" id="empID" hidden>
                         <div class="row mb-4">
 
                             <label for="inputEmployeeNIC" class="col-sm-2 col-form-label">NIC</label>
@@ -3017,7 +3036,7 @@
 
                             <label for="inputEmployeeAddr" class="col-sm-2 col-form-label">Address</label>
                             <div class="col-sm-4">
-                                <input type="number" class="form-control" id="inputEmployeeAddr">
+                                <input type="text" class="form-control" id="inputEmployeeAddr">
                             </div>
 
                             <label for="selectEmployeeRole" class="col-sm-2 col-form-label">Role</label>
@@ -3026,8 +3045,10 @@
                                 <select class="form-select " id="selectEmployeeRole"
                                         aria-label="Floating label select example">
                                     <option value="0" selected>-Select Role-</option>
-                                    <option value="1" selected>-Feeder-</option>
-                                    <option value="2" selected>-Manager-</option>
+                                    <option value="1" class=" dropdown-item">Cashier</option>
+                                    <option value="2" class=" p-2">Farm Keeper</option>
+                                    <option value="3" class=" p-2">Manager</option>
+                                    <option value="4" class=" p-2">Admin</option>
                                 </select>
                             </div>
 
@@ -3061,10 +3082,10 @@
 
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Customer Details</h5>
+                        <h5 class="card-title">Employee Details</h5>
 
                         <div class="table-responsive">
-                            <table class="table table-hover ">
+                            <table class="table table-hover" id="empTable">
                                 <thead class="table-light">
                                 <tr>
 
@@ -3081,12 +3102,218 @@
                                     <th></th>
                                 </tr>
                                 </thead>
+                                <tbody id="empTBody">
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<!--Edit Employee Model-->
+<div id="editEmployeeModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit Employee</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="text" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Address</label>
+                        <textarea class="form-control" required></textarea>
+                    </div>
+                    <!--                    <div class="dropdown">-->
+                    <!--                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">-->
+                    <!--                            Status-->
+                    <!--                        </button>-->
+                    <!--                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">-->
+
+                    <!--                            <li><a class="dropdown-item text-success" href="#">Active</a></li>-->
+                    <!--                            <li><a class="dropdown-item text-danger" href="#">Deactivate</a></li>-->
+                    <!--                            <li><a class="dropdown-item text-warning" href="#">Block</a></li>-->
+
+                    <!--                        </ul>-->
+                    <!--                    </div>-->
+
+                    <label for="floatingRoleStatus" class="col-sm-2 col-form-label">Role </label>
+                    <div class="form-group">
+                        <select class="form-select " id="floatingRoleStatus"
+                                aria-label="Status">
+                            <option value="1" class=" dropdown-item">Cashier</option>
+                            <option value="2" class=" p-2">Farm Keeper</option>
+                            <option value="3" class=" p-2">Manager</option>
+                            <option value="4" class=" p-2">Admin</option>
+
+                        </select>
+                    </div>
+                    <label for="floatingEmpStatus" class="col-sm-2 col-form-label">Status </label>
+                    <div class="form-group">
+                        <select class="form-select " id="floatingEmpStatus"
+                                aria-label="Status">
+                            <option value="1" class="bg-soft-success dropdown-item">Active</option>
+                            <option value="2" class="bg-soft-danger p-2">Deactivate</option>
+                            <option value="3" class="bg-soft-warning p-2">Block</option>
+
+                        </select>
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-default" data-bs-dismiss="modal" value="Cancel">
+                    <input type="submit" class="btn btn-info" value="Save">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!-- ======= Supplier ======= -->
+<main id="supplierComponent" style="display: none" class="main">
+    <!--    <link rel="stylesheet" type="text/css" href="assets/css/table.css">-->
+    <div class="pagetitle">
+        <h1>Supplier Management</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item">Supplier</li>
+                <li class="breadcrumb-item active">Supplier Management</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="card">
+                    <div class="card-body">
+
+                        <h5 class="card-title">Manage Supplier</h5>
+
+                        <!--  Form Elements -->
+
+                        <div class="row mb-4">
+
+                            <label for="inputSupName" class="col-sm-2 col-form-label">Name</label>
+
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="inputSupName">
+                            </div>
+
+                            <label for="inputSupEmail" class="col-sm-2 col-form-label">Email</label>
+
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="inputSupEmail">
+                            </div>
+
+
+                        </div>
+                        <div class="row mb-4">
+                            <label for="inputSupMobile" class="col-sm-2 col-form-label">Mobile</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" id="inputSupMobile">
+                            </div>
+                            <label for="inputSupCompany" class="col-sm-2 col-form-label">Company</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" id="inputSupCompany">
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn btn-outline-success mt-3 col-2"
+                                style="margin-left: 18%" id="saveSupplier">Save
+                        </button>
+                        <button type="button" class="btn btn-outline-danger mt-3 col-2" id="delSupplier">Delete
+                        </button>
+                        <button type="button" class="btn btn-outline-warning mt-3 col-2" id="updateSupplier">
+                            Update
+                        </button>
+                        <button type="button" class="btn btn-outline-primary mt-3 col-2" id="getAllSupplier">Get
+                            All
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary mt-3 col-2" id="clearSupplier">
+                            Clear
+                        </button>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Supplier Details</h5>
+
+                        <!-- Customer Table -->
+                        <!--                        <table id="tblCustomerDetails" class="table table-striped table-hover" style="width:100%">-->
+                        <!--                            <thead>-->
+                        <!--                            <tr>-->
+                        <!--                                <th scope="col">#Customer Email</th>-->
+                        <!--                                <th scope="col">Name</th>-->
+                        <!--                                <th scope="col">Mobile</th>-->
+                        <!--                                <th scope="col">Address</th>-->
+                        <!--                                <th scope="col">Created_at</th>-->
+                        <!--                                <th scope="col">Updated_at</th>-->
+                        <!--                            </tr>-->
+                        <!--                            </thead>-->
+                        <!--                            <tbody id="customerTBody">-->
+                        <!--                            </tbody>-->
+                        <!--                            <tfoot>-->
+
+                        <!--                            </tfoot>-->
+
+                        <!--                        </table>-->
+                        <!--                        <div class="container">-->
+                        <!--                            <div class="card">-->
+                        <!--                                <div class="card-header">-->
+
+
+                        <!--                                </div>-->
+                        <div class="table-responsive">
+                            <table class="table table-hover ">
+                                <thead class="table-light">
+                                <tr>
+
+                                    <th scope="col">#Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Mobile</th>
+                                    <th scope="col">Company</th>
+
+
+                                    <th></th>
+                                </tr>
+                                </thead>
                                 <tbody>
                                 <tr>
                                     <td data-label="Name">
-                                        <img alt="..."
-                                             src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
-                                             class="avatar avatar-sm rounded-circle me-2">
+
                                         <a class="text-heading font-semibold" href="#">
                                             Robert Fox
                                         </a>
@@ -3095,43 +3322,18 @@
                                     <td data-label="Email">
                                         <a class="text-current" href="mailto:robert.fox@example.com">robert.fox@example.com</a>
                                     </td>
-                                    <td data-label="NIC">
-                                        <a class="text-current">853659894V</a>
-                                    </td>
                                     <td data-label="Mobile">
                                         <a class="text-current">0718975555</a>
                                     </td>
                                     <td data-label="Address">
-                                        <a class="text-current">Ambagahawaththa, Kamburugamuwa</a>
+                                        <a class="text-current">Prima Ltd</a>
                                     </td>
-                                    <td data-label="Role">
-                                        <a class="text-current">Manager</a>
-                                    </td>
-                                    <td data-label="Status">
-                                        <span class="badge bg-soft-success text-success">active</span>
-                                    </td>
-                                    <td data-label="" class="text-end">
-                                        <!--                                        <div class="button">-->
-                                        <!--                                            <a class="text-muted" href="#editCustomerModal1" role="button"-->
-                                        <!--                                               data-bs-toggle="modal"-->
-                                        <!--                                               aria-haspopup="true" aria-expanded="false">-->
-                                        <!--                                                <i class="bi bi-pencil-square"></i>-->
-                                        <!--                                            </a>-->
-                                        <!--                                           -->
-                                        <!--                                        </div>-->
 
-                                        <button type="button" class="btn" data-bs-toggle="modal"
-                                                data-bs-target="#editCustomerModal"><i class="bi bi-pencil-square"></i>
-                                        </button>
-
-                                    </td>
 
                                 </tr>
                                 <tr>
                                     <td data-label="Name">
-                                        <img alt="..."
-                                             src="https://images.unsplash.com/photo-1610271340738-726e199f0258?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
-                                             class="avatar avatar-sm rounded-circle me-2">
+
                                         <a class="text-heading font-semibold" href="#">
                                             Darlene Robertson
                                         </a>
@@ -3139,34 +3341,18 @@
                                     <td data-label="Email">
                                         <a class="text-current" href="mailto:robert.fox@example.com">robert.fox@example.com</a>
                                     </td>
-                                    <td data-label="NIC">
-                                        <a class="text-current">853659894V</a>
-                                    </td>
                                     <td data-label="Mobile">
                                         <a class="text-current">0718975555</a>
                                     </td>
                                     <td data-label="Address">
-                                        <a class="text-current">Ambagahawaththa, Kamburugamuwa</a>
+                                        <a class="text-current">ABC company</a>
                                     </td>
-                                    <td data-label="Role">
-                                        <a class="text-current">Manager</a>
-                                    </td>
-                                    <td data-label="Status">
-                                        <span class="badge bg-soft-warning text-warning">block</span>
-                                    </td>
-                                    <td data-label="" class="text-end">
 
-                                        <button type="button" class="btn " data-bs-toggle="modal"
-                                                data-bs-target="#editCustomerModal"><i class="bi bi-pencil-square"></i>
-                                        </button>
 
-                                    </td>
                                 </tr>
                                 <tr>
                                     <td data-label="Name">
-                                        <img alt="..."
-                                             src="https://images.unsplash.com/photo-1610878722345-79c5eaf6a48c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
-                                             class="avatar avatar-sm rounded-circle me-2">
+
                                         <a class="text-heading font-semibold" href="#">
                                             Theresa Webb
                                         </a>
@@ -3174,34 +3360,18 @@
                                     <td data-label="Email">
                                         <a class="text-current" href="mailto:robert.fox@example.com">robert.fox@example.com</a>
                                     </td>
-                                    <td data-label="NIC">
-                                        <a class="text-current">853659894V</a>
-                                    </td>
                                     <td data-label="Mobile">
                                         <a class="text-current">0718975555</a>
                                     </td>
                                     <td data-label="Address">
-                                        <a class="text-current">Ambagahawaththa, Kamburugamuwa</a>
+                                        <a class="text-current">SB Company</a>
                                     </td>
-                                    <td data-label="Role">
-                                        <a class="text-current">Manager</a>
-                                    </td>
-                                    <td data-label="Status">
-                                        <span class="badge bg-soft-danger text-danger">deactivate</span>
-                                    </td>
-                                    <td data-label="" class="text-end">
 
-                                        <button type="button" class="btn " data-bs-toggle="modal"
-                                                data-bs-target="#editCustomerModal"><i class="bi bi-pencil-square"></i>
-                                        </button>
 
-                                    </td>
                                 </tr>
                                 <tr>
                                     <td data-label="Name">
-                                        <img alt="..."
-                                             src="https://images.unsplash.com/photo-1612422656768-d5e4ec31fac0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
-                                             class="avatar avatar-sm rounded-circle me-2">
+
                                         <a class="text-heading font-semibold" href="#">
                                             Kristin Watson
                                         </a>
@@ -3209,34 +3379,17 @@
                                     <td data-label="Email">
                                         <a class="text-current" href="mailto:robert.fox@example.com">robert.fox@example.com</a>
                                     </td>
-                                    <td data-label="NIC">
-                                        <a class="text-current">853659894V</a>
-                                    </td>
                                     <td data-label="Mobile">
                                         <a class="text-current">0718975555</a>
                                     </td>
                                     <td data-label="Address">
-                                        <a class="text-current">Ambagahawaththa, Kamburugamuwa</a>
+                                        <a class="text-current">Prima Cmopanay</a>
                                     </td>
-                                    <td data-label="Role">
-                                        <a class="text-current">Manager</a>
-                                    </td>
-                                    <td data-label="Status">
-                                        <span class="badge bg-soft-success text-success">active</span>
-                                    </td>
-                                    <td data-label="" class="text-end">
 
-                                        <button type="button" class="btn " data-bs-toggle="modal"
-                                                data-bs-target="#editCustomerModal"><i class="bi bi-pencil-square"></i>
-                                        </button>
-
-                                    </td>
                                 </tr>
                                 <tr>
                                     <td data-label="Job Title">
-                                        <img alt="..."
-                                             src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
-                                             class="avatar avatar-sm rounded-circle me-2">
+
                                         <a class="text-heading font-semibold" href="#">
                                             Robert Fox
                                         </a>
@@ -3244,30 +3397,13 @@
                                     <td data-label="Email">
                                         <a class="text-current" href="mailto:robert.fox@example.com">robert.fox@example.com</a>
                                     </td>
-
-
-                                    <td data-label="NIC">
-                                        <a class="text-current">853659894V</a>
-                                    </td>
                                     <td data-label="Mobile">
                                         <a class="text-current">0718975555</a>
                                     </td>
                                     <td data-label="Address">
-                                        <a class="text-current">Ambagahawaththa, Kamburugamuwa</a>
+                                        <a class="text-current">Mithrananda Company</a>
                                     </td>
-                                    <td data-label="Role">
-                                        <a class="text-current">Manager</a>
-                                    </td>
-                                    <td data-label="Status">
-                                        <span class="badge bg-soft-success text-success">active</span>
-                                    </td>
-                                    <td data-label="" class="text-end">
 
-                                        <button type="button" class="btn " data-bs-toggle="modal"
-                                                data-bs-target="#editCustomerModal"><i class="bi bi-pencil-square"></i>
-                                        </button>
-
-                                    </td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -3597,6 +3733,7 @@
 
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
+<script src="assets/js/controller/EmployeeController.js"></script>
 
 </body>
 

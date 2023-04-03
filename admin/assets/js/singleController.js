@@ -1,82 +1,86 @@
 $('#btnDash').on('click', function () {
     setVisibility('block', 'none', 'none', 'none', 'none', 'none', 'none',
-        'none', 'none', 'none','none','none','none','none','none', 'none');
+        'none', 'none', 'none','none','none','none','none','none', 'none','none');
 });
 
 $('#btnPurchase').on('click', function () {
     setVisibility('none', 'block', 'none', 'none', 'none', 'none', 'none',
-        'none', 'none', 'none','none','none','none','none','none', 'none');
+        'none', 'none', 'none','none','none','none','none','none', 'none','none');
 });
 
 $('#btnEditBatch').on('click', function () {
     setVisibility('none', 'none', 'block', 'none', 'none', 'none', 'none',
-        'none', 'none', 'none','none','none','none','none','none', 'none');
+        'none', 'none', 'none','none','none','none','none','none', 'none','none');
 });
 
 $('#btnMortality').on('click', function () {
     setVisibility('none', 'none', 'none', 'block', 'none', 'none', 'none',
-        'none', 'none', 'none','none','none','none','none','none', 'none');
+        'none', 'none', 'none','none','none','none','none','none', 'none','none');
 });
 
 $('#btnPurchaseFeed').on('click', function () {
     setVisibility('none', 'none', 'none', 'none', 'block', 'none', 'none',
-        'none', 'none', 'none','none','none','none','none','none', 'none');
+        'none', 'none', 'none','none','none','none','none','none', 'none','none');
 });
 
 $('#btnFeedConsumption').on('click', function () {
     setVisibility('none', 'none', 'none', 'none', 'none', 'block', 'none',
-        'none', 'none', 'none','none','none','none','none','none', 'none');
+        'none', 'none', 'none','none','none','none','none','none', 'none','none');
 });
 
 $('#btnFeedStockSummary').on('click', function () {
     setVisibility('none', 'none', 'none', 'none', 'none', 'none', 'block',
-        'none', 'none', 'none','none','none','none','none','none', 'none');
+        'none', 'none', 'none','none','none','none','none','none', 'none','none');
 });
 $('#btnCage').on('click', function () {
     setVisibility('none', 'none', 'none', 'none', 'none', 'none', 'none',
-        'block', 'none', 'none','none','none','none','none','none', 'none');
+        'block', 'none', 'none','none','none','none','none','none', 'none','none');
 });
 $('#btnOrderDetails').on('click', function () {
     setVisibility('none', 'none', 'none', 'none', 'none', 'none', 'none',
-        'none', 'block', 'none','none','none','none','none','none', 'none');
+        'none', 'block', 'none','none','none','none','none','none', 'none','none');
 });
 $('#btnPlaceOrder').on('click', function () {
     setVisibility('none', 'none', 'none', 'none', 'none', 'none', 'none',
-        'none', 'none','block', 'none','none','none','none','none', 'none');
+        'none', 'none','block', 'none','none','none','none','none', 'none','none');
 });
 
 $('#btnStore').on('click', function () {
     setVisibility('none', 'none', 'none', 'none', 'none', 'none', 'none',
-        'none', 'none','none','block', 'none','none','none','none', 'none');
+        'none', 'none','none','block', 'none','none','none','none', 'none','none');
 });
 $('#btnCustomer').on('click', function () {
     setVisibility('none', 'none', 'none', 'none', 'none', 'none', 'none',
-        'none', 'none','none','none', 'block','none','none','none', 'none');
+        'none', 'none','none','none', 'block','none','none','none', 'none','none');
 });
 
 $('#btnMedicine').on('click', function () {
     setVisibility('none', 'none', 'none', 'none', 'none', 'none', 'none',
-        'none', 'none','none','none', 'none','block','none','none', 'none');
+        'none', 'none','none','none', 'none','block','none','none', 'none','none');
 });
 
 $('#btnMediConsumption').on('click', function () {
     setVisibility('none', 'none', 'none', 'none', 'none', 'none', 'none',
-        'none', 'none','none','none', 'none','none','block','none', 'none');
+        'none', 'none','none','none', 'none','none','block','none', 'none','none');
 });
 
 $('#btnEmployee').on('click', function () {
     setVisibility('none', 'none', 'none', 'none', 'none', 'none', 'none',
-        'none', 'none','none','none', 'none','none','none','block','none');
+        'none', 'none','none','none', 'none','none','none','block','none','none');
 });
 
+$('#btnSupplier').on('click', function () {
+    setVisibility('none', 'none', 'none', 'none', 'none', 'none', 'none',
+        'none', 'none','none','none', 'none','none','none','none','block','none');
+});
 $('#btnProfile').on('click', function () {
     setVisibility('none', 'none', 'none', 'none', 'none', 'none', 'none',
-        'none', 'none', 'none','none','none','none','none', 'none','block');
+        'none', 'none', 'none','none','none','none','none', 'none','none','block');
 });
 
 function setVisibility(main, birdsComponent, birdsEditComponent, mortalityComponent, feedPurchaseComponent, feedConsumptionComponent, feedStockSummaryComoponent, cageComponent,
                        orderDetailsComponent, placeOrderComponent,storeComponent,customerComponent,medicineComponent,mediConsumptionComponent,
-                       employeeComponent,profile) {
+                       employeeComponent,supplierComponent,profile) {
     document.getElementById('main').style.display = main;
     document.getElementById('birdsComponent').style.display = birdsComponent;
     document.getElementById('birdsEditComponent').style.display = birdsEditComponent;
@@ -92,6 +96,7 @@ function setVisibility(main, birdsComponent, birdsEditComponent, mortalityCompon
     document.getElementById('medicineComponent').style.display = medicineComponent;
     document.getElementById('mediConsumptionComponent').style.display = mediConsumptionComponent;
     document.getElementById('employeeComponent').style.display = employeeComponent;
+    document.getElementById('supplierComponent').style.display = supplierComponent;
     document.getElementById('profile').style.display = profile;
     //  document.getElementById('footer').style.display = footer;
 

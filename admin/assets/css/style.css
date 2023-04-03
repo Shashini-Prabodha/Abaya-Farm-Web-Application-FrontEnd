@@ -36,7 +36,7 @@ h6 {
 
 #main, #profile, #birdsComponent, #birdsEditComponent, #mortalityComponent,   #feedPurchaseComponent, #feedConsumptionComponent,
 #feedStockSummaryComoponent, #cageComponent,#orderDetailsComponent,#placeOrderComponent, #storeComponent, #customerComponent,
-#medicineComponent, #mediConsumptionComponent,#employeeComponent {
+#medicineComponent, #mediConsumptionComponent,#employeeComponent , #supplierComponent{
     margin-top: 60px;
     padding: 20px 30px;
     transition: all 0.3s;
@@ -53,7 +53,7 @@ h6 {
 
     #main, #profile, #birdsComponent, #birdsEditComponent, #mortalityComponent,   #feedPurchaseComponent, #feedConsumptionComponent,
     #feedStockSummaryComoponent, #cageComponent,#orderDetailsComponent,#placeOrderComponent,#storeComponent, #customerComponent,
-    #medicineComponent,#mediConsumptionComponent,#employeeComponent{
+    #medicineComponent,#mediConsumptionComponent,#employeeComponent , #supplierComponent{
         padding: 20px;
     }
 }
@@ -669,6 +669,7 @@ h6 {
     #mediConsumptionComponent,
     #employeeComponent,
     #placeOrderComponent,
+    #supplierComponent,
     #footer {
         margin-left: 300px;
     }
@@ -697,6 +698,7 @@ h6 {
     .toggle-sidebar #mediConsumptionComponent,
     .toggle-sidebar #medicineComponent,
     .toggle-sidebar #employeeComponent,
+    .toggle-sidebar #supplierComponent,
     .toggle-sidebar #profile,
     .toggle-sidebar #footer {
         margin-left: 0;
