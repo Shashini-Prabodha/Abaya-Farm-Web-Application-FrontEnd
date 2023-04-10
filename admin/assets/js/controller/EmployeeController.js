@@ -1,5 +1,4 @@
 URL = "http://localhost:9090/api/v1/employee";
-
 function loadAllEmployee() {
 
 
@@ -20,11 +19,58 @@ function loadAllEmployee() {
                 let address = response[i].address;
                 let email = response[i].email;
                 let role = response[i].role;
+                let status = response[i].status;
 
 
-                let row = `<tr><td>${id}</td><td>${nic}</td><td>${name}</td><td>${mobile}</td><td>${address}</td><td>${email}</td><td>${role}</td><td>  <button type="button" class="btn " data-bs-toggle="modal"
-                                                data-bs-target="#editCustomerModal"><i class="bi bi-pencil-square"></i>
-                                        </button></td></tr>`;
+                let row = `<tr><td>${id}</td><td>${nic}</td><td>${name}</td><td>${mobile}</td><td>${address}</td><td>${email}</td><td>${role}</td><td>${status}</td>
+                    <td> 
+                   
+                    <button type="button" class="btn " data-bs-toggle="modal"  data-bs-target="#editModal${id}" ><i class="bi bi-pencil-square"></i></button>
+                    
+                <!--     <button type="button" class="btn" data-bs-toggle="modal"
+                               
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </button>-->
+
+                           <div id="editModal${id}" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form>
+                     <div class="modal-header">
+                    <h4 class="modal-title">Edit Employee Status</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                     <label for="empID" class="col-sm-2 col-form-label">Employee ID </label>
+                        <input type="text" class="form-control"  id=${id} readonly>
+                    </div>
+   
+                    <label for="floatingEmpStatus${id}" class="col-sm-2 col-form-label">Status </label>
+                    <div class="form-group">
+                        <select class="form-select " id="floatingEmpStatus${id}"
+                                aria-label="Status">
+                            <option value="Active" class="bg-soft-success dropdown-item">Active</option>
+                            <option value="Deactivate" class="bg-soft-danger p-2">Deactivate</option>
+                            <option value="Block" class="bg-soft-warning p-2">Block</option>
+
+                        </select>
+                    </div>
+
+
+
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-default" data-bs-dismiss="modal" value="Cancel">
+                    <input type="button" class="btn btn-info" value="Save" id="updateStatus${id}">
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+                    
+                    </td>
+                    </tr>`;
                 $('#empTBody').append(row);
 
                 $('#empTBody tr').css({"cursor": "pointer"});
@@ -37,6 +83,7 @@ function loadAllEmployee() {
                     let address = $(this).children('td:eq(4)').text();
                     let email = $(this).children('td:eq(5)').text();
                     let role = $(this).children('td:eq(6)').text();
+                    let status = $(this).children('td:eq(7)').text();
 
 
                     $('#empID').val(id);
@@ -46,10 +93,66 @@ function loadAllEmployee() {
                     $('#inputEmployeeAddr').val(address);
                     $('#inputEmployeeEmail').val(email);
                     $('#selectEmployeeRole').val(role)
+                    $('#empStatusH').text(status)
 
+                    console.log(status+"**"+$('#empStatusH').text());
 
                 });
 
+                $("#" + id).val(id);
+
+
+
+                $('#updateStatus' + id).click(function () {
+                    let empId = id;
+                    let empStatus = $('#floatingEmpStatus'+id).val();
+
+                    Swal.fire({
+                        title: 'Do you want to save the changes?',
+                        showDenyButton: true,
+                        confirmButtonText: `Save`,
+                        denyButtonText: `Don't save`,
+                    }).then((result) => {
+
+                        if (result.isConfirmed) {
+
+                            $.ajax({
+                                url: 'http://localhost:9090/api/v1/employee/updateStatus',
+                                method: 'put',
+                                contentType: "application/json",
+                                data: JSON.stringify(
+                                {
+                                    id: id,
+                                    status:empStatus,
+                                    updated_at: getCurrentDateTime(),
+
+                                }),
+
+                                success: function (data) {
+
+                                    Swal.fire({
+                                        icon: 'success',
+                                        title: 'Your work has been saved',
+                                        showConfirmButton: false,
+                                        timer: 1000
+                                    })
+
+                                    loadAllEmployee();
+
+
+                                },
+                                error: function (responce) {
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: 'Something went wrong!!',
+                                        showConfirmButton: false,
+                                        timer: 1000
+                                    });
+                                }
+                            })
+                        }
+                    });
+                });
 
             }
         }
@@ -69,13 +172,14 @@ $("#saveEmployee").click(function () {
     let email = $("#inputEmployeeEmail").val();
     let address = $("#inputEmployeeAddr").val();
     let role = $("#selectEmployeeRole").val();
-
+    let date = getCurrentDateTime();
     if (checkNic() && nic != "") {
         if (checkEmpName() && name != "") {
             if (checkEmpMobile() && mobile != "") {
                 if (checkEmail() && email != "") {
                     if (checkAddress() && address != "") {
-                        if (role != "" && role > 0) {
+
+                        if (role !=""  && role != 0 && role != null) {
                             Swal.fire({
                                 title: 'Do you want to save the changes?',
                                 showDenyButton: true,
@@ -88,21 +192,32 @@ $("#saveEmployee").click(function () {
 
                                     $.ajax({
                                         method: "post",
-                                        url: "http://localhost:9090/api/v1/employee",
+                                        url: "http://localhost:9090/api/v1/employeeLogin",
                                         contentType: "application/json",
                                         async: true,
                                         data: JSON.stringify(
                                             {
-                                                nic: nic,
-                                                name: name,
-                                                mobile: mobile,
-                                                email: email,
-                                                address: address,
-                                                role: role
+                                                loginDTO: {
+                                                    email: email,
+                                                    password: nic,
+                                                    role: role,
+                                                },
+                                                employeeDTO:
+                                                    {
+                                                        nic: nic,
+                                                        name: name,
+                                                        mobile: mobile,
+                                                        email: email,
+                                                        address: address,
+                                                        role: role,
+                                                        status: "Active",
+                                                        created_at: date,
+                                                        updated_at: date,
+
+                                                    }
                                             }
                                         ),
                                         success: function (data) {
-                                            loadAllEmployee();
 
                                             Swal.fire({
 
@@ -111,6 +226,8 @@ $("#saveEmployee").click(function () {
                                                 showConfirmButton: false,
                                                 timer: 1500
                                             })
+                                            loadAllEmployee();
+
                                             clearTextFields();
 
                                         }
@@ -185,6 +302,7 @@ $('#updateEmployee').click(function () {
     let email = $("#inputEmployeeEmail").val();
     let address = $("#inputEmployeeAddr").val();
     let role = $("#selectEmployeeRole").val();
+    let status=$('#empStatusH').text();
 
     if (id != "") {
         if (checkNic() && nic != "") {
@@ -192,7 +310,7 @@ $('#updateEmployee').click(function () {
                 if (checkEmpMobile() && mobile != "") {
                     if (checkEmail() && email != "") {
                         if (checkAddress() && address != "") {
-                            if (role != "" && role > 0) {
+                            if (role !=""  && role != 0 && role != null) {
                                 Swal.fire({
                                     title: 'Do you want to save the changes?',
                                     showDenyButton: true,
@@ -200,8 +318,8 @@ $('#updateEmployee').click(function () {
                                     confirmButtonText: `Save`,
                                     denyButtonText: `Don't save`,
                                 }).then((result) => {
-
                                     if (result.isConfirmed) {
+
                                         $.ajax({
                                             method: "put",
                                             url: URL,
@@ -215,7 +333,10 @@ $('#updateEmployee').click(function () {
                                                     mobile: mobile,
                                                     email: email,
                                                     address: address,
-                                                    role: role
+                                                    role: role,
+                                                    status: status,
+                                                    updated_at: getCurrentDateTime(),
+
                                                 }
                                             ),
 
@@ -445,7 +566,7 @@ function checkEmail() {
 // check role
 $("#selectEmployeeRole").click(function () {
     let role = $("#selectEmployeeRole").val();
-    if (role != "" && role > 0) {
+    if (role !=""  && role != 0 && role != null) {
         $('#selectEmployeeRole').css('border', '1px solid #2ed573');
     } else {
         $('#selectEmployeeRole').css('border', '1px solid #ff6b81');
@@ -472,4 +593,24 @@ function clearTextFields() {
     $('#inputEmployeeEmail').css('border', '1px solid #ccc');
     $('#inputEmployeeAddr').css('border', '1px solid #ccc');
     $('#selectEmployeeRole').css('border', '1px solid #ccc');
+}
+
+function getCurrentDateTime() {
+    let today = new Date();
+    let dd = today.getDate();
+    let mm = today.getMonth() + 1; // January is 0
+    let yyyy = today.getFullYear();
+    let hours = today.getHours();
+    let minutes = today.getMinutes();
+    let seconds = today.getSeconds();
+
+    if (dd < 10) dd = '0' + dd;
+    if (mm < 10) mm = '0' + mm;
+    if (hours < 10) hours = '0' + hours;
+    if (minutes < 10) minutes = '0' + minutes;
+    if (seconds < 10) seconds = '0' + seconds;
+
+    return `${yyyy}-${mm}-${dd} ${hours}:${minutes}:${seconds}`;
+
+
 }

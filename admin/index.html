@@ -56,13 +56,13 @@
 
 
     <!--    Data Table js-->
-    <script defer src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<!--
     <script defer src="https://cdn.datatables.net/1.13.1/js/jquery.dataTablbtnes.min.js"></script>
     <script defer src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
     <script defer src="assets/js/dataTable.js"></script>
     <style scoped lang="scss">
         @import '../admin/assets/scss/ripple.scss';
-    </style>
+    </style>-->
 
 
     <!--    Ajax-->
@@ -3045,13 +3045,14 @@
                                 <select class="form-select " id="selectEmployeeRole"
                                         aria-label="Floating label select example">
                                     <option value="0" selected>-Select Role-</option>
-                                    <option value="1" class=" dropdown-item">Cashier</option>
-                                    <option value="2" class=" p-2">Farm Keeper</option>
-                                    <option value="3" class=" p-2">Manager</option>
-                                    <option value="4" class=" p-2">Admin</option>
+                                    <option value="Cashier" class=" dropdown-item">Cashier</option>
+                                    <option value="Farm Keeper" class=" p-2">Farm Keeper</option>
+                                    <option value="Manager" class=" p-2">Manager</option>
+                                    <option value="Admin" class=" p-2">Admin</option>
                                 </select>
                             </div>
 
+                            <label type="text" class="form-control" id="empStatusH" hidden>
 
                         </div>
                         <button type="button" class="btn btn-outline-success mt-3 col-2"
@@ -3089,11 +3090,12 @@
                                 <thead class="table-light">
                                 <tr>
 
-                                    <th scope="col">#Name</th>
-                                    <th scope="col">Email</th>
+                                    <th scope="col">#ID</th>
                                     <th scope="col">NIC</th>
+                                    <th scope="col">Name</th>
                                     <th scope="col">Mobile</th>
                                     <th scope="col">Address</th>
+                                    <th scope="col">Email</th>
                                     <th scope="col">Role</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">Edit</th>
@@ -3118,7 +3120,7 @@
 </main>
 
 <!--Edit Employee Model-->
-<div id="editEmployeeModal" class="modal fade">
+<!--<div id="editEmployeeModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
             <form>
@@ -3143,18 +3145,18 @@
                         <label>Address</label>
                         <textarea class="form-control" required></textarea>
                     </div>
-                    <!--                    <div class="dropdown">-->
-                    <!--                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">-->
-                    <!--                            Status-->
-                    <!--                        </button>-->
-                    <!--                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">-->
+                    &lt;!&ndash;                    <div class="dropdown">&ndash;&gt;
+                    &lt;!&ndash;                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">&ndash;&gt;
+                    &lt;!&ndash;                            Status&ndash;&gt;
+                    &lt;!&ndash;                        </button>&ndash;&gt;
+                    &lt;!&ndash;                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">&ndash;&gt;
 
-                    <!--                            <li><a class="dropdown-item text-success" href="#">Active</a></li>-->
-                    <!--                            <li><a class="dropdown-item text-danger" href="#">Deactivate</a></li>-->
-                    <!--                            <li><a class="dropdown-item text-warning" href="#">Block</a></li>-->
+                    &lt;!&ndash;                            <li><a class="dropdown-item text-success" href="#">Active</a></li>&ndash;&gt;
+                    &lt;!&ndash;                            <li><a class="dropdown-item text-danger" href="#">Deactivate</a></li>&ndash;&gt;
+                    &lt;!&ndash;                            <li><a class="dropdown-item text-warning" href="#">Block</a></li>&ndash;&gt;
 
-                    <!--                        </ul>-->
-                    <!--                    </div>-->
+                    &lt;!&ndash;                        </ul>&ndash;&gt;
+                    &lt;!&ndash;                    </div>&ndash;&gt;
 
                     <label for="floatingRoleStatus" class="col-sm-2 col-form-label">Role </label>
                     <div class="form-group">
@@ -3187,7 +3189,7 @@
             </form>
         </div>
     </div>
-</div>
+</div>-->
 
 
 <!-- ======= Supplier ======= -->
