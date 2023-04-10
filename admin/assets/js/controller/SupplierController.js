@@ -1,50 +1,40 @@
-URL = "http://localhost:9090/api/v1/supplier";
+SUPPLIER_URL = "http://localhost:9090/api/v1/supplier";
 
 function loadAllSupplier() {
 
-
-    $('#empTBody').empty();
+    $('#supplierTBody').empty();
     $.ajax({
         method: 'GET',
-        url: URL,
+        url: SUPPLIER_URL ,
         dataType: 'json',
         async: true,
         success: function (resp) {
             let response = resp.data;
             for (let i in response) {
 
-                let id = response[i].id;
-                let name = response[i].name;
-                let email = response[i].email;
-                let mobile = response[i].mobile;
+                let id = response[i].supplierId;
+                let name = response[i].supplierName;
+                let email = response[i].supplierEmail;
+                let mobile = response[i].supplierTp;
                 let company = response[i].company;
 
+                let row = `<tr><td>${id}</td><td>${name}</td><td>${email}</td><td>${mobile}</td><td>${company}</td></tr>`;
+                $('#supplierTBody').append(row);
 
-                let row = `<tr><td>${id}</td><td>${nic}</td><td>${name}</td><td>${mobile}</td><td>${address}</td><td>${email}</td><td>${role}</td><td>  <button type="button" class="btn " data-bs-toggle="modal"
-                                                data-bs-target="#editCustomerModal"><i class="bi bi-pencil-square"></i>
-                                        </button></td></tr>`;
-                $('#empTBody').append(row);
-
-                $('#empTBody tr').css({"cursor": "pointer"});
-                $('#empTBody tr').click(function () {
+                $('#supplierTBody tr').css({"cursor": "pointer"});
+                $('#supplierTBody tr').click(function () {
 
                     let id = $(this).children('td:eq(0)').text();
-                    let nic = $(this).children('td:eq(1)').text();
-                    let name = $(this).children('td:eq(2)').text();
+                    let name = $(this).children('td:eq(1)').text();
+                    let email = $(this).children('td:eq(2)').text();
                     let mobile = $(this).children('td:eq(3)').text();
-                    let address = $(this).children('td:eq(4)').text();
-                    let email = $(this).children('td:eq(5)').text();
-                    let role = $(this).children('td:eq(6)').text();
+                    let company = $(this).children('td:eq(4)').text();
 
-
-                    $('#empID').val(id);
-                    $('#inputSupplierNIC').val(nic);
-                    $('#inputSupplierName').val(name)
-                    $('#inputSupplierMobile').val(mobile);
-                    $('#inputSupplierAddr').val(address);
-                    $('#inputSupplierEmail').val(email);
-                    $('#selectSupplierRole').val(role)
-
+                    $('#supplierID').val(id);
+                    $('#inputSupName').val(name)
+                    $('#inputSupMobile').val(mobile);
+                    $('#inputSupCompany').val(company);
+                    $('#inputSupEmail').val(email);
 
                 });
 
@@ -60,89 +50,67 @@ loadAllSupplier();
 // save Supplier
 $("#saveSupplier").click(function () {
 
+    let name = $("#inputSupName").val();
+    let mobile = $("#inputSupMobile").val();
+    let email = $("#inputSupEmail").val();
+    let company = $("#inputSupCompany").val();
 
-    let nic = $("#inputSupplierNIC").val();
-    let name = $("#inputSupplierName").val();
-    let mobile = $("#inputSupplierMobile").val();
-    let email = $("#inputSupplierEmail").val();
-    let address = $("#inputSupplierAddr").val();
-    let role = $("#selectSupplierRole").val();
+    if (checkSupName() && name != "") {
+        if (checkSupEmail() && email != "") {
+            if (checkSupMobile() && mobile != "") {
+                if (checkCompany() && company != "") {
+                    Swal.fire({
+                        title: 'Do you want to save the changes?',
+                        showDenyButton: true,
+                        showCancelButton: true,
+                        confirmButtonText: `Save`,
+                        denyButtonText: `Don't save`,
+                    }).then((result) => {
+                        /* Read more about isConfirmed, isDenied below */
+                        if (result.isConfirmed) {
 
-    if (checkNic() && nic != "") {
-        if (checkEmpName() && name != "") {
-            if (checkEmpMobile() && mobile != "") {
-                if (checkEmail() && email != "") {
-                    if (checkAddress() && address != "") {
-                        if (role != "" && role > 0) {
-                            Swal.fire({
-                                title: 'Do you want to save the changes?',
-                                showDenyButton: true,
-                                showCancelButton: true,
-                                confirmButtonText: `Save`,
-                                denyButtonText: `Don't save`,
-                            }).then((result) => {
-                                /* Read more about isConfirmed, isDenied below */
-                                if (result.isConfirmed) {
+                            $.ajax({
+                                method: "post",
+                                url: SUPPLIER_URL ,
+                                contentType: "application/json",
+                                async: true,
+                                data: JSON.stringify(
+                                    {
 
-                                    $.ajax({
-                                        method: "post",
-                                        url: "http://localhost:9090/api/v1/Supplier",
-                                        contentType: "application/json",
-                                        async: true,
-                                        data: JSON.stringify(
-                                            {
-                                                nic: nic,
-                                                name: name,
-                                                mobile: mobile,
-                                                email: email,
-                                                address: address,
-                                                role: role
-                                            }
-                                        ),
-                                        success: function (data) {
-                                            loadAllSupplier();
+                                        supplierName: name,
+                                        supplierTp: mobile,
+                                        supplierEmail: email,
+                                        company: company,
 
-                                            Swal.fire({
+                                    }
+                                ),
+                                success: function (data) {
+                                    loadAllSupplier();
 
-                                                icon: 'success',
-                                                title: 'Your work has been saved',
-                                                showConfirmButton: false,
-                                                timer: 1500
-                                            })
-                                            clearTextFields();
+                                    Swal.fire({
 
-                                        }
-                                    });
-                                } else if (result.isDenied) {
-                                    Swal.fire('Changes are not saved', '', 'info')
+                                        icon: 'success',
+                                        title: 'Your work has been saved',
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    })
+                                    clearTextFields();
+
                                 }
-                            })
-                        } else {
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Role is not Include!',
-                                showConfirmButton: false,
-                                timer: 1000
                             });
-                            $('#selectSupplierRole').css('border', '1px solid #ff6b81');
+                        } else if (result.isDenied) {
+                            Swal.fire('Changes are not saved', '', 'info')
                         }
-                    } else {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Address is not Include!',
-                            showConfirmButton: false,
-                            timer: 1000
-                        });
-                        $('#inputSupplierAddr').css('border', '1px solid #ff6b81');
-                    }
+                    });
+
                 } else {
                     Swal.fire({
                         icon: 'error',
-                        title: 'Email is not Include!',
+                        title: 'Company is not Include!',
                         showConfirmButton: false,
                         timer: 1000
                     });
-                    $('#inputSupplierEmail').css('border', '1px solid #ff6b81');
+                    $('#inputSupCompany').css('border', '1px solid #ff6b81');
                 }
             } else {
                 Swal.fire({
@@ -151,7 +119,116 @@ $("#saveSupplier").click(function () {
                     showConfirmButton: false,
                     timer: 1000
                 });
-                $('#inputSupplierMobile').css('border', '1px solid #ff6b81');
+                $('#inputSupMobile').css('border', '1px solid #ff6b81');
+
+
+            }
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Email is not Include!',
+                showConfirmButton: false,
+                timer: 1000
+            });
+            $('#inputSupEmail').css('border', '1px solid #ff6b81');
+        }
+    } else {
+        Swal.fire({
+            icon: 'error',
+            title: 'Name is not Include!',
+            showConfirmButton: false,
+            timer: 1000
+        });
+        $('#inputSupName').css('border', '1px solid #ff6b81');
+    }
+
+
+});
+
+$('#updateSupplier').click(function () {
+    alert("update")
+    let id = $("#supplierID").val();
+    let name = $("#inputSupName").val();
+    let mobile = $("#inputSupMobile").val();
+    let email = $("#inputSupEmail").val();
+    let company = $("#inputSupCompany").val();
+
+    if (id != "") {
+        if (checkSupName() && name != "") {
+            if (checkSupMobile() && mobile != "") {
+                if (checkSupEmail() && email != "") {
+                    if (checkCompany() && company != "") {
+                        Swal.fire({
+                            title: 'Do you want to save the changes?',
+                            showDenyButton: true,
+                            showCancelButton: true,
+                            confirmButtonText: `Save`,
+                            denyButtonText: `Don't save`,
+                        }).then((result) => {
+
+                            if (result.isConfirmed) {
+                                $.ajax({
+                                    method: "put",
+                                    url: SUPPLIER_URL ,
+                                    contentType: "application/json",
+                                    async: false,
+                                    data: JSON.stringify(
+                                        {
+                                            supplierId: id,
+                                            supplierName: name,
+                                            supplierTp: mobile,
+                                            supplierEmail: email,
+                                            company: company,
+                                        }
+                                    ),
+
+                                    success: function (data) {
+                                        loadAllSupplier();
+
+                                        Swal.fire({
+
+                                            icon: 'success',
+                                            title: 'Your work has been saved',
+                                            showConfirmButton: false,
+                                            timer: 1500
+                                        })
+                                        clearTextFields();
+
+                                    }
+                                });
+                            } else if (result.isDenied) {
+                                Swal.fire('Changes are not saved', '', 'info')
+                            }
+                        })
+
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Company is not Include!',
+                            showConfirmButton: false,
+                            timer: 1000
+                        });
+                        $('#inputSupCompany').css('border', '1px solid #ff6b81');
+                    }
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Email is not Include!',
+                        showConfirmButton: false,
+                        timer: 1000
+                    });
+                    $('#inputSupEmail').css('border', '1px solid #ff6b81');
+
+
+                }
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Mobile is not Include!',
+                    showConfirmButton: false,
+                    timer: 1000
+                });
+                $('#inputSupMobile').css('border', '1px solid #ff6b81');
             }
         } else {
             Swal.fire({
@@ -160,148 +237,18 @@ $("#saveSupplier").click(function () {
                 showConfirmButton: false,
                 timer: 1000
             });
-            $('#inputSupplierName').css('border', '1px solid #ff6b81');
+            $('#inputSupName').css('border', '1px solid #ff6b81');
         }
     } else {
         Swal.fire({
             icon: 'error',
-            title: 'NIC is not Include!',
+            title: 'Supplier is not selected!',
             showConfirmButton: false,
             timer: 1000
         });
-        $('#inputSupplierNIC').css('border', '1px solid #ff6b81');
     }
-
-
 });
 
-$('#updateSupplier').click(function () {
-    let id = $("#empID").val();
-    let nic = $("#inputSupplierNIC").val();
-    let name = $("#inputSupplierName").val();
-    let mobile = $("#inputSupplierMobile").val();
-    let email = $("#inputSupplierEmail").val();
-    let address = $("#inputSupplierAddr").val();
-    let role = $("#selectSupplierRole").val();
-
-    if (id != "") {
-        if (checkNic() && nic != "") {
-            if (checkEmpName() && name != "") {
-                if (checkEmpMobile() && mobile != "") {
-                    if (checkEmail() && email != "") {
-                        if (checkAddress() && address != "") {
-                            if (role != "" && role > 0 && !role.empty()) {
-                                Swal.fire({
-                                    title: 'Do you want to save the changes?',
-                                    showDenyButton: true,
-                                    showCancelButton: true,
-                                    confirmButtonText: `Save`,
-                                    denyButtonText: `Don't save`,
-                                }).then((result) => {
-
-                                    if (result.isConfirmed) {
-                                        $.ajax({
-                                            method: "put",
-                                            url: URL,
-                                            contentType: "application/json",
-                                            async: false,
-                                            data: JSON.stringify(
-                                                {
-                                                    id: id,
-                                                    nic: nic,
-                                                    name: name,
-                                                    mobile: mobile,
-                                                    email: email,
-                                                    address: address,
-                                                    role: role
-                                                }
-                                            ),
-
-                                            success: function (data) {
-                                                loadAllSupplier();
-
-                                                Swal.fire({
-
-                                                    icon: 'success',
-                                                    title: 'Your work has been saved',
-                                                    showConfirmButton: false,
-                                                    timer: 1500
-                                                })
-                                                clearTextFields();
-
-                                            }
-                                        });
-                                    } else if (result.isDenied) {
-                                        Swal.fire('Changes are not saved', '', 'info')
-                                    }
-                                })
-
-                            } else {
-                                Swal.fire({
-                                    icon: 'error',
-                                    title: 'Role is not Include!',
-                                    showConfirmButton: false,
-                                    timer: 1000
-                                });
-                                $('#selectSupplierRole').css('border', '1px solid #ff6b81');
-                            }
-                        } else {
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Address is not Include!',
-                                showConfirmButton: false,
-                                timer: 1000
-                            });
-                            $('#inputSupplierAddr').css('border', '1px solid #ff6b81');
-                        }
-                    } else {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Email is not Include!',
-                            showConfirmButton: false,
-                            timer: 1000
-                        });
-                        $('#inputSupplierEmail').css('border', '1px solid #ff6b81');
-                    }
-                } else {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Mobile is not Include!',
-                        showConfirmButton: false,
-                        timer: 1000
-                    });
-                    $('#inputSupplierMobile').css('border', '1px solid #ff6b81');
-                }
-            } else {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Name is not Include!',
-                    showConfirmButton: false,
-                    timer: 1000
-                });
-                $('#inputSupplierName').css('border', '1px solid #ff6b81');
-            }
-        } else {
-            Swal.fire({
-                icon: 'error',
-                title: 'NIC is not Include!',
-                showConfirmButton: false,
-                timer: 1000
-            });
-            $('#inputSupplierNIC').css('border', '1px solid #ff6b81');
-        }
-    } else {
-        Swal.fire({
-            icon: 'error',
-            title: 'Supplier is  not selected!',
-            showConfirmButton: false,
-            timer: 1000
-        });
-
-    }
-
-
-});
 
 //delete
 $('#delSupplier').click(function () {
@@ -363,92 +310,71 @@ $('#clearSupplier').click(function () {
 
 
 // validation
-function checkNic() {
 
-    if (/^([0-9]{9}[v|V]|[0-9]{12})$/.test($("#inputSupplierNIC").val())) {
-        $("#inputSupplierNIC").css('border', '1px solid #2ed573');
-        return true;
-    } else {
-        $("#inputSupplierNIC").css('border', '1px solid #ff6b81');
-    }
-    return false;
 
-}
+// Listner for name
 
-// Listner for nic
-$('#inputSupplierNIC').on('keyup', function (event) {
-    checkNic();
+$('#inputSupName').on('keyup', function (event) {
+    checkSupName();
 });
 
-$('#inputSupplierName').on('keyup', function (event) {
-    checkEmpName();
-});
-
-function checkEmpName() {
-    if (/^[A-z ]{1,}$/.test($('#inputSupplierName').val())) {
-        $('#inputSupplierName').css('border', '1px solid #2ed573');
+function checkSupName() {
+    if (/^[A-z ]{1,}$/.test($('#inputSupName').val())) {
+        $('#inputSupName').css('border', '1px solid #2ed573');
         return true;
     } else {
-        $('#inputSupplierName').css('border', '1px solid #ff6b81');
+        $('#inputSupName').css('border', '1px solid #ff6b81');
     }
     return false;
 }
 
 //check mobile
-$('#inputSupplierMobile').on('keyup', function (event) {
-    checkEmpMobile();
+$('#inputSupMobile').on('keyup', function (event) {
+    checkSupMobile();
 });
 
-function checkEmpMobile() {
-    if (/^[0-9]{10}$/.test($('#inputSupplierMobile').val())) {
-        $('#inputSupplierMobile').css('border', '1px solid #2ed573');
+function checkSupMobile() {
+    if (/^[0-9]{10}$/.test($('#inputSupMobile').val())) {
+        $('#inputSupMobile').css('border', '1px solid #2ed573');
         return true;
     } else {
-        $('#inputSupplierMobile').css('border', '1px solid #ff6b81');
+        $('#inputSupMobile').css('border', '1px solid #ff6b81');
     }
     return false;
 }
 
 
 //check address
-$('#inputSupplierAddr').on('keyup', function (event) {
-    checkAddress();
+$('#inputSupCompany').on('keyup', function (event) {
+    checkCompany();
 });
 
-function checkAddress() {
-    if (/^[A-z, |0-9:./]*\b$/.test($('#inputSupplierAddr').val())) {
-        $('#inputSupplierAddr').css('border', '1px solid #2ed573');
+function checkCompany() {
+    if (/^[A-z, |0-9:./]*\b$/.test($('#inputSupCompany').val())) {
+        $('#inputSupCompany').css('border', '1px solid #2ed573');
         return true;
     } else {
-        $('#inputSupplierAddr').css('border', '1px solid #ff6b81');
+        $('#inputSupCompany').css('border', '1px solid #ff6b81');
     }
     return false;
 }
 
 //check email
-$('#inputSupplierEmail').on('keyup', function (event) {
-    checkEmail();
+$('#inputSupEmail').on('keyup', function (event) {
+    checkSupEmail();
 });
 
-function checkEmail() {
-    if (/^[A-z, |0-9]{1,}(@gmail.com)$/.test($('#inputSupplierEmail').val())) {
-        $('#inputSupplierEmail').css('border', '1px solid #2ed573');
+function checkSupEmail() {
+    if (/^[A-z, |0-9]{1,}(@gmail.com)$/.test($('#inputSupEmail').val())) {
+        $('#inputSupEmail').css('border', '1px solid #2ed573');
         return true;
     } else {
-        $('#inputSupplierEmail').css('border', '1px solid #ff6b81');
+        $('#inputSupEmail').css('border', '1px solid #ff6b81');
     }
     return false;
 }
 
-// check role
-$("#selectSupplierRole").click(function () {
-    let role = $("#selectSupplierRole").val();
-    if (role != "" && role > 0) {
-        $('#selectSupplierRole').css('border', '1px solid #2ed573');
-    } else {
-        $('#selectSupplierRole').css('border', '1px solid #ff6b81');
-    }
-})
+
 //get all click
 $("#getAllSupplier").click(function () {
     loadAllSupplier();
@@ -456,18 +382,14 @@ $("#getAllSupplier").click(function () {
 
 
 function clearTextFields() {
-    $('#empID').val("");
-    $('#inputSupplierNIC').val("");
-    $('#inputSupplierName').val("");
-    $('#inputSupplierMobile').val("");
-    $('#inputSupplierEmail').val("");
-    $('#inputSupplierAddr').val("");
-    $('#selectSupplierRole')[0].selectedIndex = 0;
+    $('#supplierID').val("");
+    $('#inputSupName').val("");
+    $('#inputSupMobile').val("");
+    $('#inputSupEmail').val("");
+    $('#inputSupCompany').val("");
 
-    $('#inputSupplierNIC').css('border', '1px solid #ccc');
-    $('#inputSupplierName').css('border', '1px solid #ccc');
-    $('#inputSupplierMobile').css('border', '1px solid #ccc');
-    $('#inputSupplierEmail').css('border', '1px solid #ccc');
-    $('#inputSupplierAddr').css('border', '1px solid #ccc');
-    $('#selectSupplierRole').css('border', '1px solid #ccc');
+    $('#inputSupName').css('border', '1px solid #ccc');
+    $('#inputSupMobile').css('border', '1px solid #ccc');
+    $('#inputSupEmail').css('border', '1px solid #ccc');
+    $('#inputSupCompany').css('border', '1px solid #ccc');
 }

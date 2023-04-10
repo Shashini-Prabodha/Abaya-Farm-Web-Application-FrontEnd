@@ -1,11 +1,11 @@
-URL = "http://localhost:9090/api/v1/employee";
+EMP_URL = "http://localhost:9090/api/v1/employee";
 function loadAllEmployee() {
 
 
     $('#empTBody').empty();
     $.ajax({
         method: 'GET',
-        url: "http://localhost:9090/api/v1/employee",
+        url:EMP_URL,
         dataType: 'json',
         async: true,
         success: function (resp) {
@@ -322,7 +322,7 @@ $('#updateEmployee').click(function () {
 
                                         $.ajax({
                                             method: "put",
-                                            url: URL,
+                                            url: EMP_URL,
                                             contentType: "application/json",
                                             async: false,
                                             data: JSON.stringify(
