@@ -913,14 +913,11 @@
                         <!--  Form Elements -->
 
                         <div class="row mb-4">
-                            <label for="floatingSelect" class="col-sm-2 col-form-label">Supplier Name </label>
+                            <label for="selectSupplierInBird" class="col-sm-2 col-form-label">Supplier Name </label>
                             <div class="col-sm-4">
-                                <select class="form-select " id="floatingSelect"
+                                <select class="form-select " id="selectSupplierInBird"
                                         aria-label="Floating label select example">
-                                    <option value="0" selected>-Select Supplier Name-</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+
                                 </select>
                             </div>
                             <label for="inputSupplierID" class="col-sm-2 col-form-label">Supplier ID</label>
@@ -943,14 +940,11 @@
                         </div>
 
                         <div class="row mb-4">
-                            <label for="floatingSelect" class="col-sm-2 col-form-label">Available Cage </label>
+                            <label for="selectCageInBird" class="col-sm-2 col-form-label">Available Cage </label>
                             <div class="col-sm-4">
-                                <select class="form-select " id="floatingCage"
+                                <select class="form-select " id="selectCageInBird"
                                         aria-label="Available Cage">
-                                    <option value="0" selected>-Select Available Cage-</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
+
                                 </select>
                             </div>
                             <label for="inputMaxQty" class="col-sm-2 col-form-label">Maximum No of
@@ -1053,9 +1047,9 @@
                         <h5 class="card-title">Manage Batch</h5>
 
                         <div class="row mb-4">
-                            <label for="batchID" class="col-sm-2 col-form-label">Batch ID </label>
+                            <label for="selectBatchID" class="col-sm-2 col-form-label">Batch ID </label>
                             <div class="col-sm-4">
-                                <select class="form-select " id="batchID"
+                                <select class="form-select " id="selectBatchID"
                                         aria-label="Floating label select example">
                                     <option value="0" selected>-Select Batch ID -</option>
                                     <option value="1">B1</option>
@@ -1186,14 +1180,11 @@
                         <!--  Form Elements -->
 
                         <div class="row mb-4">
-                            <label for="floatingSelect" class="col-sm-2 col-form-label">Cage ID</label>
+                            <label for="cmbMCage" class="col-sm-2 col-form-label">Cage ID</label>
                             <div class="col-sm-4">
                                 <select class="form-select " id="cmbMCage"
                                         aria-label="Available Cage">
-                                    <option value="0" selected>-Select Available Cage-</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
+
                                 </select>
                             </div>
                             <label for="inputMBatch" class="col-sm-2 col-form-label">Batch ID</label>
@@ -1840,22 +1831,25 @@
 
                         <!--  Form Elements -->
 
-                        <div class="row mb-4">
+<!--                        <div class="row mb-4">-->
 
-                            <label for="inputCageID" class="col-sm-2 col-form-label">Cage ID</label>
+<!--                            <label for="inputCageID" class="col-sm-2 col-form-label">Cage ID</label>-->
 
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control" id="inputCageID">
-                            </div>
+<!--                            <div class="col-sm-4">-->
+<!--                                <input type="text" class="form-control" id="inputCageID">-->
+<!--                            </div>-->
 
-                            <label for="inputBatchID" class="col-sm-2 col-form-label">Batch ID</label>
+<!--                            <label for="inputBatchID" class="col-sm-2 col-form-label">Batch ID</label>-->
 
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control" id="inputBatchID">
-                            </div>
+<!--                            <div class="col-sm-4">-->
+<!--                                <input type="text" class="form-control" id="inputBatchID">-->
+<!--                            </div>-->
 
 
-                        </div>
+<!--                        </div>-->
+
+                        <input type="text" class="form-control" id="cageID" hidden>
+
                         <div class="row mb-4">
                             <label for="inputMaxBQty" class="col-sm-2 col-form-label">Maximum No of
                                 Birds</label>
@@ -1906,37 +1900,10 @@
                                 <th scope="col">#Cage ID</th>
                                 <th scope="col">Maximum No of Birds</th>
                                 <th scope="col">Available Birds</th>
-                                <th scope="col">Batch ID</th>
                             </tr>
                             </thead>
                             <tbody id="cageTBody">
-                            <tr>
-                                <td>jk</td>
-                                <td>jk</td>
-                                <td>jk</td>
-                                <td>jk</td>
-                            </tr>
-                            <tr>
-                                <td>jk</td>
-                                <td>jk</td>
-                                <td>jk</td>
-                                <td>jk</td>
-                            </tr>
-                            <tr>
-                                <td>jk</td>
-                                <td>jk</td>
-                                <td>jk</td>
-                                <td>jk</td>
-                            </tr>
-                            <tr>
-                                <td>jk</td>
-                                <td>jk</td>
-                                <td>jk</td>
-                                <td>jk</td>
-                            </tr>
-
-
-                            </tbody>
+                                                       </tbody>
                             <tfoot>
 
                             </tfoot>
@@ -3619,6 +3586,8 @@
 <script src="assets/js/main.js"></script>
 <script src="assets/js/controller/EmployeeController.js"></script>
 <script src="assets/js/controller/SupplierController.js"></script>
+<script src="assets/js/controller/PurchaseFlockController.js"></script>
+<script src="assets/js/controller/CageController.js"></script>
 
 </body>
 

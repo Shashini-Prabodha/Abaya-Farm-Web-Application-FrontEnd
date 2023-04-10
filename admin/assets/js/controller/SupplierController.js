@@ -146,7 +146,7 @@ $("#saveSupplier").click(function () {
 });
 
 $('#updateSupplier').click(function () {
-    alert("update")
+
     let id = $("#supplierID").val();
     let name = $("#inputSupName").val();
     let mobile = $("#inputSupMobile").val();
