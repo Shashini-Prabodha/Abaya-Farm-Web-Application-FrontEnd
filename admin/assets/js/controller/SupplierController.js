@@ -94,7 +94,7 @@ $("#saveSupplier").click(function () {
                                         showConfirmButton: false,
                                         timer: 1500
                                     })
-                                    clearTextFields();
+                                    clearTextFieldsSupplier();
 
                                 }
                             });
@@ -192,7 +192,7 @@ $('#updateSupplier').click(function () {
                                             showConfirmButton: false,
                                             timer: 1500
                                         })
-                                        clearTextFields();
+                                        clearTextFieldsSupplier();
 
                                     }
                                 });
@@ -272,7 +272,7 @@ $('#delSupplier').click(function () {
                     async: true,
                     success: function (response) {
                         loadAllSupplier();
-                        clearTextFields();
+                        clearTextFieldsSupplier();
                         Swal.fire(
                             'Deleted!',
                             'Delete Successfully...',
@@ -305,7 +305,7 @@ $('#delSupplier').click(function () {
 
 //clear all
 $('#clearSupplier').click(function () {
-    clearTextFields();
+    clearTextFieldsSupplier();
 });
 
 
@@ -381,7 +381,7 @@ $("#getAllSupplier").click(function () {
 });
 
 
-function clearTextFields() {
+function clearTextFieldsSupplier() {
     $('#supplierID').val("");
     $('#inputSupName').val("");
     $('#inputSupMobile').val("");

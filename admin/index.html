@@ -911,8 +911,9 @@
                         <h5 class="card-title">Purchase chicks</h5>
 
                         <!--  Form Elements -->
+                        <input type="text" class="form-control" id="birdPurchaseId" hidden>
 
-                        <div class="row mb-4">
+                <!--        <div class="row mb-4">
                             <label for="selectSupplierInBird" class="col-sm-2 col-form-label">Supplier Name </label>
                             <div class="col-sm-4">
                                 <select class="form-select " id="selectSupplierInBird"
@@ -927,15 +928,15 @@
                             </div>
 
                         </div>
-
+-->
                         <div class="row mb-4">
-                            <label for="inputQty" class="col-sm-2 col-form-label">Number of Chicks</label>
+                            <label for="inputBQty" class="col-sm-2 col-form-label">Number of Chicks</label>
                             <div class="col-sm-4">
-                                <input type="number" class="form-control" id="inputQty">
+                                <input type="number" class="form-control" id="inputBQty">
                             </div>
-                            <label for="inputUnitPrice" class="col-sm-2 col-form-label">Unit Price</label>
+                            <label for="inputBUnitPrice" class="col-sm-2 col-form-label">Chick Price</label>
                             <div class="col-sm-4">
-                                <input type="number" class="form-control" id="inputUnitPrice">
+                                <input type="number" class="form-control" id="inputBUnitPrice">
                             </div>
                         </div>
 
@@ -947,11 +948,19 @@
 
                                 </select>
                             </div>
-                            <label for="inputMaxQty" class="col-sm-2 col-form-label">Maximum No of
+                            <!--<label for="inputMaxQty" class="col-sm-2 col-form-label">Maximum No of
                                 chicks</label>
 
                             <div class="col-sm-4">
                                 <input type="text" class="form-control" id="inputMaxQty">
+                            </div>-->
+
+                            <label for="selectSupplierInBird" class="col-sm-2 col-form-label">Supplier Name </label>
+                            <div class="col-sm-4">
+                                <select class="form-select " id="selectSupplierInBird"
+                                        aria-label="Floating label select example">
+
+                                </select>
                             </div>
 
                         </div>
@@ -961,6 +970,10 @@
                             <div class="col-sm-4">
                                 <input type="datetime-local" class="form-control" id="birdPurchaseDate"
                                        name="birdPurchaseDate">
+                            </div>
+                            <label for="inputBirdPurchseRemark" class="col-sm-2 col-form-label">Remark</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="inputBirdPurchseRemark">
                             </div>
                         </div>
 
@@ -992,6 +1005,7 @@
 
                 <div class="card">
                     <div class="card-body">
+                        <div class="table-responsive">
                         <h5 class="card-title">Batch Details</h5>
 
                         <!-- Batch Table -->
@@ -1000,22 +1014,26 @@
                             <thead>
                             <tr>
                                 <th scope="col">#Batch ID</th>
-                                <th scope="col">Quantity</th>
+                                <th scope="col">No of Birds</th>
+                                <th scope="col">Remaining Birds</th>
                                 <th scope="col">Chick Price</th>
-                                <th scope="col">Type</th>
-                                <th scope="col">Supplier ID</th>
-                                <th scope="col">Order ID</th>
+                                <th scope="col">Remark</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">To Grower</th>
+                                <th scope="col">To Layer</th>
+                                <th scope="col">To Cull</th>
                                 <th scope="col">Purchase Date</th>
                                 <th scope="col">Cage ID</th>
+                                <th scope="col">Supplier</th>
                             </tr>
                             </thead>
-                            <tbody id="batchTBody">
+                            <tbody id="batchPurchaseTBody">
                             </tbody>
                             <tfoot>
 
                             </tfoot>
                         </table>
-
+                        </div>
                     </div>
                 </div>
             </div>

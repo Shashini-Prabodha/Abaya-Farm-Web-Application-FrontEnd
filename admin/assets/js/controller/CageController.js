@@ -82,7 +82,7 @@ $("#saveCage").click(function () {
                                         showConfirmButton: false,
                                         timer: 1500
                                     })
-                                    clearTextFields();
+                                    clearTextFieldsCage();
 
                                 }
                             });
@@ -156,7 +156,7 @@ $('#updateCage').click(function () {
                                 showConfirmButton: false,
                                 timer: 1500
                             })
-                            clearTextFields();
+                            clearTextFieldsCage();
 
                         }
                     });
@@ -218,7 +218,7 @@ $('#delCage').click(function () {
                     async: true,
                     success: function (response) {
                         loadAllCage();
-                        clearTextFields();
+                        clearTextFieldsCage();
                         Swal.fire(
                             'Deleted!',
                             'Delete Successfully...',
@@ -252,7 +252,7 @@ $('#delCage').click(function () {
 
 //clear all
 $('#clearCage').click(function () {
-    clearTextFields();
+    clearTextFieldsCage();
 });
 
 
@@ -298,7 +298,7 @@ $("#getAllCage").click(function () {
 });
 
 
-function clearTextFields() {
+function clearTextFieldsCage() {
     $('#cageID').val("");
     $('#inputMaxBQty').val("");
     $('#inputAvlNoOfBird').val("");

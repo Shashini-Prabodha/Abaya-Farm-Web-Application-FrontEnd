@@ -228,7 +228,7 @@ $("#saveEmployee").click(function () {
                                             })
                                             loadAllEmployee();
 
-                                            clearTextFields();
+                                            clearTextFieldsEmp();
 
                                         }
                                     });
@@ -350,7 +350,7 @@ $('#updateEmployee').click(function () {
                                                     showConfirmButton: false,
                                                     timer: 1500
                                                 })
-                                                clearTextFields();
+                                                clearTextFieldsEmp();
 
                                             }
                                         });
@@ -448,7 +448,7 @@ $('#delEmployee').click(function () {
                     async: true,
                     success: function (response) {
                         loadAllEmployee();
-                        clearTextFields();
+                        clearTextFieldsEmp();
                         Swal.fire(
                             'Deleted!',
                             'Delete Successfully...',
@@ -481,7 +481,7 @@ $('#delEmployee').click(function () {
 
 //clear all
 $('#clearEmployee').click(function () {
-    clearTextFields();
+    clearTextFieldsEmp();
 });
 
 
@@ -578,7 +578,7 @@ $("#getAllEmployee").click(function () {
 });
 
 
-function clearTextFields() {
+function clearTextFieldsEmp() {
     $('#empID').val("");
     $('#inputEmployeeNIC').val("");
     $('#inputEmployeeName').val("");
