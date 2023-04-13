@@ -1,6 +1,7 @@
 FLOCK_URL = "http://localhost:9090/api/v1/batch";
 
 const loadAllSupplierInBird = () => {
+
     $.ajax({
         url: SUPPLIER_URL,
         method: 'GET',
@@ -139,7 +140,7 @@ $("#purchaseBatch").click(function () {
     let date = $("#birdPurchaseDate").val();
     let remark = $("#inputBirdPurchseRemark").val();
 
-    if (checkNoOfChick() && noOfChick !== "") {
+    if (checkNoOfChick() && noOfChick !== "" && noOfChick>0) {
         if (checkBUnitPrice() && unitP !== "") {
             if (cage !== "" && cage !== 0 && cage != null) {
                 if (supplier !== "" && supplier !== 0 && supplier != null) {
