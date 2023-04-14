@@ -9,6 +9,7 @@ const loadAllSupplierInBird = () => {
 
             const data = response.data
             let dropdown = $("#selectSupplierInBird");
+            dropdown.empty();
             $.each(data, function (index, item) {
                 dropdown.append(`<option value=${item.supplierId} data-name=${item.supplierName} >${item.supplierName}</option>`);
             });
@@ -31,8 +32,13 @@ const loadAllCageInBird = () => {
             const data = response.data
 
             let dropdown = $("#selectCageInBird");
+            dropdown.empty();
+            let birdCount=$('#inputBQty').val();
+
             $.each(data, function (index, item) {
-                dropdown.append(`<option value=${item.cageId} >${item.cageId}</option>`);
+                if(item.availableQty === 0 && birdCount<=item.maxQty){
+                    dropdown.append(`<option value=${item.cageId} data-max=${item.maxQty}>${item.cageId}</option>`);
+                }
             });
         },
         error: function (response) {
@@ -130,7 +136,24 @@ loadAllBirdPurchase();
 clearTextFieldsBirdPurchase();
 
 
+$("#selectCageInBird").change(function () {
+    let max=$("#selectCageInBird option:selected").data("max");
+    $("#inputMaxQty").val(max);
+});
+
 // purchase flock
+
+function checkChickQty() {
+    let noOfChick = $("#inputBQty").val();
+    let max = $("#inputMaxQty").val();
+
+    if(noOfChick>max){
+        return false;
+    }else{
+        return true;
+    }
+}
+
 $("#purchaseBatch").click(function () {
 
     let supplier = $("#selectSupplierInBird").val();
@@ -145,6 +168,7 @@ $("#purchaseBatch").click(function () {
             if (cage !== "" && cage !== 0 && cage != null) {
                 if (supplier !== "" && supplier !== 0 && supplier != null) {
                     if (date !== "") {
+                        if (checkChickQty()) {
                         Swal.fire({
                             title: 'Do you want to save the changes?',
                             showDenyButton: true,
@@ -179,7 +203,7 @@ $("#purchaseBatch").click(function () {
                                     ),
                                     success: function (data) {
                                         loadAllBirdPurchase();
-
+                                        loadAllCageInBird();
                                         Swal.fire({
 
                                             icon: 'success',
@@ -195,6 +219,15 @@ $("#purchaseBatch").click(function () {
                                 Swal.fire('Changes are not saved', '', 'info')
                             }
                         });
+                        } else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'No of chicks is more than max chickens in a selected cage!',
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                            $('#birdPurchaseDate').css('border', '1px solid #ff6b81');
+                        }
                     } else {
                         Swal.fire({
                             icon: 'error',
@@ -295,7 +328,7 @@ $('#updateBatch').click(function () {
                             ),
                             success: function (data) {
                                 loadAllBirdPurchase();
-
+                                loadAllCageInBird();
                                 Swal.fire({
 
                                     icon: 'success',
@@ -434,6 +467,7 @@ $('#clearBatch').click(function () {
 //Listeners and validation fields
 $('#inputBQty').on('keyup', function (event) {
     checkNoOfChick();
+    // loadAllCageInBird();
 });
 
 function checkNoOfChick() {

@@ -950,21 +950,21 @@
                         </div>
 
                         <div class="row mb-4">
-                            <label for="selectCageInBird" class="col-sm-2 col-form-label">Available Cage </label>
-                            <div class="col-sm-4">
+                            <label for="selectCageInBird" class="col-sm-1 col-form-label">Available Cage </label>
+                            <div class="col-sm-2">
                                 <select class="form-select " id="selectCageInBird"
                                         aria-label="Available Cage">
 
                                 </select>
                             </div>
-                            <!--<label for="inputMaxQty" class="col-sm-2 col-form-label">Maximum No of
+                            <label for="inputMaxQty" class="col-sm-2 col-form-label">Maximum No of
                                 chicks</label>
 
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control" id="inputMaxQty">
-                            </div>-->
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control" id="inputMaxQty" readonly>
+                            </div>
 
-                            <label for="selectSupplierInBird" class="col-sm-2 col-form-label">Supplier Name </label>
+                            <label for="selectSupplierInBird" class="col-sm-1 col-form-label">Supplier Name </label>
                             <div class="col-sm-4">
                                 <select class="form-select " id="selectSupplierInBird"
                                         aria-label="Floating label select example">
@@ -992,9 +992,9 @@
                         </button>
                         <button type="button" class="btn btn-outline-danger mt-3 col-2" id="delBatch">Delete
                         </button>
-                        <button type="button" class="btn btn-outline-warning mt-3 col-2" id="updateBatch">
-                            Update
-                        </button>
+                        <!--                        <button type="button" class="btn btn-outline-warning mt-3 col-2" id="updateBatch">-->
+                        <!--                            Update-->
+                        <!--                        </button>-->
                         <button type="button" class="btn btn-outline-primary mt-3 col-2" id="getAllBatch">Get
                             All
                         </button>
@@ -1431,7 +1431,7 @@
                     <div class="card-body">
 
                         <h5 class="card-title">Purchase Feed</h5>
-                        <input type="number" class="form-control" id="feedPurchaseId">
+                        <input type="number" class="form-control" id="feedPurchaseId" hidden>
 
                         <div class="row mb-4">
                             <label for="cmbFeedType" class="col-sm-2 col-form-label">Feed Type</label>
@@ -1510,17 +1510,15 @@
 
                             <thead>
                             <tr>
-                                <th scope="col">#Batch ID</th>
+                                <th scope="col">#ID</th>
                                 <th scope="col">Quantity</th>
                                 <th scope="col">Unit Price</th>
-                                <th scope="col">Type</th>
                                 <th scope="col">Supplier ID</th>
-                                <th scope="col">Order ID</th>
+                                <th scope="col">Feed ID</th>
                                 <th scope="col">Purchase Date</th>
-                                <th scope="col">Cage ID</th>
                             </tr>
                             </thead>
-                            <tbody id="feedTBody">
+                            <tbody id="feedPurchaseTBody">
                             </tbody>
                             <tfoot>
 
@@ -1560,53 +1558,59 @@
                         <!--  Form Elements -->
 
                         <div class="row mb-4">
-                            <label for="consCageID" class="col-sm-2 col-form-label">Cage ID </label>
-                            <div class="col-sm-4">
-                                <select class="form-select " id="consCageID"
+                            <label for="feedConsCageID" class="col-sm-2 col-form-label">Cage ID </label>
+                            <div class="col-sm-2">
+                                <select class="form-select " id="feedConsCageID"
                                         aria-label="Floating label select example">
-                                    <option value="0" selected>-Select Cage ID -</option>
-                                    <option value="1">B1</option>
-                                    <option value="2">B2</option>
-                                    <option value="3">B3</option>
+
                                 </select>
+                            </div>
+
+                            <label for="feedConsBatchID" class="col-sm-2 col-form-label">Batch ID </label>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" id="feedConsBatchID" readonly>
+
                             </div>
 
                             <label for="noOfBirdFC" class="col-sm-2 col-form-label">Available No of
                                 Birds</label>
-                            <div class="col-sm-4">
-                                <input type="number" class="form-control" id="noOfBirdFC">
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" id="noOfBirdFC" readonly>
                             </div>
 
                         </div>
                         <div class="row mb-4">
 
-                            <label for="avlbFStock" class="col-sm-2 col-form-label">Available Feed
-                                Stock(kg)</label>
-                            <div class="col-sm-4">
-                                <input type="number" class="form-control" id="avlbFStock">
+                            <label for="batchTypeInFeed" class="col-sm-2 col-form-label">Bird Type</label>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control" id="batchTypeInFeed">
                             </div>
 
-                            <label for="approxFC" class="col-sm-2 col-form-label">Approximately Feed(Kg)</label>
-                            <div class="col-sm-4">
-                                <input type="number" class="form-control" id="approxFC">
-                            </div>
-                        </div>
-
-                        <div class="row mb-4">
-
-                            <label for="cmbTypeF" class="col-sm-2 col-form-label">Type </label>
-                            <div class="col-sm-4">
+                            <label for="cmbTypeF" class="col-sm-1 col-form-label">Feed Type </label>
+                            <div class="col-sm-3">
                                 <select class="form-select " id="cmbTypeF"
                                         aria-label="Floating label select example">
-                                    <option value="0" selected>-Select Birds Type -</option>
-                                    <option value="1">Chick</option>
-                                    <option value="2">Grower</option>
-                                    <option value="3">Layer</option>
+
                                 </select>
                             </div>
 
+                            <label for="avlbFStock" class="col-sm-2 col-form-label">Available Feed
+                                Stock(kg)</label>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" id="avlbFStock" readonly>
+                            </div>
+
+
+                        </div>
+
+                        <div class="row mb-4">
+                            <label for="approxFC" class="col-sm-2 col-form-label">Approximately Feed(Kg)</label>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" id="approxFC" readonly>
+                            </div>
+
                             <label for="usedFeed" class="col-sm-2 col-form-label">Used Feed(Kg)</label>
-                            <div class="col-sm-4">
+                            <div class="col-sm-2">
                                 <input type="number" class="form-control" id="usedFeed">
                             </div>
                         </div>
@@ -1617,7 +1621,7 @@
                                 style="margin-left: 22%" id="updateFeedC">Consumption
                         </button>
 
-                        <button type="button" class="btn btn-outline-warning mt-3 col-2" id="getAllFeedDetails">
+                        <button type="button" class="btn btn-outline-warning mt-3 col-2" id="getAllFeedConsDetails">
                             Get
                             All
                         </button>
@@ -1642,11 +1646,11 @@
 
                             <thead>
                             <tr>
-                                <th scope="col">#Feed ID</th>
-                                <th scope="col">Used Qty</th>
+                                <th scope="col">#ID</th>
+                                <th scope="col">Used Qty(kg)</th>
                                 <th scope="col">Date</th>
-                                <th scope="col">Cage ID</th>
-                                <th scope="col">Type</th>
+                                <th scope="col">Batch ID</th>
+                                <th scope="col">Feed Type</th>
                             </tr>
                             </thead>
                             <tbody id="feedConsumptionTBody">
@@ -1689,40 +1693,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Available Feed Stock</h5>
 
-                        <canvas id="barChart" style="max-height: 400px;"></canvas>
-                        <script>
-                            document.addEventListener("DOMContentLoaded", () => {
-                                new Chart(document.querySelector('#barChart'), {
-                                    type: 'bar',
-                                    data: {
-                                        labels: ['Chick', 'Grower', 'Layer'],
-                                        datasets: [{
-                                            label: 'Feed Stock(kg)',
-                                            data: [65, 59, 80],
-                                            backgroundColor: [
-                                                'rgba(255, 159, 64, 0.3)',
-                                                'rgba(75, 192, 192, 0.3)',
-                                                'rgba(153, 102, 255, 0.3)',
-                                            ],
-                                            borderColor: [
-                                                'rgb(255, 159, 64)',
-                                                'rgb(75, 192, 192)',
-                                                'rgb(153, 102, 255)',
-                                            ],
-                                            borderWidth: 1
-                                        }]
-                                    },
-                                    options: {
-                                        scales: {
-                                            y: {
-                                                beginAtZero: true
-                                            }
-                                        }
-                                    }
-                                });
-                            });
-                        </script>
-                        <!-- End Bar Chart -->
+                        <canvas id="barChart" style="max-height: 500px;"></canvas>
 
                     </div>
                 </div>
@@ -1735,66 +1706,8 @@
                         <!-- Polar Area Chart -->
                         <canvas id="polarAreaChart" style="max-height: 400px;"></canvas>
                         <script>
-                            document.addEventListener("DOMContentLoaded", () => {
-                                new Chart(document.querySelector('#polarAreaChart'), {
-                                    type: 'polarArea',
-                                    data: {
-                                        labels: [
-                                            'Chick',
-                                            'Grower',
-                                            'Layer'
-                                        ],
-                                        datasets: [{
-                                            label: 'kg',
-                                            data: [840, 416, 227],
-                                            backgroundColor: [
-                                                'rgb(255,63,130)',
-                                                'rgb(75, 192, 192)',
-                                                'rgb(255, 205, 86)',
 
-
-                                            ]
-                                        }]
-                                    }
-                                });
-                            });
                         </script>
-                        <!-- End Polar Area Chart -->
-
-                        <!--  <canvas id="barChart1" style="max-height: 400px;"></canvas>
-                          <script>
-                              document.addEventListener("DOMContentLoaded", () => {
-                                  new Chart(document.querySelector('#barChart1'), {
-                                      type: 'bar',
-                                      data: {
-                                          labels: ['Chick', 'Grower', 'Layer'],
-                                          datasets: [{
-                                              label: 'Feed Stock(kg)',
-                                              data: [65, 59, 80],
-                                              backgroundColor: [
-                                                  'rgba(255, 159, 64, 0.2)',
-                                                  'rgba(75, 192, 192, 0.2)',
-                                                  'rgba(153, 102, 255, 0.2)',
-                                              ],
-                                              borderColor: [
-                                                  'rgb(255, 159, 64)',
-                                                  'rgb(75, 192, 192)',
-                                                  'rgb(153, 102, 255)',
-                                              ],
-                                              borderWidth: 1
-                                          }]
-                                      },
-                                      options: {
-                                          scales: {
-                                              y: {
-                                                  beginAtZero: true
-                                              }
-                                          }
-                                      }
-                                  });
-                              });
-                          </script>-->
-
                     </div>
                 </div>
             </div>
@@ -1813,50 +1726,50 @@
 
                         <div id="stockDays"></div>
 
-                        <script>
-                            document.addEventListener("DOMContentLoaded", () => {
-                                new ApexCharts(document.querySelector("#stockDays"), {
-                                    series: [{
-                                        data: [44, 55, 41],
+<!--                        <script>-->
+<!--                            document.addEventListener("DOMContentLoaded", () => {-->
+<!--                                new ApexCharts(document.querySelector("#stockDays"), {-->
+<!--                                    series: [{-->
+<!--                                        data: [44, 55, 41],-->
 
-                                    }],
-                                    chart: {
-                                        type: 'bar',
-                                        height: 300,
-                                    },
-                                    plotOptions: {
-                                        bar: {
-                                            horizontal: true,
-                                            dataLabels: {
-                                                position: 'top',
-                                            },
-                                        }
-                                    },
-                                    dataLabels: {
-                                        enabled: true,
-                                        offsetX: -6,
-                                        style: {
-                                            fontSize: '12px',
-                                            colors: ['#fff']
-                                        }
-                                    },
-                                    stroke: {
-                                        show: true,
-                                        width: 1,
-                                        colors: ['#fff']
-                                    },
-                                    tooltip: {
+<!--                                    }],-->
+<!--                                    chart: {-->
+<!--                                        type: 'bar',-->
+<!--                                        height: 300,-->
+<!--                                    },-->
+<!--                                    plotOptions: {-->
+<!--                                        bar: {-->
+<!--                                            horizontal: true,-->
+<!--                                            dataLabels: {-->
+<!--                                                position: 'top',-->
+<!--                                            },-->
+<!--                                        }-->
+<!--                                    },-->
+<!--                                    dataLabels: {-->
+<!--                                        enabled: true,-->
+<!--                                        offsetX: -6,-->
+<!--                                        style: {-->
+<!--                                            fontSize: '12px',-->
+<!--                                            colors: ['#fff']-->
+<!--                                        }-->
+<!--                                    },-->
+<!--                                    stroke: {-->
+<!--                                        show: true,-->
+<!--                                        width: 1,-->
+<!--                                        colors: ['#fff']-->
+<!--                                    },-->
+<!--                                    tooltip: {-->
 
-                                        shared: true,
-                                        intersect: false
-                                    },
-                                    xaxis: {
-                                        categories: ['Chick', 'Grower', 'Layer'],
-                                    }
+<!--                                        shared: true,-->
+<!--                                        intersect: false-->
+<!--                                    },-->
+<!--                                    xaxis: {-->
+<!--                                        categories: ['Chick', 'Grower', 'Layer'],-->
+<!--                                    }-->
 
-                                }).render();
-                            });
-                        </script>
+<!--                                }).render();-->
+<!--                            });-->
+<!--                        </script>-->
 
 
                         <!--                        <script>-->
