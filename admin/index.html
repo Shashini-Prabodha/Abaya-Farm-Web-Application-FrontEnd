@@ -1726,96 +1726,6 @@
 
                         <div id="stockDays"></div>
 
-<!--                        <script>-->
-<!--                            document.addEventListener("DOMContentLoaded", () => {-->
-<!--                                new ApexCharts(document.querySelector("#stockDays"), {-->
-<!--                                    series: [{-->
-<!--                                        data: [44, 55, 41],-->
-
-<!--                                    }],-->
-<!--                                    chart: {-->
-<!--                                        type: 'bar',-->
-<!--                                        height: 300,-->
-<!--                                    },-->
-<!--                                    plotOptions: {-->
-<!--                                        bar: {-->
-<!--                                            horizontal: true,-->
-<!--                                            dataLabels: {-->
-<!--                                                position: 'top',-->
-<!--                                            },-->
-<!--                                        }-->
-<!--                                    },-->
-<!--                                    dataLabels: {-->
-<!--                                        enabled: true,-->
-<!--                                        offsetX: -6,-->
-<!--                                        style: {-->
-<!--                                            fontSize: '12px',-->
-<!--                                            colors: ['#fff']-->
-<!--                                        }-->
-<!--                                    },-->
-<!--                                    stroke: {-->
-<!--                                        show: true,-->
-<!--                                        width: 1,-->
-<!--                                        colors: ['#fff']-->
-<!--                                    },-->
-<!--                                    tooltip: {-->
-
-<!--                                        shared: true,-->
-<!--                                        intersect: false-->
-<!--                                    },-->
-<!--                                    xaxis: {-->
-<!--                                        categories: ['Chick', 'Grower', 'Layer'],-->
-<!--                                    }-->
-
-<!--                                }).render();-->
-<!--                            });-->
-<!--                        </script>-->
-
-
-                        <!--                        <script>-->
-                        <!--                            document.addEventListener("DOMContentLoaded", () => {-->
-                        <!--                                echarts.init(document.querySelector("#stockFChart")).setOption({-->
-
-                        <!--                                        dataset: {-->
-                        <!--                                            source: [-->
-                        <!--                                                ['score', 'amount', 'product'],-->
-                        <!--                                                [89.3, 58212, 'Chick'],-->
-                        <!--                                                [57.1, 78254, 'Grower'],-->
-                        <!--                                                [19.6, 91852, 'Layer'],-->
-
-                        <!--                                            ]-->
-                        <!--                                        },-->
-                        <!--                                        grid: { containLabel: true },-->
-                        <!--                                        xAxis: { name: 'Feed Stock(kg)' },-->
-                        <!--                                        yAxis: { type: 'category' },-->
-                        <!--                                        visualMap: {-->
-                        <!--                                            orient: 'horizontal',-->
-                        <!--                                            left: 'center',-->
-                        <!--                                            min: 10,-->
-                        <!--                                            max: 100,-->
-                        <!--                                            text: ['High', 'Low'],-->
-                        <!--                                            // Map the score column to color-->
-                        <!--                                            dimension: 0,-->
-                        <!--                                            inRange: {-->
-                        <!--                                                color: [ '#FD665F','#FFCE34','#65B581']-->
-                        <!--                                            }-->
-                        <!--                                        },-->
-                        <!--                                        series: [-->
-                        <!--                                            {-->
-                        <!--                                                type: 'bar',-->
-                        <!--                                                encode: {-->
-                        <!--                                                    // Map the "amount" column to X axis.-->
-                        <!--                                                    x: 'amount',-->
-                        <!--                                                    // Map the "product" column to Y axis-->
-                        <!--                                                    y: 'product'-->
-                        <!--                                                }-->
-                        <!--                                            }-->
-                        <!--                                        ]-->
-
-                        <!--                                });-->
-                        <!--                            });-->
-                        <!--                        </script>-->
-
                     </div>
                 </div>
             </div>
@@ -2333,6 +2243,7 @@
                         <h5 class="card-title">Manage Customer</h5>
 
                         <!--  Form Elements -->
+                        <input type="text" class="form-control" id="inputCustomerId" hidden>
 
                         <div class="row mb-4">
 
@@ -2357,9 +2268,13 @@
                             </div>
                             <label for="inputCustAddr" class="col-sm-2 col-form-label">Address</label>
                             <div class="col-sm-4">
-                                <input type="number" class="form-control" id="inputCustAddr">
+                                <input type="text" class="form-control" id="inputCustAddr">
                             </div>
                         </div>
+
+                        <input type="text" class="form-control"  id="customerStatusH" hidden>
+                        <input type="text" class="form-control"  id="oldEmailCustomer" hidden>
+
 
                         <button type="button" class="btn btn-outline-success mt-3 col-2"
                                 style="margin-left: 18%" id="saveCustomer">Save
@@ -2391,37 +2306,14 @@
                     <div class="card-body">
                         <h5 class="card-title">Customer Details</h5>
 
-                        <!-- Customer Table -->
-                        <!--                        <table id="tblCustomerDetails" class="table table-striped table-hover" style="width:100%">-->
-                        <!--                            <thead>-->
-                        <!--                            <tr>-->
-                        <!--                                <th scope="col">#Customer Email</th>-->
-                        <!--                                <th scope="col">Name</th>-->
-                        <!--                                <th scope="col">Mobile</th>-->
-                        <!--                                <th scope="col">Address</th>-->
-                        <!--                                <th scope="col">Created_at</th>-->
-                        <!--                                <th scope="col">Updated_at</th>-->
-                        <!--                            </tr>-->
-                        <!--                            </thead>-->
-                        <!--                            <tbody id="customerTBody">-->
-                        <!--                            </tbody>-->
-                        <!--                            <tfoot>-->
 
-                        <!--                            </tfoot>-->
-
-                        <!--                        </table>-->
-                        <!--                        <div class="container">-->
-                        <!--                            <div class="card">-->
-                        <!--                                <div class="card-header">-->
-
-
-                        <!--                                </div>-->
                         <div class="table-responsive">
                             <table class="table table-hover ">
                                 <thead class="table-light">
                                 <tr>
 
-                                    <th scope="col">#Name</th>
+                                    <th scope="col">#ID</th>
+                                    <th scope="col">Name</th>
                                     <th scope="col">Email</th>
                                     <th scope="col">Mobile</th>
                                     <th scope="col">Address</th>
@@ -2432,163 +2324,8 @@
                                     <th></th>
                                 </tr>
                                 </thead>
-                                <tbody>
-                                <tr>
-                                    <td data-label="Name">
-                                        <img alt="..."
-                                             src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
-                                             class="avatar avatar-sm rounded-circle me-2">
-                                        <a class="text-heading font-semibold" href="#">
-                                            Robert Fox
-                                        </a>
-                                    </td>
+                                <tbody id="tblCustomer"></tbody>
 
-                                    <td data-label="Email">
-                                        <a class="text-current" href="mailto:robert.fox@example.com">robert.fox@example.com</a>
-                                    </td>
-                                    <td data-label="Mobile">
-                                        <a class="text-current">0718975555</a>
-                                    </td>
-                                    <td data-label="Address">
-                                        <a class="text-current">Ambagahawaththa, Kamburugamuwa</a>
-                                    </td>
-                                    <td data-label="Status">
-                                        <span class="badge bg-soft-success text-success">active</span>
-                                    </td>
-                                    <td data-label="" class="text-end">
-                                        <!--                                        <div class="button">-->
-                                        <!--                                            <a class="text-muted" href="#editCustomerModal1" role="button"-->
-                                        <!--                                               data-bs-toggle="modal"-->
-                                        <!--                                               aria-haspopup="true" aria-expanded="false">-->
-                                        <!--                                                <i class="bi bi-pencil-square"></i>-->
-                                        <!--                                            </a>-->
-                                        <!--                                           -->
-                                        <!--                                        </div>-->
-
-                                        <button type="button" class="btn" data-bs-toggle="modal"
-                                                data-bs-target="#editCustomerModal"><i class="bi bi-pencil-square"></i>
-                                        </button>
-
-                                    </td>
-
-                                </tr>
-                                <tr>
-                                    <td data-label="Name">
-                                        <img alt="..."
-                                             src="https://images.unsplash.com/photo-1610271340738-726e199f0258?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
-                                             class="avatar avatar-sm rounded-circle me-2">
-                                        <a class="text-heading font-semibold" href="#">
-                                            Darlene Robertson
-                                        </a>
-                                    </td>
-                                    <td data-label="Email">
-                                        <a class="text-current" href="mailto:robert.fox@example.com">robert.fox@example.com</a>
-                                    </td>
-                                    <td data-label="Mobile">
-                                        <a class="text-current">0718975555</a>
-                                    </td>
-                                    <td data-label="Address">
-                                        <a class="text-current">Ambagahawaththa, Kamburugamuwa</a>
-                                    </td>
-                                    <td data-label="Status">
-                                        <span class="badge bg-soft-warning text-warning">block</span>
-                                    </td>
-                                    <td data-label="" class="text-end">
-
-                                        <button type="button" class="btn " data-bs-toggle="modal"
-                                                data-bs-target="#editCustomerModal"><i class="bi bi-pencil-square"></i>
-                                        </button>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td data-label="Name">
-                                        <img alt="..."
-                                             src="https://images.unsplash.com/photo-1610878722345-79c5eaf6a48c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
-                                             class="avatar avatar-sm rounded-circle me-2">
-                                        <a class="text-heading font-semibold" href="#">
-                                            Theresa Webb
-                                        </a>
-                                    </td>
-                                    <td data-label="Email">
-                                        <a class="text-current" href="mailto:robert.fox@example.com">robert.fox@example.com</a>
-                                    </td>
-                                    <td data-label="Mobile">
-                                        <a class="text-current">0718975555</a>
-                                    </td>
-                                    <td data-label="Address">
-                                        <a class="text-current">Ambagahawaththa, Kamburugamuwa</a>
-                                    </td>
-                                    <td data-label="Status">
-                                        <span class="badge bg-soft-danger text-danger">deactivate</span>
-                                    </td>
-                                    <td data-label="" class="text-end">
-
-                                        <button type="button" class="btn " data-bs-toggle="modal"
-                                                data-bs-target="#editCustomerModal"><i class="bi bi-pencil-square"></i>
-                                        </button>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td data-label="Name">
-                                        <img alt="..."
-                                             src="https://images.unsplash.com/photo-1612422656768-d5e4ec31fac0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
-                                             class="avatar avatar-sm rounded-circle me-2">
-                                        <a class="text-heading font-semibold" href="#">
-                                            Kristin Watson
-                                        </a>
-                                    </td>
-                                    <td data-label="Email">
-                                        <a class="text-current" href="mailto:robert.fox@example.com">robert.fox@example.com</a>
-                                    </td>
-                                    <td data-label="Mobile">
-                                        <a class="text-current">0718975555</a>
-                                    </td>
-                                    <td data-label="Address">
-                                        <a class="text-current">Ambagahawaththa, Kamburugamuwa</a>
-                                    </td>
-                                    <td data-label="Status">
-                                        <span class="badge bg-soft-success text-success">active</span>
-                                    </td>
-                                    <td data-label="" class="text-end">
-
-                                        <button type="button" class="btn " data-bs-toggle="modal"
-                                                data-bs-target="#editCustomerModal"><i class="bi bi-pencil-square"></i>
-                                        </button>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td data-label="Job Title">
-                                        <img alt="..."
-                                             src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
-                                             class="avatar avatar-sm rounded-circle me-2">
-                                        <a class="text-heading font-semibold" href="#">
-                                            Robert Fox
-                                        </a>
-                                    </td>
-                                    <td data-label="Email">
-                                        <a class="text-current" href="mailto:robert.fox@example.com">robert.fox@example.com</a>
-                                    </td>
-                                    <td data-label="Mobile">
-                                        <a class="text-current">0718975555</a>
-                                    </td>
-                                    <td data-label="Address">
-                                        <a class="text-current">Ambagahawaththa, Kamburugamuwa</a>
-                                    </td>
-                                    <td data-label="Status">
-                                        <span class="badge bg-soft-success text-success">active</span>
-                                    </td>
-                                    <td data-label="" class="text-end">
-
-                                        <button type="button" class="btn " data-bs-toggle="modal"
-                                                data-bs-target="#editCustomerModal"><i class="bi bi-pencil-square"></i>
-                                        </button>
-
-                                    </td>
-                                </tr>
-                                </tbody>
                             </table>
 
                         </div>
@@ -3618,6 +3355,7 @@
 <script src="assets/js/controller/CageController.js"></script>
 <script src="assets/js/controller/MortalityController.js"></script>
 <script src="assets/js/controller/FeedController.js"></script>
+<script src="assets/js/controller/CustomerController.js"></script>
 
 </body>
 
