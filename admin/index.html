@@ -1,0 +1,3362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Abaya Farm</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!--medicine table -->
+    <!--    <link id="pagestyle" href="../temp/assets/css/soft-ui-dashboard.css?v=1.0.7" rel="stylesheet" />-->
+
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.21.2/dist/bootstrap-table.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://unpkg.com/bootstrap-table@1.21.2/dist/bootstrap-table.min.js"></script>
+    <!-- Latest compiled and minified Locales -->
+    <script src="https://unpkg.com/bootstrap-table@1.21.2/dist/locale/bootstrap-table-zh-CN.min.js"></script>
+
+    <!-- Favicons -->
+    <link href="assets/img/logo.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+          rel="stylesheet">
+
+    <!--    &lt;!&ndash;    Data Table&ndash;&gt;
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
+
+        <link href="https://unpkg.com/bootstrap-table@1.21.2/dist/bootstrap-table.min.css" rel="stylesheet">
+        &lt;!&ndash;    <script src="https://unpkg.com/bootstrap-table@1.21.2/dist/bootstrap-table.min.js"></script>&ndash;&gt;
+        <link rel="stylesheet" href="https://cdn.datatables.net/searchpanes/2.1.2/css/searchPanes.bootstrap5.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/select/1.6.2/css/select.bootstrap5.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/searchpanes/2.1.2/js/dataTables.searchPanes.min.js">
+        <link rel="stylesheet" href="https://cdn.datatables.net/searchpanes/2.1.2/js/searchPanes.bootstrap5.min.js">
+        <link rel="stylesheet" href="https://cdn.datatables.net/select/1.6.2/js/dataTables.select.min.js">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js">
+        <link rel="stylesheet" href="https://cdn.datatables.net/select/1.6.2/js/dataTables.select.min.js">-->
+    <!--
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+        <link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" rel="stylesheet">-->
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
+    <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+    <link href="assets/vendor/fontawesome/css/all.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/table.css" rel="stylesheet">
+    <!-- Template color CSS File -->
+    <link href="assets/css/color.css" rel="stylesheet">
+    <link href="assets/scss/ripple.scss" rel="stylesheet">
+
+
+    <!--    Data Table js-->
+    <!--
+        <script defer src="https://cdn.datatables.net/1.13.1/js/jquery.dataTablbtnes.min.js"></script>
+        <script defer src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
+        <script defer src="assets/js/dataTable.js"></script>
+        <style scoped lang="scss">
+            @import '../admin/assets/scss/ripple.scss';
+        </style>-->
+
+
+    <!--    Ajax-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+            integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!--    Sweet Alert-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+</head>
+
+<body>
+
+<!-- ======= Header ======= -->
+<header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+        <a href="index.html" class="logo d-flex align-items-center">
+            <img src="assets/img/logo.png" size="50px" alt="">
+            <span class="d-none d-lg-block">Abaya Farm</span>
+        </a>
+        <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div><!-- End Logo -->
+
+    <div class="search-bar">
+        <form class="search-form d-flex align-items-center" method="POST" action="#">
+            <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+            <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+        </form>
+    </div><!-- End Search Bar -->
+
+    <nav class="header-nav ms-auto">
+        <ul class="d-flex align-items-center">
+
+            <li class="nav-item d-block d-lg-none">
+                <a class="nav-link nav-icon search-bar-toggle " href="#">
+                    <i class="bi bi-search"></i>
+                </a>
+            </li><!-- End Search Icon-->
+
+
+            <li class="nav-item dropdown pe-3">
+
+                <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+                    <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+                    <span class="d-none d-md-block dropdown-toggle ps-2">Abeygunasekara</span>
+                </a>
+
+                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                    <li class="dropdown-header">
+                        <h6>Abeygunasekara</h6>
+                        <span>Admin</span>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item d-flex align-items-center">
+                            <i class="bi bi-person"></i>
+                            <span>My Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                            <i class="bi bi-gear"></i>
+                            <span>Account Settings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
+                            <i class="bi bi-question-circle"></i>
+                            <span>Need Help?</span>
+                        </a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item d-flex align-items-center" href="#">
+                            <i class="bi bi-box-arrow-right"></i>
+                            <span>Sign Out</span>
+                        </a>
+                    </li>
+
+                </ul><!-- End Profile Dropdown Items -->
+            </li><!-- End Profile Nav -->
+
+        </ul>
+    </nav><!-- End Icons Navigation -->
+
+</header><!-- End Header -->
+
+<!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+        <li class="nav-item">
+            <a class="nav-link btnCursor" id="btnDash">
+                <i class="bi bi-grid"></i>
+                <span>Dashboard</span>
+            </a>
+        </li><!-- End Dashboard Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#bird-nav" data-bs-toggle="collapse" href="#">
+                <i class="fas fa-crow" style="margin-right: 10px"></i><span>Flock</span><i
+                    class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="bird-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a class="btnCursor" id="btnPurchase">
+                        <i class="bi bi-cart-plus"></i><span>Purchase</span>
+                    </a>
+                </li>
+                <!--    <li>
+                        <a class="btnCursor" id="btnEditBatch">
+                            <i class="bi bi-pencil-square"></i><span>Batch Update</span>
+                        </a>
+                    </li>-->
+                <li>
+                    <a class="btnCursor" id="btnMortality">
+                        <i class="bi bi-exclamation-triangle"></i><span>Mortality</span>
+                    </a>
+                </li>
+            </ul>
+        </li><!-- End Bird Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#feed-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-box"></i><span>Feed</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="feed-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a class="btnCursor" id="btnPurchaseFeed">
+                        <i class="bi bi-cart-plus"></i><span>Purchase</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="btnCursor" id="btnFeedConsumption">
+                        <i class="bx bx-fork"></i><span>Consumption</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="btnCursor" id="btnFeedStockSummary">
+                        <i class="bi bi-clipboard-data"></i><span>Stock Summary</span>
+                    </a>
+                </li>
+            </ul>
+        </li><!-- End Feed Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link btnCursor collapsed" data-bs-target="#caeg-nav" data-bs-toggle="collapse" id="btnCage">
+                <i class="bi bi-house"></i><span>Cage</span>
+            </a>
+
+        </li><!-- End Cage Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#order-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-cart4"></i><span>Sales</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="order-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a class="btnCursor" id="btnOrderDetails">
+                        <i class="ri-file-list-3-line"></i><span>Sales Details</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="btnCursor" id="btnPlaceOrder">
+                        <i class="bi bi-basket2"></i><span>POS</span>
+                    </a>
+                </li>
+            </ul>
+        </li><!-- End Sales Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link btnCursor collapsed" data-bs-target="#store-nav" data-bs-toggle="collapse" id="btnStore">
+                <i class="bi bi-shop"></i><span>Store</span>
+            </a>
+
+        </li><!-- End Store Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link btnCursor collapsed" data-bs-target="#customer-nav" data-bs-toggle="collapse"
+               id="btnCustomer">
+                <i class="bi bi-person"></i><span>Customer</span>
+            </a>
+
+        </li><!-- End Customer Nav -->
+
+        <li class="nav-item">
+
+            <a class="nav-link collapsed" data-bs-target="#medicine-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-prescription2"></i><span>Medicine</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="medicine-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a class="btnCursor" id="btnMedicine">
+                        <i class="bi bi-cart-plus"></i><span>Purchase</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="btnCursor" id="btnMediConsumption">
+                        <i class="bx bx-fork"></i><span>Consumption</span>
+                    </a>
+                </li>
+
+            </ul>
+        </li><!-- End Medicine Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link btnCursor collapsed" data-bs-target="#employee-nav" data-bs-toggle="collapse"
+               id="btnEmployee">
+                <i class="bi bi-person"></i><span>Employee</span>
+            </a>
+
+        </li><!-- End Employee Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link btnCursor collapsed" data-bs-target="#supplier-nav" data-bs-toggle="collapse"
+               id="btnSupplier">
+                <i class="bi bi-person"></i><span>Supplier</span>
+            </a>
+
+        </li><!-- End Supplier Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed btnCursor" id="">
+                <i class="bi bi-cash-coin"></i>
+                <span>Purchase</span>
+            </a>
+        </li><!-- End Profile Page Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed">
+                <i class="bi bi-file-earmark-bar-graph"></i>
+                <span>Report</span>
+            </a>
+        </li><!-- End Register Page Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed btnCursor">
+                <i class="bi bi-gear"></i>
+                <span>User Management</span>
+            </a>
+        </li><!-- End Profile Page Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed btnCursor" id="btnProfile">
+                <i class="bi bi-person"></i>
+                <span>Profile</span>
+            </a>
+        </li><!-- End Profile Page Nav -->
+
+
+        <!--<li class="nav-item">
+            <a class="nav-link collapsed" href="pages-singup.html">
+                <i class="bi bi-box-arrow-in-right"></i>
+                <span>Login</span>
+            </a>
+        </li>&lt;!&ndash; End Login Page Nav &ndash;&gt;
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="pages-error-404.html">
+                <i class="bi bi-dash-circle"></i>
+                <span>Error 404</span>
+            </a>
+        </li>&lt;!&ndash; End Error 404 Page Nav &ndash;&gt;
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="pages-blank.html">
+                <i class="bi bi-file-earmark"></i>
+                <span>Blank</span>
+            </a>
+        </li>&lt;!&ndash; End Blank Page Nav &ndash;&gt;-->
+
+    </ul>
+
+</aside><!-- End Sidebar-->
+
+<!-- ======= Dashboard ======= -->
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>Dashboard</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active">Dashboard</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section dashboard">
+        <div class="row">
+
+            <!-- Left side columns -->
+            <div class="col-lg-8">
+                <div class="row">
+
+                    <!-- Sales Card -->
+                    <div class="col-xxl-4 col-md-6">
+                        <div class="card info-card sales-card">
+
+                            <div class="filter">
+                                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                    <li class="dropdown-header text-start">
+                                        <h6>Filter</h6>
+                                    </li>
+
+                                    <li><a class="dropdown-item" href="#">Today</a></li>
+                                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="card-body">
+                                <h5 class="card-title">Sales <span>| Today</span></h5>
+
+                                <div class="d-flex align-items-center">
+                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                        <i class="bi bi-cart"></i>
+                                    </div>
+                                    <div class="ps-3">
+                                        <h6>145</h6>
+                                        <span class="text-success small pt-1 fw-bold">12%</span> <span
+                                            class="text-muted small pt-2 ps-1">increase</span>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div><!-- End Sales Card -->
+
+                    <!-- Revenue Card -->
+                    <div class="col-xxl-4 col-md-6">
+                        <div class="card info-card revenue-card">
+
+                            <div class="filter">
+                                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                    <li class="dropdown-header text-start">
+                                        <h6>Filter</h6>
+                                    </li>
+
+                                    <li><a class="dropdown-item" href="#">Today</a></li>
+                                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="card-body">
+                                <h5 class="card-title">Revenue <span>| This Month</span></h5>
+
+                                <div class="d-flex align-items-center">
+                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                        <i class="bi bi-currency-dollar"></i>
+                                    </div>
+                                    <div class="ps-3">
+                                        <h6>$3,264</h6>
+                                        <span class="text-success small pt-1 fw-bold">8%</span> <span
+                                            class="text-muted small pt-2 ps-1">increase</span>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div><!-- End Revenue Card -->
+
+                    <!-- Customers Card -->
+                    <div class="col-xxl-4 col-xl-12">
+
+                        <div class="card info-card customers-card">
+
+                            <div class="filter">
+                                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                    <li class="dropdown-header text-start">
+                                        <h6>Filter</h6>
+                                    </li>
+
+                                    <li><a class="dropdown-item" href="#">Today</a></li>
+                                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="card-body">
+                                <h5 class="card-title">Customers <span>| This Year</span></h5>
+
+                                <div class="d-flex align-items-center">
+                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                        <i class="bi bi-people"></i>
+                                    </div>
+                                    <div class="ps-3">
+                                        <h6>1244</h6>
+                                        <span class="text-danger small pt-1 fw-bold">12%</span> <span
+                                            class="text-muted small pt-2 ps-1">decrease</span>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div><!-- End Customers Card -->
+
+                    <!-- Reports -->
+                    <div class="col-12">
+                        <div class="card">
+
+                            <div class="filter">
+                                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                    <li class="dropdown-header text-start">
+                                        <h6>Filter</h6>
+                                    </li>
+
+                                    <li><a class="dropdown-item" href="#">Today</a></li>
+                                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="card-body">
+                                <h5 class="card-title">Reports <span>/Today</span></h5>
+
+                                <div id="reportsChart"></div>
+
+                                <script>
+                                    document.addEventListener("DOMContentLoaded", () => {
+                                        new ApexCharts(document.querySelector("#reportsChart"), {
+                                            series: [{
+                                                name: 'Sales',
+                                                data: [31, 40, 28, 51, 42, 82, 56],
+                                            }, {
+                                                name: 'Revenue',
+                                                data: [11, 32, 45, 32, 34, 52, 41]
+                                            }, {
+                                                name: 'Customers',
+                                                data: [15, 11, 32, 18, 9, 24, 11]
+                                            }],
+                                            chart: {
+                                                height: 350,
+                                                type: 'area',
+                                                toolbar: {
+                                                    show: false
+                                                },
+                                            },
+                                            markers: {
+                                                size: 4
+                                            },
+                                            colors: ['#4154f1', '#2eca6a', '#ff771d'],
+                                            fill: {
+                                                type: "gradient",
+                                                gradient: {
+                                                    shadeIntensity: 1,
+                                                    opacityFrom: 0.3,
+                                                    opacityTo: 0.4,
+                                                    stops: [0, 90, 100]
+                                                }
+                                            },
+                                            dataLabels: {
+                                                enabled: false
+                                            },
+                                            stroke: {
+                                                curve: 'smooth',
+                                                width: 2
+                                            },
+                                            xaxis: {
+                                                type: 'datetime',
+                                                categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
+                                            },
+                                            tooltip: {
+                                                x: {
+                                                    format: 'dd/MM/yy HH:mm'
+                                                },
+                                            }
+                                        }).render();
+                                    });
+                                </script>
+
+                            </div>
+
+                        </div>
+                    </div><!-- End Reports -->
+
+                    <!-- Recent Sales -->
+                    <div class="col-12">
+                        <div class="card recent-sales overflow-auto">
+
+                            <div class="filter">
+                                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                    <li class="dropdown-header text-start">
+                                        <h6>Filter</h6>
+                                    </li>
+
+                                    <li><a class="dropdown-item" href="#">Today</a></li>
+                                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="card-body">
+                                <h5 class="card-title">Recent Sales <span>| Today</span></h5>
+
+                                <table class="table table-borderless datatable">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Customer</th>
+                                        <th scope="col">Product</th>
+                                        <th scope="col">Price</th>
+                                        <th scope="col">Status</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <th scope="row"><a href="#">#2457</a></th>
+                                        <td>Brandon Jacob</td>
+                                        <td><a href="#" class="text-primary">At praesentium minu</a></td>
+                                        <td>$64</td>
+                                        <td><span class="badge bg-success">Approved</span></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"><a href="#">#2147</a></th>
+                                        <td>Bridie Kessler</td>
+                                        <td><a href="#" class="text-primary">Blanditiis dolor omnis similique</a></td>
+                                        <td>$47</td>
+                                        <td><span class="badge bg-warning">Pending</span></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"><a href="#">#2049</a></th>
+                                        <td>Ashleigh Langosh</td>
+                                        <td><a href="#" class="text-primary">At recusandae consectetur</a></td>
+                                        <td>$147</td>
+                                        <td><span class="badge bg-success">Approved</span></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"><a href="#">#2644</a></th>
+                                        <td>Angus Grady</td>
+                                        <td><a href="#" class="text-primar">Ut voluptatem id earum et</a></td>
+                                        <td>$67</td>
+                                        <td><span class="badge bg-danger">Rejected</span></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"><a href="#">#2644</a></th>
+                                        <td>Raheem Lehner</td>
+                                        <td><a href="#" class="text-primary">Sunt similique distinctio</a></td>
+                                        <td>$165</td>
+                                        <td><span class="badge bg-success">Approved</span></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+
+                        </div>
+                    </div><!-- End Recent Sales -->
+
+                    <!-- Top Selling -->
+                    <div class="col-12">
+                        <div class="card top-selling overflow-auto">
+
+                            <div class="filter">
+                                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                    <li class="dropdown-header text-start">
+                                        <h6>Filter</h6>
+                                    </li>
+
+                                    <li><a class="dropdown-item" href="#">Today</a></li>
+                                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="card-body pb-0">
+                                <h5 class="card-title">Top Selling <span>| Today</span></h5>
+
+                                <table class="table table-borderless">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">Preview</th>
+                                        <th scope="col">Product</th>
+                                        <th scope="col">Price</th>
+                                        <th scope="col">Sold</th>
+                                        <th scope="col">Revenue</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <th scope="row"><a href="#"><img src="assets/img/hen-eggs.jpg" alt=""></a></th>
+                                        <td><a href="#" class="text-primary fw-bold">Brown Eggs
+                                            nulla</a></td>
+                                        <td>$64</td>
+                                        <td class="fw-bold">124</td>
+                                        <td>$5,828</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"><a href="#"><img
+                                                src="assets/img/raw-chicken-eggs-egg-box-white-surface.jpg" alt=""></a>
+                                        </th>
+                                        <td><a href="#" class="text-primary fw-bold">White Eggs</a></td>
+                                        <td>$46</td>
+                                        <td class="fw-bold">98</td>
+                                        <td>$4,508</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"><a href="#"><img
+                                                src="assets/img/White%20plastic%20bag%20template%20design%20-%20Made%20with%20PosterMyWall%20(1).jpg"
+                                                alt=""></a></th>
+                                        <td><a href="#" class="text-primary fw-bold">Fertilizer 2kg</a>
+                                        </td>
+                                        <td>$59</td>
+                                        <td class="fw-bold">74</td>
+                                        <td>$4,366</td>
+                                    </tr>
+                                    <!--                                    <tr>-->
+                                    <!--                                        <th scope="row"><a href="#"><img src="assets/img/product-4.jpg" alt=""></a></th>-->
+                                    <!--                                        <td><a href="#" class="text-primary fw-bold">Officiis quaerat sint rerum-->
+                                    <!--                                            error</a></td>-->
+                                    <!--                                        <td>$32</td>-->
+                                    <!--                                        <td class="fw-bold">63</td>-->
+                                    <!--                                        <td>$2,016</td>-->
+                                    <!--                                    </tr>-->
+                                    <!--                                    <tr>-->
+                                    <!--                                        <th scope="row"><a href="#"><img src="assets/img/product-5.jpg" alt=""></a></th>-->
+                                    <!--                                        <td><a href="#" class="text-primary fw-bold">Sit unde debitis delectus-->
+                                    <!--                                            repellendus</a></td>-->
+                                    <!--                                        <td>$79</td>-->
+                                    <!--                                        <td class="fw-bold">41</td>-->
+                                    <!--                                        <td>$3,239</td>-->
+                                    <!--                                    </tr>-->
+                                    </tbody>
+                                </table>
+
+                            </div>
+
+                        </div>
+                    </div><!-- End Top Selling -->
+
+                </div>
+            </div><!-- End Left side columns -->
+
+            <!-- Right side columns -->
+            <div class="col-lg-4">
+
+
+                <!-- Income -->
+                <div class="card">
+                    <div class="filter">
+                        <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                            <li class="dropdown-header text-start">
+                                <h6>Filter</h6>
+                            </li>
+
+                            <li><a class="dropdown-item" href="#">Today</a></li>
+                            <li><a class="dropdown-item" href="#">This Month</a></li>
+                            <li><a class="dropdown-item" href="#">This Year</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="card-body pb-0">
+                        <h5 class="card-title">Income by Product <span>| Today</span></h5>
+
+                        <div id="incomeChart" style="min-height: 450px;" class="echart"></div>
+
+                        <script>
+                            document.addEventListener("DOMContentLoaded", () => {
+                                echarts.init(document.querySelector("#incomeChart")).setOption({
+                                    tooltip: {
+                                        trigger: 'item'
+                                    },
+                                    legend: {
+                                        top: '0%',
+                                        left: 'center',
+                                    },
+                                    series: [{
+                                        name: 'Access From',
+                                        type: 'pie',
+                                        radius: ['40%', '70%'],
+                                        top: '20%',
+                                        avoidLabelOverlap: false,
+                                        label: {
+                                            show: false,
+                                            position: 'center'
+                                        },
+                                        emphasis: {
+                                            label: {
+                                                show: true,
+                                                fontSize: '18',
+                                                fontWeight: 'bold'
+                                            }
+                                        },
+                                        labelLine: {
+                                            show: false
+                                        },
+                                        data: [{
+                                            value: 70,
+                                            name: 'Brown Egg'
+                                        },
+                                            {
+                                                value: 735,
+                                                name: 'White Egg'
+                                            },
+                                            {
+                                                value: 580,
+                                                name: 'Fertilizer 1kg'
+                                            },
+                                            {
+                                                value: 484,
+                                                name: 'Fertilizer 2kg'
+                                            },
+                                            {
+                                                value: 300,
+                                                name: 'Fertilizer 5kg'
+                                            },
+                                            {
+                                                value: 580,
+                                                name: 'Fertilizer 10kg'
+                                            },
+                                            {
+                                                value: 484,
+                                                name: 'Fertilizer 15kg'
+                                            },
+                                            {
+                                                value: 484,
+                                                name: 'Fertilizer 20kg'
+                                            },
+                                            {
+                                                value: 300,
+                                                name: 'Fertilizer 50kg'
+                                            }
+                                        ]
+                                    }]
+                                });
+                            });
+                        </script>
+
+                    </div>
+                </div><!-- End Website Traffic -->
+
+                <!-- News & Updates Traffic -->
+                <div class="card">
+                    <div class="filter">
+                        <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                            <li class="dropdown-header text-start">
+                                <h6>Filter</h6>
+                            </li>
+
+                            <li><a class="dropdown-item" href="#">Today</a></li>
+                            <li><a class="dropdown-item" href="#">This Month</a></li>
+                            <li><a class="dropdown-item" href="#">This Year</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="card-body pb-0">
+                        <h5 class="card-title">News &amp; Updates <span>| Today</span></h5>
+
+                        <!--                        <div class="news">-->
+                        <!--                            <div class="post-item clearfix">-->
+                        <!--                                <img src="assets/img/news-1.jpg" alt="">-->
+                        <!--                                <h4><a href="#">Nihil blanditiis at in nihil autem</a></h4>-->
+                        <!--                                <p>Sit recusandae non aspernatur laboriosam. Quia enim eligendi sed ut harum...</p>-->
+                        <!--                            </div>-->
+
+                        <!--                            <div class="post-item clearfix">-->
+                        <!--                                <img src="assets/img/news-2.jpg" alt="">-->
+                        <!--                                <h4><a href="#">Quidem autem et impedit</a></h4>-->
+                        <!--                                <p>Illo nemo neque maiores vitae officiis cum eum turos elan dries werona nande...</p>-->
+                        <!--                            </div>-->
+
+                        <!--                            <div class="post-item clearfix">-->
+                        <!--                                <img src="assets/img/news-3.jpg" alt="">-->
+                        <!--                                <h4><a href="#">Id quia et et ut maxime similique occaecati ut</a></h4>-->
+                        <!--                                <p>Fugiat voluptas vero eaque accusantium eos. Consequuntur sed ipsam et totam...</p>-->
+                        <!--                            </div>-->
+
+                        <!--                            <div class="post-item clearfix">-->
+                        <!--                                <img src="assets/img/news-4.jpg" alt="">-->
+                        <!--                                <h4><a href="#">Laborum corporis quo dara net para</a></h4>-->
+                        <!--                                <p>Qui enim quia optio. Eligendi aut asperiores enim repellendusvel rerum cuder...</p>-->
+                        <!--                            </div>-->
+
+                        <!--                            <div class="post-item clearfix">-->
+                        <!--                                <img src="assets/img/news-5.jpg" alt="">-->
+                        <!--                                <h4><a href="#">Et dolores corrupti quae illo quod dolor</a></h4>-->
+                        <!--                                <p>Odit ut eveniet modi reiciendis. Atque cupiditate libero beatae dignissimos-->
+                        <!--                                    eius...</p>-->
+                        <!--                            </div>-->
+
+                        <!--                        </div>&lt;!&ndash; End sidebar recent posts&ndash;&gt;-->
+
+                    </div>
+                </div><!-- End News & Updates -->
+
+            </div><!-- End Right side columns -->
+
+        </div>
+    </section>
+
+</main>
+
+<!-- ======= Bird/Purchase ======= -->
+<main id="birdsComponent" style="display: none" class="main">
+
+    <div class="pagetitle">
+        <h1>Purchase Birds</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item">Birds</li>
+                <li class="breadcrumb-item active">Purchase</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+
+                <div class="card">
+                    <div class="card-body">
+
+                        <h5 class="card-title">Purchase chicks</h5>
+
+                        <!--  Form Elements -->
+                        <input type="text" class="form-control" id="birdPurchaseId" hidden>
+
+                        <!--        <div class="row mb-4">
+                                    <label for="selectSupplierInBird" class="col-sm-2 col-form-label">Supplier Name </label>
+                                    <div class="col-sm-4">
+                                        <select class="form-select " id="selectSupplierInBird"
+                                                aria-label="Floating label select example">
+
+                                        </select>
+                                    </div>
+                                    <label for="inputSupplierID" class="col-sm-2 col-form-label">Supplier ID</label>
+
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" id="inputSupplierID">
+                                    </div>
+
+                                </div>
+        -->
+                        <div class="row mb-4">
+                            <label for="inputBQty" class="col-sm-2 col-form-label">Number of Chicks</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" id="inputBQty">
+                            </div>
+                            <label for="inputBUnitPrice" class="col-sm-2 col-form-label">Chick Price</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" id="inputBUnitPrice">
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <label for="selectCageInBird" class="col-sm-1 col-form-label">Available Cage </label>
+                            <div class="col-sm-2">
+                                <select class="form-select " id="selectCageInBird"
+                                        aria-label="Available Cage">
+
+                                </select>
+                            </div>
+                            <label for="inputMaxQty" class="col-sm-2 col-form-label">Maximum No of
+                                chicks</label>
+
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control" id="inputMaxQty" readonly>
+                            </div>
+
+                            <label for="selectSupplierInBird" class="col-sm-1 col-form-label">Supplier Name </label>
+                            <div class="col-sm-4">
+                                <select class="form-select " id="selectSupplierInBird"
+                                        aria-label="Floating label select example">
+
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div class="row mb-4">
+                            <label for="birdPurchaseDate" class="col-sm-2 col-form-label">Purchase Date</label>
+                            <div class="col-sm-4">
+                                <input type="datetime-local" class="form-control" id="birdPurchaseDate"
+                                       name="birdPurchaseDate">
+                            </div>
+                            <label for="inputBirdPurchseRemark" class="col-sm-2 col-form-label">Remark</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="inputBirdPurchseRemark">
+                            </div>
+                        </div>
+
+                        <!--                        Buttons-->
+                        <button type="button" class="btn btn-outline-success mt-3 col-2"
+                                style="margin-left: 18%" id="purchaseBatch">Purchase
+                        </button>
+                        <button type="button" class="btn btn-outline-danger mt-3 col-2" id="delBatch">Delete
+                        </button>
+                        <!--                        <button type="button" class="btn btn-outline-warning mt-3 col-2" id="updateBatch">-->
+                        <!--                            Update-->
+                        <!--                        </button>-->
+                        <button type="button" class="btn btn-outline-primary mt-3 col-2" id="getAllBatch">Get
+                            All
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary mt-3 col-2" id="clearBatch">
+                            Clear
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+
+                <div class="card">
+                    <div class="card-body container tab-pane active">
+                        <h5 class="card-title">Batch Details</h5>
+
+                        <div class="table-responsive">
+
+                            <!-- Batch Table -->
+                            <table id="tblBirdPurchaseDetails" class="table table-striped table-hover nowrap"
+                                   style="width:100%">
+
+                                <thead>
+                                <tr>
+                                    <th scope="col">#Batch ID</th>
+                                    <th scope="col">No of Birds</th>
+                                    <th scope="col">Remaining Birds</th>
+                                    <th scope="col">Chick Price</th>
+                                    <th scope="col">Remark</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">To Grower</th>
+                                    <th scope="col">To Layer</th>
+                                    <th scope="col">To Cull</th>
+                                    <th scope="col">Purchase Date</th>
+                                    <th scope="col">Cage ID</th>
+                                    <th scope="col">Supplier</th>
+                                </tr>
+                                </thead>
+                                <tbody id="batchPurchaseTBody">
+                                </tbody>
+                                <tfoot>
+
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<!-- ======= Bird/Edit ======= -->
+<main id="birdsEditComponent" style="display: none" class="main">
+
+    <div class="pagetitle">
+        <h1>Manage Birds</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item">Birds</li>
+                <li class="breadcrumb-item active">Manage</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Manage Batch</h5>
+
+                        <div class="row mb-4">
+                            <label for="selectBatchID" class="col-sm-2 col-form-label">Batch ID </label>
+                            <div class="col-sm-4">
+                                <select class="form-select " id="selectBatchID"
+                                        aria-label="Floating label select example">
+                                    <option value="0" selected>-Select Batch ID -</option>
+                                    <option value="1">B1</option>
+                                    <option value="2">B2</option>
+                                    <option value="3">B3</option>
+                                </select>
+                            </div>
+
+                            <label for="inputQtyEdit" class="col-sm-2 col-form-label">Number of Birds</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" id="inputQtyEdit">
+                            </div>
+
+                        </div>
+                        <div class="row mb-4">
+
+                            <label for="inputAvailableBEdit" class="col-sm-2 col-form-label">Available No of
+                                birds</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" id="inputAvailableBEdit">
+                            </div>
+
+                            <label for="inputCageEdit" class="col-sm-2 col-form-label">Cage ID</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="inputCageEdit">
+                            </div>
+
+                        </div>
+
+                        <div class="row mb-4">
+
+                            <label for="cmbtypeB" class="col-sm-2 col-form-label">Type </label>
+                            <div class="col-sm-4">
+                                <select class="form-select " id="cmbtypeB"
+                                        aria-label="Floating label select example">
+                                    <option value="0" selected>-Select Birds Type -</option>
+                                    <option value="1">Chick</option>
+                                    <option value="2">Grower</option>
+                                    <option value="3">Layer</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <!--                                <div class="row mb-4">-->
+                        <button type="button" class="btn btn-outline-success mt-3 col-2"
+                                style="margin-left: 18%" id="updateEditBirds">Update
+                        </button>
+
+                        <button type="button" class="btn btn-outline-primary mt-3 col-2" id="getAllEditBirds">
+                            Get
+                            All
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary mt-3 col-2" id="clearEditBirds">
+                            Clear
+                        </button>
+
+                        <button type="button" class="btn btn-danger mt-3 col-2" id="sellBatch">
+                            Sell
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Batch Details</h5>
+
+                        <!-- Batch Table -->
+                        <table id="tblBatchDetails" class="table table-striped table-hover" style="width:100%">
+
+                            <thead>
+                            <tr>
+                                <th scope="col">#Batch ID</th>
+                                <th scope="col">No of Chicks</th>
+                                <th scope="col">Available Birds</th>
+                                <th scope="col">Cage ID</th>
+                                <th scope="col">Type</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Purchase Date</th>
+
+                            </tr>
+                            </thead>
+                            <tbody id="batchEditTBody">
+                            </tbody>
+                            <tfoot>
+
+                            </tfoot>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<!-- ======= Bird/Mortality ======= -->
+<main id="mortalityComponent" style="display: none" class="main">
+
+    <div class="pagetitle">
+        <h1>Mortality Birds</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item">Birds</li>
+                <li class="breadcrumb-item active">Mortality</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="card">
+                    <div class="card-body">
+
+                        <h5 class="card-title">Mortality</h5>
+
+                        <!--  Form Elements -->
+                        <input type="text" class="form-control" id="inputMortalityId" hidden>
+
+                        <div class="row mb-2">
+                            <label for="cmbMortalityCage" class="col-sm-2 col-form-label">Cage ID</label>
+                            <div class="col-sm-2">
+                                <select class="form-select " id="cmbMortalityCage"
+                                        aria-label="Available Cage">
+
+                                </select>
+                            </div>
+                            <label for="inputMortalityBatch" class="col-sm-2 col-form-label">Batch ID</label>
+
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control" id="inputMortalityBatch" readonly>
+                            </div>
+
+                            <label for="inputRemainingBirds" class="col-sm-2 col-form-label">Available
+                                Count</label>
+
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control" id="inputRemainingBirds" readonly>
+                            </div>
+
+                        </div>
+
+                        <div class="row mb-4">
+
+                            <label for="inputMortalityCount" class="col-sm-2 col-form-label">No Of Mortality</label>
+
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="inputMortalityCount">
+                            </div>
+
+                            <label for="inputBirdMortalityRemark" class="col-sm-2 col-form-label">Remark</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="inputBirdMortalityRemark">
+                            </div>
+                        </div>
+                        <!--                                <div class="row mb-4">-->
+                        <button type="button" class="btn btn-outline-success mt-3 col-2" id="saveMortality"
+                                style="margin-left: 25%">
+                            Save
+                        </button>
+                        <button type="button" class="btn btn-outline-warning mt-3 col-2"
+                                id="updateMortality">
+                            Update
+                        </button>
+                        <button type="button" class="btn btn-outline-primary mt-3 col-2" id="getAllMortality">
+                            Get All
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary mt-3 col-2" id="clearMortality">
+                            Clear
+                        </button>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Mortality Details</h5>
+
+                        <!-- Mortality Table -->
+                        <table id="tblMortalityDetails" class="table table-striped table-hover" style="width:100%">
+
+                            <thead>
+                            <tr>
+                                <th scope="col">#Mortality ID</th>
+                                <th scope="col">Batch ID</th>
+                                <th scope="col">Remark</th>
+                                <th scope="col">No of Mortality</th>
+                                <th scope="col">Remaining Birds</th>
+                                <th scope="col">Cage ID</th>
+                                <th scope="col">Date</th>
+                            </tr>
+                            </thead>
+                            <tbody id="mortalityTBody">
+                            </tbody>
+                            <tfoot>
+
+                            </tfoot>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Mortality Rates</h5>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</main>
+
+<!-- ======= Feed/Purchase ======= -->
+<main id="feedPurchaseComponent" style="display: none" class="main">
+
+    <div class="pagetitle">
+        <h1>Feed Manage</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item">Feed</li>
+                <li class="breadcrumb-item active">Manage</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="card">
+                    <div class="card-body">
+
+                        <h5 class="card-title">Manage Feed</h5>
+                        <input type="text" class="form-control" id="inputFeedID" hidden>
+
+                        <div class="row mb-4">
+                            <label for="inputFeedType" class="col-sm-2 col-form-label">Feed Type</label>
+
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="inputFeedType">
+                            </div>
+
+                            <label for="cmbPckSize" class="col-sm-2 col-form-label">Packet Size(Kg)</label>
+                            <div class="col-sm-4">
+                                <select class="form-select " id="cmbPckSize"
+                                        aria-label="Available Cage">
+                                    <option value="0" selected>-Select Pack Size -</option>
+                                    <option value="25">25kg</option>
+                                    <option value="50">50kg</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+
+                        <button type="button" class="btn btn-outline-success mt-3 col-2"
+                                style="margin-left: 18%" id="saveFeedType">Save
+                        </button>
+                        <button type="button" class="btn btn-outline-danger mt-3 col-2" id="delFeedType">Delete
+                        </button>
+                        <button type="button" class="btn btn-outline-warning mt-3 col-2" id="updateFeedType">
+                            Update
+                        </button>
+                        <button type="button" class="btn btn-outline-primary mt-3 col-2" id="getAllFeedType">Get
+                            All
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary mt-3 col-2" id="clearFeedType">
+                            Clear
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Feed Type Details</h5>
+
+                        <!-- Feed Purchase Table -->
+                        <table id="tblFeedTypeDetails" class="table table-striped table-hover" style="width:100%">
+
+                            <thead>
+                            <tr>
+                                <th scope="col">#Feed ID</th>
+                                <th scope="col">Type</th>
+                                <th scope="col">Packet Size(kg)</th>
+                                <th scope="col">Stock</th>
+
+                            </tr>
+                            </thead>
+                            <tbody id="feedTypeTBody">
+                            </tbody>
+                            <tfoot>
+
+                            </tfoot>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!--    Purchase Feed-->
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="card">
+                    <div class="card-body">
+
+                        <h5 class="card-title">Purchase Feed</h5>
+                        <input type="number" class="form-control" id="feedPurchaseId" hidden>
+
+                        <div class="row mb-4">
+                            <label for="cmbFeedType" class="col-sm-2 col-form-label">Feed Type</label>
+                            <div class="col-sm-4">
+                                <select class="form-select " id="cmbFeedType"
+                                        aria-label="Available Cage">
+
+                                </select>
+                            </div>
+
+                            <label for="feedSupplierName" class="col-sm-2 col-form-label">Supplier Name </label>
+                            <div class="col-sm-4">
+                                <select class="form-select " id="feedSupplierName"
+                                        aria-label="Floating label select example">
+
+                                </select>
+                            </div>
+
+                        </div>
+
+
+                        <div class="row mb-4">
+
+                            <label for="inputUnitPriceFeed" class="col-sm-2 col-form-label">Unit Price</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" id="inputUnitPriceFeed">
+                            </div>
+
+                            <label for="feedQty" class="col-sm-2 col-form-label">Qty on Hand</label>
+
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" id="feedQty">
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <label for="feedPurchaseDate" class="col-sm-2 col-form-label">Purchase Date</label>
+                            <div class="col-sm-4">
+                                <input type="datetime-local" class="form-control" id="feedPurchaseDate"
+                                       name="feedPurchaseDate">
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn btn-outline-success mt-3 col-2"
+                                style="margin-left: 18%" id="purchaseFeed">Purchase
+                        </button>
+                        <button type="button" class="btn btn-outline-danger mt-3 col-2" id="delFeedPurchase">Delete
+                        </button>
+                        <button type="button" class="btn btn-outline-warning mt-3 col-2" id="updateFeedPurchase">
+                            Update
+                        </button>
+                        <button type="button" class="btn btn-outline-primary mt-3 col-2" id="getAllFeedPurchase">Get
+                            All
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary mt-3 col-2" id="clearFeedPurchase">
+                            Clear
+                        </button>
+                        <!--                                </div>-->
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Purchase Details</h5>
+
+                        <!-- Feed Purchase Table -->
+                        <table id="tblFeedPDetails" class="table table-striped table-hover" style="width:100%">
+
+                            <thead>
+                            <tr>
+                                <th scope="col">#ID</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Unit Price</th>
+                                <th scope="col">Supplier ID</th>
+                                <th scope="col">Feed ID</th>
+                                <th scope="col">Purchase Date</th>
+                            </tr>
+                            </thead>
+                            <tbody id="feedPurchaseTBody">
+                            </tbody>
+                            <tfoot>
+
+                            </tfoot>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</main>
+
+<!-- ======= Feed/Consmption ======= -->
+<main id="feedConsumptionComponent" style="display: none" class="main">
+
+    <div class="pagetitle">
+        <h1>Feed Consumption</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item">Feed</li>
+                <li class="breadcrumb-item active">Consumption</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="card">
+                    <div class="card-body">
+
+                        <h5 class="card-title">Feed Consumption</h5>
+
+                        <!--  Form Elements -->
+
+                        <div class="row mb-4">
+                            <label for="feedConsCageID" class="col-sm-2 col-form-label">Cage ID </label>
+                            <div class="col-sm-2">
+                                <select class="form-select " id="feedConsCageID"
+                                        aria-label="Floating label select example">
+
+                                </select>
+                            </div>
+
+                            <label for="feedConsBatchID" class="col-sm-2 col-form-label">Batch ID </label>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" id="feedConsBatchID" readonly>
+
+                            </div>
+
+                            <label for="noOfBirdFC" class="col-sm-2 col-form-label">Available No of
+                                Birds</label>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" id="noOfBirdFC" readonly>
+                            </div>
+
+                        </div>
+                        <div class="row mb-4">
+
+                            <label for="batchTypeInFeed" class="col-sm-2 col-form-label">Bird Type</label>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control" id="batchTypeInFeed">
+                            </div>
+
+                            <label for="cmbTypeF" class="col-sm-1 col-form-label">Feed Type </label>
+                            <div class="col-sm-3">
+                                <select class="form-select " id="cmbTypeF"
+                                        aria-label="Floating label select example">
+
+                                </select>
+                            </div>
+
+                            <label for="avlbFStock" class="col-sm-2 col-form-label">Available Feed
+                                Stock(kg)</label>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" id="avlbFStock" readonly>
+                            </div>
+
+
+                        </div>
+
+                        <div class="row mb-4">
+                            <label for="approxFC" class="col-sm-2 col-form-label">Approximately Feed(Kg)</label>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" id="approxFC" readonly>
+                            </div>
+
+                            <label for="usedFeed" class="col-sm-2 col-form-label">Used Feed(Kg)</label>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" id="usedFeed">
+                            </div>
+                        </div>
+
+
+                        <!--                                <div class="row mb-4">-->
+                        <button type="button" class="btn btn-outline-success mt-3 col-2"
+                                style="margin-left: 22%" id="updateFeedC">Consumption
+                        </button>
+
+                        <button type="button" class="btn btn-outline-warning mt-3 col-2" id="getAllFeedConsDetails">
+                            Get
+                            All
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary mt-3 col-2" id="clear">
+                            Clear
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Feed Details</h5>
+
+                        <!-- Feed Consumption Table -->
+                        <table id="tblFeedConsDetails" class="table table-striped table-hover" style="width:100%">
+
+                            <thead>
+                            <tr>
+                                <th scope="col">#ID</th>
+                                <th scope="col">Used Qty(kg)</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Batch ID</th>
+                                <th scope="col">Feed Type</th>
+                            </tr>
+                            </thead>
+                            <tbody id="feedConsumptionTBody">
+                            </tbody>
+                            <tfoot>
+
+                            </tfoot>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<!-- ======= Feed/Stock Summary ======= -->
+<main id="feedStockSummaryComoponent" style="display: none" class="main">
+
+    <div class="pagetitle">
+        <h1>Stock Summary</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item">Feed</li>
+                <li class="breadcrumb-item active">Stock Summary</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+
+    <section class="section">
+        <div class="row">
+
+
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Available Feed Stock</h5>
+
+                        <canvas id="barChart" style="max-height: 500px;"></canvas>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Amount of feed required for a day</h5>
+                        <!-- Polar Area Chart -->
+                        <canvas id="polarAreaChart" style="max-height: 400px;"></canvas>
+                        <script>
+
+                        </script>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="row">
+
+
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">The number of days that the current amount of feed is sufficient</h5>
+
+                        <!--                        <div id="stockFChart" style="min-height: 450px;" class="echart"></div>-->
+
+                        <div id="stockDays"></div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+</main>
+
+<!-- ======= Cage ======= -->
+<main id="cageComponent" style="display: none" class="main">
+
+    <div class="pagetitle">
+        <h1>Cage Management</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item">Cage</li>
+                <li class="breadcrumb-item active">Cage Management</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+
+                <div class="card">
+                    <div class="card-body">
+
+                        <h5 class="card-title">Manage Cage</h5>
+
+                        <!--  Form Elements -->
+
+                        <!--                        <div class="row mb-4">-->
+
+                        <!--                            <label for="inputCageID" class="col-sm-2 col-form-label">Cage ID</label>-->
+
+                        <!--                            <div class="col-sm-4">-->
+                        <!--                                <input type="text" class="form-control" id="inputCageID">-->
+                        <!--                            </div>-->
+
+                        <!--                            <label for="inputBatchID" class="col-sm-2 col-form-label">Batch ID</label>-->
+
+                        <!--                            <div class="col-sm-4">-->
+                        <!--                                <input type="text" class="form-control" id="inputBatchID">-->
+                        <!--                            </div>-->
+
+
+                        <!--                        </div>-->
+
+                        <input type="text" class="form-control" id="cageID" hidden>
+
+                        <div class="row mb-4">
+                            <label for="inputMaxBQty" class="col-sm-2 col-form-label">Maximum No of
+                                Birds</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" id="inputMaxBQty">
+                            </div>
+                            <label for="inputAvlNoOfBird" class="col-sm-2 col-form-label">Available No of
+                                Birds</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" id="inputAvlNoOfBird">
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn btn-outline-success mt-3 col-2"
+                                style="margin-left: 18%" id="saveCage">Save
+                        </button>
+                        <button type="button" class="btn btn-outline-danger mt-3 col-2" id="delCage">Delete
+                        </button>
+                        <button type="button" class="btn btn-outline-warning mt-3 col-2" id="updateCage">
+                            Update
+                        </button>
+                        <button type="button" class="btn btn-outline-primary mt-3 col-2" id="getAllCage">Get
+                            All
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary mt-3 col-2" id="clearCage">
+                            Clear
+                        </button>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Cage Details</h5>
+
+                        <!-- Cage Table -->
+                        <table id="tblCageDetails" class="table table-striped table-hover" style="width:100%">
+                            <thead>
+                            <tr>
+                                <th scope="col">#Cage ID</th>
+                                <th scope="col">Maximum No of Birds</th>
+                                <th scope="col">Available Birds</th>
+                            </tr>
+                            </thead>
+                            <tbody id="cageTBody">
+                            </tbody>
+                            <tfoot>
+
+                            </tfoot>
+
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<!-- ======= Order/Order Details ======= -->
+<main id="orderDetailsComponent" style="display: none" class="main">
+
+    <div class="pagetitle">
+        <h1>Order Details</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item">Order</li>
+                <li class="breadcrumb-item active">Order Details</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="card">
+                    <div class="card-body">
+
+                        <h5 class="card-title">Search Details</h5>
+
+                        <div class="row mb-4">
+
+                            <!--                            <label for="searchByCustomerID" class="col-sm-2 col-form-label">Customer ID</label>-->
+                            <div class="col-sm-4">
+                                <select class="form-select col-sm-2 " id="searchByCustomerID"
+                                        aria-label="Floating label select example">
+                                    <option value="0" selected>-Search By Customer ID -</option>
+
+                                </select>
+                            </div>
+                            <!--                            <label for="searchByOrdID" class="col-sm-2 col-form-label">Order ID</label>-->
+                            <div class="col-sm-4">
+                                <select class="form-select col-sm-2 " id="searchByOrdID"
+                                        aria-label="Floating label select example">
+                                    <option value="0" selected>-Search By Order ID -</option>
+
+                                </select>
+                            </div>
+                            <div class="col-sm-4">
+                                <!--                            <label for="searchByDate" class="col-sm-2 col-form-label">Order ID</label>-->
+
+                                <select class="form-select col-sm-2 " id="searchByDate"
+                                        aria-label="Floating label select example">
+                                    <option value="0" selected>-Search By Order ID -</option>
+
+                                </select>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Order Details</h5>
+
+
+                        <!--                        <table class="table table-hover">-->
+                        <!--                            <thead>-->
+                        <!--                            <tr>-->
+                        <!--                                <th scope="col">#Order ID</th>-->
+                        <!--                                <th scope="col">Item ID</th>-->
+                        <!--                                <th scope="col">Quantiy</th>-->
+                        <!--                                <th scope="col">Unit Price(Rs.)</th>-->
+                        <!--                                <th scope="col">Total(Rs.)</th>-->
+                        <!--                                <th scope="col">Date</th>-->
+                        <!--                                <th scope="col">Customer ID</th>-->
+
+                        <!--                            </tr>-->
+                        <!--                            </thead>-->
+                        <!--                            <tbody id="orderDetailsTBody">-->
+
+                        <!--                            </tbody>-->
+                        <!--                        </table>-->
+                        <table id="tblOrdDetails" class="table table-striped table-hover" style="width:100%">
+                            <thead>
+                            <tr>
+                                <th scope="col">#Order ID</th>
+                                <th scope="col">Item ID</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Unit Price(Rs.)</th>
+                                <th scope="col">Total(Rs.)</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Customer ID</th>
+                            </tr>
+                            </thead>
+                            <tbody id="orderDetailsTBody"></tbody>
+                            <tfoot>
+                            <tr>
+
+                            </tr>
+                            </tfoot>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<!-- ======= Order/Place Order ======= -->
+<main id="placeOrderComponent" style="display: none" class="main">
+
+    <div class="pagetitle">
+        <h1>Place Order</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item">Order</li>
+                <li class="breadcrumb-item active">Place Order</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="card">
+                    <div class="card-body">
+
+                        <h5 class="card-title">Place Order</h5>
+
+                        <div class="row mb-4">
+
+
+                            <label for="selectCustomer" class="col-sm-2 col-form-label">Customer Name</label>
+                            <div class="col-sm-4">
+                                <select class="form-select " id="selectCustomer"
+                                        aria-label="Floating label select example">
+                                    <option value="0" selected>-Select Customer-</option>
+                                </select>
+                            </div>
+
+
+                            <label for="custID" class="col-sm-2 col-form-label">Customer ID</label>
+
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="custID">
+                            </div>
+
+                        </div>
+                        <div class="row mb-4">
+                            <label for="itemName" class="col-sm-2 col-form-label">Item Name</label>
+                            <div class="col-sm-4">
+                                <select class="form-select " id="itemName"
+                                        aria-label="Floating label select example">
+                                    <option value="0" selected>-Select Item-</option>
+                                </select>
+                            </div>
+
+                            <label for="itemID" class="col-sm-2 col-form-label">Item ID</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" id="itemID">
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <label for="qtyItem" class="col-sm-2 col-form-label">Quantity</label>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" id="qtyItem">
+                            </div>
+
+                            <label for="uPrice" class="col-sm-2 col-form-label">Unit Price(Rs.)</label>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" id="uPrice">
+                            </div>
+
+                            <label for="amount" class="col-sm-2 col-form-label">Amount(Rs.)</label>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" id="amount">
+                            </div>
+
+                        </div>
+
+                        <div class="row mt-4 mb-4 justify-content-end">
+
+
+                            <label for="total" class="col-sm-1 col-form-label"
+                                   style="color: #d90101; font-weight: bold">Total(Rs)</label>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control bg-secondary-light text-danger" id="total"
+                                       readonly>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn btn-outline-warning mt-3 col-2"
+                                style="margin-left: 17%" id="addToCart">Add To Cart
+                        </button>
+
+                        <button type="button" class="btn btn-outline-danger mt-3 col-2" id="removeOrdItem">Remove
+                        </button>
+
+                        <button type="button" class="btn btn-outline-secondary mt-3 col-2" id="clearOrderFields">
+                            Clear
+                        </button>
+                        <button type="button" class="btn btn-success mt-3 col-2 justify-content-end"
+                                id="placeOrder">Place Order
+                        </button>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Cart Details</h5>
+
+                        <!-- Batch Table -->
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th scope="col">#Item ID</th>
+                                <th scope="col">Quantiy</th>
+                                <th scope="col">Unit Price(Rs.)</th>
+                                <th scope="col">Amount(Rs.)</th>
+                            </tr>
+                            </thead>
+                            <tbody id="cartTBody">
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<!-- ======= Store ======= -->
+<main id="storeComponent" style="display: none" class="main">
+
+    <div class="pagetitle">
+        <h1>Store Management</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item">Store</li>
+                <li class="breadcrumb-item active">Store Management</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Store Details</h5>
+
+                        <!-- Cage Table -->
+                        <table id="tblStoreDetails" class="table table-striped table-hover" style="width:100%">
+                            <thead>
+                            <tr>
+                                <th scope="col">#Product ID</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Wholesale Price(Rs)</th>
+                                <th scope="col">Created_at</th>
+                                <th scope="col">Updated_at</th>
+                            </tr>
+                            </thead>
+                            <tbody id="storeTBody">
+                            </tbody>
+                            <tfoot>
+
+                            </tfoot>
+
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+
+                <div class="card">
+                    <div class="card-body">
+
+                        <h5 class="card-title">Manage Store</h5>
+
+                        <!--  Form Elements -->
+
+                        <div class="row mb-4">
+
+                            <label for="selectProduct" class="col-sm-2 col-form-label">Product ID</label>
+                            <div class="col-sm-4">
+                                <select class="form-select " id="selectProduct"
+                                        aria-label="Floating label select example">
+                                    <option value="0" selected>-Select Product-</option>
+                                </select>
+                            </div>
+
+                            <label for="productName" class="col-sm-2 col-form-label">Product Name</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="productName">
+                            </div>
+
+                        </div>
+
+                        <div class="row mb-4">
+
+                            <label for="itemQtyStore" class="col-sm-2 col-form-label">Quantity</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" id="itemQtyStore">
+                            </div>
+
+                            <label for="wholeSalePrice" class="col-sm-2 col-form-label">Wholesale Price(Rs.)</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" id="wholeSalePrice">
+                            </div>
+                        </div>
+
+
+                        <button type="button" class="btn btn-outline-warning mt-3 col-2" style="margin-left: 18%"
+                                id="updateProduct">
+                            Update
+                        </button>
+                        <button type="button" class="btn btn-outline-danger mt-3 col-2" id="delProduct">Delete
+                        </button>
+                        <button type="button" class="btn btn-outline-primary mt-3 col-2" id="getAllProduct">Get
+                            All
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary mt-3 col-2" id="clearProduct">
+                            Clear
+                        </button>
+                        <button type="button" class="btn btn-success mt-3 col-2 request-loader"
+                                style="margin-left: 5%" id="saveProduct"><span>New Product</span>
+                        </button>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- ======= Customer ======= -->
+<main id="customerComponent" style="display: none" class="main">
+    <!--    <link rel="stylesheet" type="text/css" href="assets/css/table.css">-->
+    <div class="pagetitle">
+        <h1>Customer Management</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item">Customer</li>
+                <li class="breadcrumb-item active">Customer Management</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="card">
+                    <div class="card-body">
+
+                        <h5 class="card-title">Manage Customer</h5>
+
+                        <!--  Form Elements -->
+                        <input type="text" class="form-control" id="inputCustomerId" hidden>
+
+                        <div class="row mb-4">
+
+                            <label for="inputCustomerEmail" class="col-sm-2 col-form-label">Customer Email</label>
+
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="inputCustomerEmail">
+                            </div>
+
+                            <label for="inputCustName" class="col-sm-2 col-form-label">Name</label>
+
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="inputCustName">
+                            </div>
+
+
+                        </div>
+                        <div class="row mb-4">
+                            <label for="inputCustMobile" class="col-sm-2 col-form-label">Mobile</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" id="inputCustMobile">
+                            </div>
+                            <label for="inputCustAddr" class="col-sm-2 col-form-label">Address</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="inputCustAddr">
+                            </div>
+                        </div>
+
+                        <input type="text" class="form-control"  id="customerStatusH" hidden>
+                        <input type="text" class="form-control"  id="oldEmailCustomer" hidden>
+
+
+                        <button type="button" class="btn btn-outline-success mt-3 col-2"
+                                style="margin-left: 18%" id="saveCustomer">Save
+                        </button>
+                        <button type="button" class="btn btn-outline-danger mt-3 col-2" id="delCustomer">Delete
+                        </button>
+                        <button type="button" class="btn btn-outline-warning mt-3 col-2" id="updateCustomer">
+                            Update
+                        </button>
+                        <button type="button" class="btn btn-outline-primary mt-3 col-2" id="getAllCustomer">Get
+                            All
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary mt-3 col-2" id="clearCustomer">
+                            Clear
+                        </button>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Customer Details</h5>
+
+
+                        <div class="table-responsive">
+                            <table class="table table-hover ">
+                                <thead class="table-light">
+                                <tr>
+
+                                    <th scope="col">#ID</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Mobile</th>
+                                    <th scope="col">Address</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Edit</th>
+
+
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody id="tblCustomer"></tbody>
+
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<!--Edit Customer Model-->
+<div id="editCustomerModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit Customer</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="text" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Address</label>
+                        <textarea class="form-control" required></textarea>
+                    </div>
+                    <!--                    <div class="dropdown">-->
+                    <!--                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">-->
+                    <!--                            Status-->
+                    <!--                        </button>-->
+                    <!--                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">-->
+
+                    <!--                            <li><a class="dropdown-item text-success" href="#">Active</a></li>-->
+                    <!--                            <li><a class="dropdown-item text-danger" href="#">Deactivate</a></li>-->
+                    <!--                            <li><a class="dropdown-item text-warning" href="#">Block</a></li>-->
+
+                    <!--                        </ul>-->
+                    <!--                    </div>-->
+                    <label for="floatingCustStatus" class="col-sm-2 col-form-label">Status </label>
+                    <div class="form-group">
+                        <select class="form-select " id="floatingCustStatus"
+                                aria-label="Status">
+                            <option value="1" class="bg-soft-success dropdown-item">Active</option>
+                            <option value="2" class="bg-soft-danger p-2">Deactivate</option>
+                            <option value="3" class="bg-soft-warning p-2">Block</option>
+
+                        </select>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-default" data-bs-dismiss="modal" value="Cancel">
+                    <input type="submit" class="btn btn-info" value="Save">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- ======= Medicine ======= -->
+<main id="medicineComponent" style="display: none" class="main">
+
+    <div class="pagetitle">
+        <h1>Purchase Medicine</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item">Medicine</li>
+                <li class="breadcrumb-item active">Purchase</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="card">
+                    <div class="card-body">
+
+                        <h5 class="card-title">Purchase Medicine</h5>
+
+
+                        <div class="row mb-4">
+                            <label for="mediSupplierName" class="col-sm-2 col-form-label">Supplier Name </label>
+                            <div class="col-sm-4">
+                                <select class="form-select " id="mediSupplierName"
+                                        aria-label="Floating label select example">
+                                    <option value="0" selected>-Select Supplier Name-</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                            <label for="mediSupplierID" class="col-sm-2 col-form-label">Supplier ID</label>
+
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="mediSupplierID">
+                            </div>
+
+                        </div>
+
+                        <div class="row mb-4">
+                            <label for="medicineName" class="col-sm-2 col-form-label">Medicine Name </label>
+                            <div class="col-sm-4">
+                                <select class="form-select " id="medicineName"
+                                        aria-label="Floating label select example">
+                                    <option value="0" selected>-Select Medicine Name-</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                            <label for="medicineID" class="col-sm-2 col-form-label">Medicine ID</label>
+
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="medicineID">
+                            </div>
+
+                        </div>
+
+                        <!--                        <div class="row mb-4">-->
+
+                        <!--                            <label for="cmdCageMedi" class="col-sm-2 col-form-label">Cage ID</label>-->
+                        <!--                            <div class="col-sm-4">-->
+                        <!--                                <select class="form-select " id="cmdCageMedi"-->
+                        <!--                                        aria-label="Available Cage">-->
+                        <!--                                    <option value="0" selected>-Select Cage ID-</option>-->
+                        <!--                                    <option value="1">1</option>-->
+                        <!--                                    <option value="2">2</option>-->
+                        <!--                                    <option value="3">3</option>-->
+                        <!--                                </select>-->
+                        <!--                            </div>-->
+
+                        <!--                            <label for="birdBIDM" class="col-sm-2 col-form-label">Batch ID</label>-->
+                        <!--                            <div class="col-sm-4">-->
+                        <!--                                <input type="text" class="form-control" id="birdBIDM">-->
+                        <!--                            </div>-->
+
+
+                        <!--                        </div>-->
+
+                        <div class="row mb-4">
+
+                            <label for="mediDescription" class="col-sm-2 col-form-label">Description</label>
+
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="mediDescription">
+                            </div>
+
+                            <label for="mediQty" class="col-sm-2 col-form-label">Qty on Hand</label>
+
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" id="mediQty">
+                            </div>
+
+
+                        </div>
+
+                        <div class="row mb-4">
+
+                            <label for="inputUnitPriceMedi" class="col-sm-1 col-form-label">Unit Price</label>
+                            <div class="col-sm-3">
+                                <input type="number" class="form-control" id="inputUnitPriceMedi">
+                            </div>
+
+                            <label for="totalPriceMedi" class="col-sm-1 col-form-label">Total(Rs)</label>
+
+                            <div class="col-sm-3">
+                                <input type="number" class="form-control" id="totalPriceMedi">
+                            </div>
+
+
+                            <div class="col-4">
+                                <!--                                <button type="button" class="btn btn-outline-success col-4" id="AddNewMedi"> New-->
+                                <!--                                </button>-->
+                            </div>
+                            <!--                            <div class="col-sm-4">-->
+
+
+                            <!--                            </div>-->
+
+
+                        </div>
+                        <!--                                <div class="row mb-4">-->
+                        <button type="button" class="btn btn-outline-success mt-3 col-2"
+                                style="margin-left: 17%" id="purchaseMedi">Purchase
+                        </button>
+                        <button type="button" class="btn btn-outline-danger mt-3 col-2" id="delMedicine">Delete
+                        </button>
+                        <button type="button" class="btn btn-outline-warning mt-3 col-2" id="updateMedicine">
+                            Update
+                        </button>
+                        <button type="button" class="btn btn-outline-primary mt-3 col-2" id="getAllMedicine">Get
+                            All
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary mt-3 col-2" id="clearMedicine">
+                            Clear
+                        </button>
+                        <!--                                </div>-->
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Medicine Details</h5>
+
+                        <!-- Feed Purchase Table -->
+                        <table id="tblMediPDetails" class="table table-striped table-hover" style="width:100%">
+
+                            <thead>
+                            <tr>
+                                <th scope="col">#Medicine ID</th>
+                                <th scope="col">Medicine Name</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Unit Price</th>
+                                <th scope="col">Supplier ID</th>
+                                <th scope="col">Batch ID</th>
+                                <th scope="col">Purchase Date</th>
+                            </tr>
+                            </thead>
+                            <tbody id="mediTBody">
+                            </tbody>
+                            <tfoot>
+
+                            </tfoot>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+</main>
+
+<!-- ======= Medicine/Consmption ======= -->
+<main id="mediConsumptionComponent" style="display: none" class="main">
+
+    <div class="pagetitle">
+        <h1>Feed Consumption</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item">Feed</li>
+                <li class="breadcrumb-item active">Consumption</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="card">
+                    <div class="card-body">
+
+                        <h5 class="card-title">Medicine Consumption</h5>
+
+                        <!--  Form Elements -->
+
+                        <div class="row mb-4">
+                            <label for="mediConsCageID" class="col-sm-2 col-form-label">Cage ID </label>
+                            <div class="col-sm-4">
+                                <select class="form-select " id="mediConsCageID"
+                                        aria-label="Floating label select example">
+                                    <option value="0" selected>-Select Cage ID -</option>
+                                    <option value="1">B1</option>
+                                    <option value="2">B2</option>
+                                    <option value="3">B3</option>
+                                </select>
+                            </div>
+
+                            <label for="noOfBirdMC" class="col-sm-2 col-form-label">Available No of
+                                Birds</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" id="noOfBirdMC">
+                            </div>
+
+                        </div>
+
+                        <div class="row mb-4">
+
+                            <label for="cmbMediMC" class="col-sm-2 col-form-label">Medicine Name </label>
+                            <div class="col-sm-4">
+                                <select class="form-select " id="cmbMediMC"
+                                        aria-label="Floating label select example">
+                                    <option value="0" selected>-Select Medicine -</option>
+                                    <option value="1">Vitamin</option>
+                                    <option value="2">Vermex</option>
+                                    <option value="3">Vitamin</option>
+                                </select>
+                            </div>
+
+                            <label for="usedMedi" class="col-sm-2 col-form-label">Used Quantity</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" id="usedMedi">
+                            </div>
+                        </div>
+
+
+                        <!--                                <div class="row mb-4">-->
+                        <button type="button" class="btn btn-outline-success mt-3 col-2"
+                                style="margin-left: 22%" id="updateMediC">Consumption
+                        </button>
+
+                        <button type="button" class="btn btn-outline-warning mt-3 col-2" id="getAllMediDetails">
+                            Get All
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary mt-3 col-2" id="clearMediDetails">
+                            Clear
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Feed Details</h5>
+
+                        <!-- Feed Consumption Table -->
+                        <table id="tblMediConsDetails" class="table table-striped table-hover" style="width:100%">
+
+                            <thead>
+                            <tr>
+                                <th scope="col">#Medicine ID</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Used Qty</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Cage ID</th>
+                                <th scope="col">batch ID</th>
+                            </tr>
+                            </thead>
+                            <tbody id="mediConsumptionTBody">
+                            </tbody>
+                            <tfoot>
+
+                            </tfoot>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<!-- ======= Employee ======= -->
+<main id="employeeComponent" style="display: none" class="main">
+    <!--    <link rel="stylesheet" type="text/css" href="assets/css/table.css">-->
+    <div class="pagetitle">
+        <h1>Employee Management</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item">Employee</li>
+                <li class="breadcrumb-item active">Employee Management</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="card">
+                    <div class="card-body">
+
+                        <h5 class="card-title">Manage Employee</h5>
+
+                        <!--  Form Elements -->
+                        <input type="text" class="form-control" id="empID" hidden>
+                        <div class="row mb-4">
+
+                            <label for="inputEmployeeNIC" class="col-sm-2 col-form-label">NIC</label>
+
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="inputEmployeeNIC">
+                            </div>
+
+                            <label for="inputEmployeeName" class="col-sm-2 col-form-label">Name</label>
+
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="inputEmployeeName">
+                            </div>
+
+
+                        </div>
+                        <div class="row mb-4">
+                            <label for="inputEmployeeMobile" class="col-sm-2 col-form-label">Mobile</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" id="inputEmployeeMobile">
+                            </div>
+
+                            <label for="inputEmployeeEmail" class="col-sm-2 col-form-label">Email</label>
+
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="inputEmployeeEmail">
+                            </div>
+
+
+                        </div>
+                        <div class="row mb-4">
+
+
+                            <label for="inputEmployeeAddr" class="col-sm-2 col-form-label">Address</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="inputEmployeeAddr">
+                            </div>
+
+                            <label for="selectEmployeeRole" class="col-sm-2 col-form-label">Role</label>
+
+                            <div class="col-sm-4">
+                                <select class="form-select " id="selectEmployeeRole"
+                                        aria-label="Floating label select example">
+                                    <option value="0" selected>-Select Role-</option>
+                                    <option value="Cashier" class=" dropdown-item">Cashier</option>
+                                    <option value="Farm Keeper" class=" p-2">Farm Keeper</option>
+                                    <option value="Manager" class=" p-2">Manager</option>
+                                    <option value="Admin" class=" p-2">Admin</option>
+                                </select>
+                            </div>
+
+                            <label type="text" class="form-control" id="empStatusH" hidden></label>
+
+                        </div>
+                        <button type="button" class="btn btn-outline-success mt-3 col-2"
+                                style="margin-left: 18%" id="saveEmployee">Save
+                        </button>
+                        <button type="button" class="btn btn-outline-danger mt-3 col-2" id="delEmployee">Delete
+                        </button>
+                        <button type="button" class="btn btn-outline-warning mt-3 col-2" id="updateEmployee">
+                            Update
+                        </button>
+                        <button type="button" class="btn btn-outline-primary mt-3 col-2" id="getAllEmployee">Get
+                            All
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary mt-3 col-2" id="clearEmployee">
+                            Clear
+                        </button>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Employee Details</h5>
+
+                        <div class="table-responsive">
+                            <table class="table table-hover" id="empTable">
+                                <thead class="table-light">
+                                <tr>
+
+                                    <th scope="col">#ID</th>
+                                    <th scope="col">NIC</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Mobile</th>
+                                    <th scope="col">Address</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Role</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Edit</th>
+
+
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody id="empTBody">
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<!--Edit Employee Model-->
+<!--<div id="editEmployeeModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit Employee</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="text" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Address</label>
+                        <textarea class="form-control" required></textarea>
+                    </div>
+                    &lt;!&ndash;                    <div class="dropdown">&ndash;&gt;
+                    &lt;!&ndash;                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">&ndash;&gt;
+                    &lt;!&ndash;                            Status&ndash;&gt;
+                    &lt;!&ndash;                        </button>&ndash;&gt;
+                    &lt;!&ndash;                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">&ndash;&gt;
+
+                    &lt;!&ndash;                            <li><a class="dropdown-item text-success" href="#">Active</a></li>&ndash;&gt;
+                    &lt;!&ndash;                            <li><a class="dropdown-item text-danger" href="#">Deactivate</a></li>&ndash;&gt;
+                    &lt;!&ndash;                            <li><a class="dropdown-item text-warning" href="#">Block</a></li>&ndash;&gt;
+
+                    &lt;!&ndash;                        </ul>&ndash;&gt;
+                    &lt;!&ndash;                    </div>&ndash;&gt;
+
+                    <label for="floatingRoleStatus" class="col-sm-2 col-form-label">Role </label>
+                    <div class="form-group">
+                        <select class="form-select " id="floatingRoleStatus"
+                                aria-label="Status">
+                            <option value="1" class=" dropdown-item">Cashier</option>
+                            <option value="2" class=" p-2">Farm Keeper</option>
+                            <option value="3" class=" p-2">Manager</option>
+                            <option value="4" class=" p-2">Admin</option>
+
+                        </select>
+                    </div>
+                    <label for="floatingEmpStatus" class="col-sm-2 col-form-label">Status </label>
+                    <div class="form-group">
+                        <select class="form-select " id="floatingEmpStatus"
+                                aria-label="Status">
+                            <option value="1" class="bg-soft-success dropdown-item">Active</option>
+                            <option value="2" class="bg-soft-danger p-2">Deactivate</option>
+                            <option value="3" class="bg-soft-warning p-2">Block</option>
+
+                        </select>
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-default" data-bs-dismiss="modal" value="Cancel">
+                    <input type="submit" class="btn btn-info" value="Save">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>-->
+
+
+<!-- ======= Supplier ======= -->
+<main id="supplierComponent" style="display: none" class="main">
+    <!--    <link rel="stylesheet" type="text/css" href="assets/css/table.css">-->
+    <div class="pagetitle">
+        <h1>Supplier Management</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item">Supplier</li>
+                <li class="breadcrumb-item active">Supplier Management</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="card">
+                    <div class="card-body">
+
+                        <h5 class="card-title">Manage Supplier</h5>
+
+                        <!--  Form Elements -->
+                        <input type="text" class="form-control" id="supplierID" hidden>
+                        <div class="row mb-4">
+
+                            <label for="inputSupName" class="col-sm-2 col-form-label">Name</label>
+
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="inputSupName">
+                            </div>
+
+                            <label for="inputSupEmail" class="col-sm-2 col-form-label">Email</label>
+
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="inputSupEmail">
+                            </div>
+
+
+                        </div>
+                        <div class="row mb-4">
+                            <label for="inputSupMobile" class="col-sm-2 col-form-label">Mobile</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" id="inputSupMobile">
+                            </div>
+                            <label for="inputSupCompany" class="col-sm-2 col-form-label">Company</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="inputSupCompany">
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn btn-outline-success mt-3 col-2"
+                                style="margin-left: 18%" id="saveSupplier">Save
+                        </button>
+                        <button type="button" class="btn btn-outline-danger mt-3 col-2" id="delSupplier">Delete
+                        </button>
+                        <button type="button" class="btn btn-outline-warning mt-3 col-2" id="updateSupplier">
+                            Update
+                        </button>
+                        <button type="button" class="btn btn-outline-primary mt-3 col-2" id="getAllSupplier">Get
+                            All
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary mt-3 col-2" id="clearSupplier">
+                            Clear
+                        </button>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Supplier Details</h5>
+
+
+                        <div class="table-responsive">
+                            <table class="table table-hover ">
+                                <thead class="table-light">
+                                <tr>
+
+                                    <th scope="col">#ID</th>
+                                    <th scope="col">#Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Mobile</th>
+                                    <th scope="col">Company</th>
+
+
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody id="supplierTBody"></tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<!-- ======= Profile ======= -->
+<main id="profile" style="display: none">
+
+    <div class="pagetitle">
+        <h1>Profile</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item">Users</li>
+                <li class="breadcrumb-item active">Profile</li>
+            </ol>
+        </nav>
+    </div>
+
+    <section class="section profile">
+        <div class="row">
+            <div class="col-xl-4">
+
+                <div class="card">
+                    <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+
+                        <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+                        <h2>Abeygunasekara</h2>
+                        <h3>Owner</h3>
+                        <div class="social-links mt-2">
+                            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-xl-8">
+
+                <div class="card">
+                    <div class="card-body pt-3">
+                        <!-- Bordered Tabs -->
+                        <ul class="nav nav-tabs nav-tabs-bordered">
+
+                            <li class="nav-item">
+                                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">
+                                    Overview
+                                </button>
+                            </li>
+
+                            <li class="nav-item">
+                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit
+                                    Profile
+                                </button>
+                            </li>
+
+                            <li class="nav-item">
+                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">
+                                    Settings
+                                </button>
+                            </li>
+
+                            <li class="nav-item">
+                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">
+                                    Change Password
+                                </button>
+                            </li>
+
+                        </ul>
+                        <div class="tab-content pt-2">
+
+                            <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                                <h5 class="card-title">About</h5>
+                                <p class="small fst-italic">Sunt est soluta temporibus accusantium neque nam maiores
+                                    cumque temporibus. Tempora libero non est unde veniam est qui dolor. Ut sunt iure
+                                    rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at
+                                    unde.</p>
+
+                                <h5 class="card-title">Profile Details</h5>
+
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 label ">Full Name</div>
+                                    <div class="col-lg-9 col-md-8">Abeygunasekara</div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 label">Role</div>
+                                    <div class="col-lg-9 col-md-8">Owner</div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 label">Address</div>
+                                    <div class="col-lg-9 col-md-8">A108 Adam Street, New York, NY 535022</div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 label">Phone</div>
+                                    <div class="col-lg-9 col-md-8">(436) 486-3538 x29071</div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 label">Email</div>
+                                    <div class="col-lg-9 col-md-8">k.nish@example.com</div>
+                                </div>
+
+                            </div>
+
+                            <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+
+                                <!-- Profile Edit Form -->
+                                <form>
+                                    <div class="row mb-4">
+                                        <label class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <img src="assets/img/profile-img.jpg" alt="Profile">
+                                            <div class="pt-2">
+                                                <a href="#" class="btn btn-primary btn-sm"
+                                                   title="Upload new profile image"><i class="bi bi-upload"></i></a>
+                                                <a href="#" class="btn btn-danger btn-sm"
+                                                   title="Remove my profile image"><i class="bi bi-trash"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-4">
+                                        <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Full Name</label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <input name="fullName" type="text" class="form-control" id="fullName"
+                                                   value="Abeygunasekara">
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-4">
+                                        <label for="about" class="col-md-4 col-lg-3 col-form-label">About</label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <textarea name="about" class="form-control" id="about"
+                                                      style="height: 100px">Sunt est soluta temporibus accusantium neque nam maiores cumque temporibus. Tempora libero non est unde veniam est qui dolor. Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.</textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-4">
+                                        <label for="company" class="col-md-4 col-lg-3 col-form-label">Company</label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <input name="company" type="text" class="form-control" id="company"
+                                                   value="Lueilwitz, Wisoky and Leuschke">
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-4">
+                                        <label for="Job" class="col-md-4 col-lg-3 col-form-label">Job</label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <input name="job" type="text" class="form-control" id="Job"
+                                                   value="Owner">
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-4">
+                                        <label for="Address" class="col-md-4 col-lg-3 col-form-label">Address</label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <input name="address" type="text" class="form-control" id="Address"
+                                                   value="A108 Adam Street, New York, NY 535022">
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-4">
+                                        <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <input name="phone" type="text" class="form-control" id="Phone"
+                                                   value="(436) 486-3538 x29071">
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-4">
+                                        <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <input name="email" type="email" class="form-control" id="Email"
+                                                   value="k.anderson@example.com">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                                    </div>
+                                </form><!-- End Profile Edit Form -->
+
+                            </div>
+
+                            <div class="tab-pane fade pt-3" id="profile-settings">
+
+                                <!-- Settings Form -->
+                                <!--                                <form>-->
+
+                                <!--                                    <div class="row mb-4">-->
+                                <!--                                        <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Email-->
+                                <!--                                            Notifications</label>-->
+                                <!--                                        <div class="col-md-8 col-lg-9">-->
+                                <!--                                            <div class="form-check">-->
+                                <!--                                                <input class="form-check-input" type="checkbox" id="changesMade"-->
+                                <!--                                                       checked>-->
+                                <!--                                                <label class="form-check-label" for="changesMade">-->
+                                <!--                                                    Changes made to your account-->
+                                <!--                                                </label>-->
+                                <!--                                            </div>-->
+                                <!--                                            <div class="form-check">-->
+                                <!--                                                <input class="form-check-input" type="checkbox" id="newProducts"-->
+                                <!--                                                       checked>-->
+                                <!--                                                <label class="form-check-label" for="newProducts">-->
+                                <!--                                                    Information on new products and services-->
+                                <!--                                                </label>-->
+                                <!--                                            </div>-->
+                                <!--                                            <div class="form-check">-->
+                                <!--                                                <input class="form-check-input" type="checkbox" id="proOffers">-->
+                                <!--                                                <label class="form-check-label" for="proOffers">-->
+                                <!--                                                    Marketing and promo offers-->
+                                <!--                                                </label>-->
+                                <!--                                            </div>-->
+                                <!--                                            <div class="form-check">-->
+                                <!--                                                <input class="form-check-input" type="checkbox" id="securityNotify"-->
+                                <!--                                                       checked disabled>-->
+                                <!--                                                <label class="form-check-label" for="securityNotify">-->
+                                <!--                                                    Security alerts-->
+                                <!--                                                </label>-->
+                                <!--                                            </div>-->
+                                <!--                                        </div>-->
+                                <!--                                    </div>-->
+
+                                <!--                                    <div class="text-center">-->
+                                <!--                                        <button type="submit" class="btn btn-primary">Save Changes</button>-->
+                                <!--                                    </div>-->
+                                <!--                                </form>-->
+                                <!-- End settings Form -->
+
+                            </div>
+
+                            <div class="tab-pane fade pt-3" id="profile-change-password">
+                                <!-- Change Password Form -->
+                                <form>
+
+                                    <div class="row mb-4">
+                                        <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current
+                                            Password</label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <input name="password" type="password" class="form-control"
+                                                   id="currentPassword">
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-4">
+                                        <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New
+                                            Password</label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <input name="newpassword" type="password" class="form-control"
+                                                   id="newPassword">
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-4">
+                                        <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New
+                                            Password</label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <input name="renewpassword" type="password" class="form-control"
+                                                   id="renewPassword">
+                                        </div>
+                                    </div>
+
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-primary">Change Password</button>
+                                    </div>
+                                </form><!-- End Change Password Form -->
+
+                            </div>
+
+                        </div><!-- End Bordered Tabs -->
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- ======= Footer ======= -->
+<footer id="footer" class="footer">
+    <div class="copyright">
+        &copy; Copyright <strong><span>SP</span></strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+        Designed by <a href="">SP</a>
+    </div>
+</footer><!-- End Footer -->
+
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+        class="bi bi-arrow-up-short"></i></a>
+<script src="assets/js/jquery-3.6.0.js"></script>
+<script>
+    $(document).ready(function () {
+        let table = $('#tblBirdPurchaseDetails').DataTable({
+            searchPanes: true
+        });
+        table.searchPanes.container().prependTo(table.table().container());
+        table.searchPanes.resizePanes();
+    });
+</script>
+
+<script src="assets/js/singleController.js"></script>
+
+<!-- Vendor JS Files -->
+<script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/chart.js/chart.umd.js"></script>
+<script src="assets/vendor/echarts/echarts.min.js"></script>
+<script src="assets/vendor/quill/quill.min.js"></script>
+<script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+<script src="assets/vendor/tinymce/tinymce.min.js"></script>
+<script src="assets/vendor/php-email-form/validate.js"></script>
+<script src="assets/vendor/fontawesome/js/all.min.js"></script>
+
+<!-- Template Main JS File -->
+<script src="assets/js/main.js"></script>
+<script src="assets/js/controller/EmployeeController.js"></script>
+<script src="assets/js/controller/SupplierController.js"></script>
+<script src="assets/js/controller/PurchaseFlockController.js"></script>
+<script src="assets/js/controller/CageController.js"></script>
+<script src="assets/js/controller/MortalityController.js"></script>
+<script src="assets/js/controller/FeedController.js"></script>
+<script src="assets/js/controller/CustomerController.js"></script>
+
+</body>
+
+</html>
